@@ -5,5 +5,7 @@ function hello () {
 }
 
 function Button ({ text }) {
-  return <button onClick={hello}>{text}</button>
+  return <button onClick={hello}>{text || 'Button'}</button>
 }
+
+export { Button };
