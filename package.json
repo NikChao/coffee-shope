@@ -2,7 +2,7 @@
 	"name": "coffee-shope",
 	"scripts": {
 		"bootstrap": "lerna bootstrap",
-		"publish": "lerna publish",
+		"publish": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
 		"storybook": "start-storybook -p 9001 -c .storybook"
 	},
 	"devDependencies": {
@@ -15,5 +15,6 @@
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1"
 	},
-	"license": "MIT"
+	"license": "MIT",
+	"version": "1.0.0"
 }
