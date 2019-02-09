@@ -1,11 +1,21 @@
 import React from 'react';
+import styles from './styles.scss';
 
-function Button ({ text, onClick }) {
+function hello () {
+  console.log('Hello');
+  console.log(styles);
+  console.log(styles.Button);
+}
+
+function Button ({ text }) {
+
   return (
-    <button onClick={onClick}>
+    <button 
+      onClick={hello} 
+      className={styles.Button}
+    >
       {text || 'Button'}
-    </button>
-  );
+    </button>);
 }
 
 export { Button };
