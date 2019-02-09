@@ -1,11 +1,14 @@
 {
+	"name": "coffee-shope",
 	"scripts": {
-		"bootstrap": "lerna bootstrap"
+		"bootstrap": "lerna bootstrap",
+		"publish": "lerna publish"
 	},
 	"devDependencies": {
 		"lerna": "^2.4.0"
 	},
 	"dependencies": {
 		"react": "^16.8.1"
-	}
+	},
+	"license": "MIT"
 }
