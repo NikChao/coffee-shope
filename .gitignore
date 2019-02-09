@@ -1,2 +1,4 @@
 node_modules
 .vscode
+yarn-error.log
+lerna-debug.log
