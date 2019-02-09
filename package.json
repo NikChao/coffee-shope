@@ -1,5 +1,11 @@
 {
+	"scripts": {
+		"bootstrap": "lerna bootstrap"
+	},
 	"devDependencies": {
 		"lerna": "^2.4.0"
+	},
+	"dependencies": {
+		"react": "^16.8.1"
 	}
 }
