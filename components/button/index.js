@@ -7,9 +7,15 @@ function hello () {
   console.log(styles.Button);
 }
 
-function Button ({ children, disabled, ...restProps }) {
+function Button ({ children, disabled, positive, textOnly, ...restProps }) {
 
-  const styleClass = styles.Button;
+  const styleArray = [
+    styles.Button,
+    textOnly ? styles.textOnly : null,
+    positive ? styles.positive : null
+  ];
+
+  const styleClass = styleArray.join(' ');
 
   return (
     <button 
