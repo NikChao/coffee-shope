@@ -4,8 +4,8 @@ import { Button } from '../index.js';
 
 storiesOf('Button', module)
   .add('default', () => (
-    <Button></Button>
+    <Button onClick={window.alert} />
   ))
   .add('with text', () => (
-    <Button text="Hello, World!"></Button>
+    <Button text="Hello, World!" onClick={window.alert} />
   ));  

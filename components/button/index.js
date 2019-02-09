@@ -1,11 +1,10 @@
 import React from 'react';
 
-function hello () {
-  console.log('Hello');
-}
-
-function Button ({ text }) {
-  return <button onClick={hello}>{text || 'Button'}</button>
+function Button ({ text, onClick }) {
+  return (
+  <button onClick={onClick}>
+    {text || 'Button'}
+  </button>
 }
 
 export { Button };
