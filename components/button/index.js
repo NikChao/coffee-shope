@@ -7,14 +7,18 @@ function hello () {
   console.log(styles.Button);
 }
 
-function Button ({ text }) {
+function Button ({ children, disabled, ...restProps }) {
+
+  const styleClass = styles.Button;
 
   return (
     <button 
       onClick={hello} 
-      className={styles.Button}
+      className={styleClass}
+      disabled={disabled}
+      {...restProps}
     >
-      {text || 'Button'}
+      {children || 'Button'}
     </button>);
 }
 
