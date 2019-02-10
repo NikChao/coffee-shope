@@ -1,12 +1,14 @@
 {
 	"name": "coffee-shope",
 	"scripts": {
+		"create-component": "shope create component",
 		"bootstrap": "lerna bootstrap",
 		"publish": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
 		"storybook": "start-storybook -p 9001 -c .storybook"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.2",
+		"@coffee-shope/cs-scripts": "^1.0.0",
 		"@storybook/react": "^4.1.11",
 		"babel-core": "^6.26.3",
 		"babel-loader": "^8.0.5",
