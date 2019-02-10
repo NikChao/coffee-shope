@@ -9,13 +9,13 @@ const stories = require('./commands/stories');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
-function run(command, moduleType) {
+function run(command, moduleType, name) {
   if (!command) {
     clog('No command specified', chalk.red);
     return;
   }
   if (command === 'create') {
-    return create(moduleType);
+    return create(moduleType, name);
   }
   if (command === 'build') {
     return build();
@@ -26,6 +26,6 @@ function run(command, moduleType) {
   clog('No valid command specified', chalk.red);
 }
 
-const [ command, moduleType ] = _.get(yargs, 'argv._', ['', '']);
+const [ command, moduleType, name ] = _.get(yargs, 'argv._', ['', '']);
 
-run(command, moduleType);
+run(command, moduleType, name);
