@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/{{TEMPLATE_NAME}}",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "jest",
