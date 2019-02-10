@@ -1,6 +1,7 @@
 const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
+const copyDir = require('copy-dir');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
@@ -10,8 +11,22 @@ function createComponent(name) {
     return;
   }
 
-  const dir = path.resolve() + `/components/${name}`;
-  fs.mkdir(dir);
+  clog(`Creating ${name} component...`, chalk.blue);
+  
+  try {
+    const src = __dirname + '/../templates/component';
+    const dest = path.resolve() + `/components/${name}`;
+    copyDir.sync(src, dest);
+    clog(`Created ${name}!`, chalk.green);
+  } catch (err) {
+    clog(`Failed to create ${name}`, chalk.red);
+    console.log(err);
+  }
+
+  // const create = new Promise(resolve => fs.mkdir(dir, resolve));
+  // create.then(() => {
+  //   console.log();
+  // })
 }
 
 function create (moduleType, name) {
