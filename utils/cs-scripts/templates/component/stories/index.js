@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { C } from '../';
+import { {{COMPONENT_NAME}} } from '../';
 
 storiesOf('{{COMPONENT_NAME}}', module)
   .add('default', () => (

@@ -6,4 +6,4 @@ class {{COMPONENT_NAME}} extends PureComponent {
   }
 }
 
-export default C;
+export default { {{COMPONENT_NAME}} };
