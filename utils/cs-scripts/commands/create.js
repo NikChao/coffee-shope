@@ -1,12 +1,18 @@
 const chalk = require('chalk');
+const path = require('path');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
+
+function createComponent() {
+  const dir = path.resolve();
+  console.log(path);
+  console.log(dir);
+}
 
 function create (moduleType) {
   switch (moduleType) {
     case 'component':
-      clog('creating component', chalk.green)
-      return;
+      return createComponent();
     case 'module':
       clog('creating module', chalk.green)
       return;
