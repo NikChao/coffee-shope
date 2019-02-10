@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 
-class C extends PureComponent {
+class {{COMPONENT_NAME}} extends PureComponent {
   render () {
-    return <span>Hello, component</span>;
+    return <span>Hello, {{TEMPLATE_NAME}}</span>;
   }
 }
 

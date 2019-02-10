@@ -1,6 +1,6 @@
 {
-  "name": "@coffee-shope/component-name",
-  "version": "1.0.4",
+  "name": "@coffee-shope/{{TEMPLATE_NAME}}",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "jest",
