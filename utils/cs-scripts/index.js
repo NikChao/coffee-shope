@@ -27,4 +27,5 @@ function run(command, moduleType) {
 }
 
 const [ command, moduleType ] = _.get(yargs, 'argv._', ['', '']);
+
 run(command, moduleType);
