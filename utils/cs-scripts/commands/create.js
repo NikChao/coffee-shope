@@ -5,6 +5,27 @@ const copyDir = require('copy-dir');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
+function replaceTemplates ({ files=[], name }) {
+  files.forEach(file => {
+    fs.readFile(file, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+
+      const componentName =
+        name.split('-').map(s => s[0].toUpperCase() + s.slice(1)).join('')
+
+      const result = data
+        .replace(/{{TEMPLATE_NAME}}/g, name)
+        .replace(/{{COMPONENT_NAME}}/g, componentName);
+  
+      fs.writeFile(file, result, 'utf8', function (err) {
+        if (err) return console.log(err);
+      });
+    });
+  })
+}
+
 function createComponent(name) {
   if (!name) {
     clog('No component name provided.', chalk.red);
@@ -17,6 +38,13 @@ function createComponent(name) {
     const src = __dirname + '/../templates/component';
     const dest = path.resolve() + `/components/${name}`;
     copyDir.sync(src, dest);
+
+    replaceTemplates({
+      files: ['package.json', 'index.js', '.stories/index.js'].map(f => `${dest}/${f}`),
+      name
+    });
+
+    clog(`Created template!`)
     clog(`Created ${name}!`, chalk.green);
   } catch (err) {
     clog(`Failed to create ${name}`, chalk.red);

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { C } from '../';
 
-storiesOf('C', module)
+storiesOf('{{COMPONENT_NAME}}', module)
   .add('default', () => (
-    <C />
+    <{{COMPONENT_NAME}} />
   ));
