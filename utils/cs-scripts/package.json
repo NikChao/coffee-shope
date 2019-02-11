@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/cs-scripts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A set of scripts for scaffolding and building coffee-shope components",
   "main": "index.js",
   "bin": {

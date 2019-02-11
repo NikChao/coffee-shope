@@ -89,11 +89,6 @@ function createComponent(name) {
     clog(`Failed to create ${name}`, chalk.red);
     console.log(err);
   }
-
-  // const create = new Promise(resolve => fs.mkdir(dir, resolve));
-  // create.then(() => {
-  //   console.log();
-  // })
 }
 
 function create (moduleType, name) {
