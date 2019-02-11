@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/jay-almaraz/coffee-shope/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/jay-almaraz/coffee-shope#readme",
   "dependencies": {
     "chalk": "^2.4.2",

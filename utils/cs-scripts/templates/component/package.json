@@ -7,6 +7,9 @@
     "start": "shope stories",
     "build": "shope build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "react": "^16.8.1"
   },
