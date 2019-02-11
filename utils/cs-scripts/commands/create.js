@@ -2,15 +2,9 @@ const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
 const copyDir = require('copy-dir');
+const changeCase = require('change-case');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
-
-function componentName(name) {
-  return name
-    .split('-')
-    .map(s => s[0].toUpperCase() + s.slice(1))
-    .join('');
-}
 
 function replaceTemplates ({ files=[], name }) {
   files.forEach(file => {
@@ -19,7 +13,7 @@ function replaceTemplates ({ files=[], name }) {
         return console.log(err);
       }
 
-      const component = componentName(name);
+      const component = changeCase.pascalCase(name);
 
       const result = data
         .replace(/{{TEMPLATE_NAME}}/g, name)
@@ -34,14 +28,12 @@ function replaceTemplates ({ files=[], name }) {
 
 function addToStorybook(name) {
   const storybookConfig = path.resolve() + `/.storybook/config.js`;
-  console.log('here');
 
   if (!fs.existsSync(storybookConfig)) {
     clog('Storybook config does not exist', chalk.yellow);
     return;
   }
 
-  console.log('here');
   fs.readFile(storybookConfig, 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
@@ -71,6 +63,8 @@ function createComponent(name) {
     clog('No component name provided.', chalk.red);
     return;
   }
+
+  name = changeCase.paramCase(name);
 
   clog(`Creating ${name} component...`, chalk.blue);
   
