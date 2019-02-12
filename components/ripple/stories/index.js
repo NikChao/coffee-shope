@@ -56,4 +56,15 @@ storiesOf('Ripple', module)
         );
       }}
     </Ripple>
+  ))
+  .add('merge event handlers', () => (
+    <Ripple dark>
+      {({ ripple, eventHandlers, mergeEventHandlers }) => {
+        return (
+          <div style={lightBox} {...mergeEventHandlers({ onClick: () => console.log('clicked') })}>
+            {ripple}
+          </div>
+        );
+      }}
+    </Ripple>
   ));

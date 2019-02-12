@@ -51,13 +51,33 @@ class Ripple extends Component {
     }, () => this.removeRipple(id));
   }
 
+  getEventHandlers () {
+    return { onClick: this.onClick };
+  }
+
+  mergeEventHandlers (eventHandlers) {
+    const { onClick, ...rest } = eventHandlers;
+    const onClickRipple = this.onClick;
+
+    return {
+      ...rest,
+      onClick (event) {
+        if (typeof onClick === 'function') {
+          onClick(event);
+        }
+        onClickRipple(event);
+      }
+    }
+  }
+
   render () {
-    const eventHandlers = { onClick: this.onClick };
+    const eventHandlers = this.getEventHandlers();
+    const mergeEventHandlers = this.mergeEventHandlers
     const ripple = <this.Ripple />;
 
     return (
       <div>
-        {this.props.children({ eventHandlers, ripple })}
+        {this.props.children({ ripple, eventHandlers, mergeEventHandlers })}
       </div>
     );
   }
