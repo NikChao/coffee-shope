@@ -14,10 +14,12 @@ function replaceTemplates ({ files=[], name }) {
       }
 
       const component = changeCase.pascalCase(name);
+      const module = changeCase.camelCase(name);
 
       const result = data
         .replace(/{{TEMPLATE_NAME}}/g, name)
-        .replace(/{{COMPONENT_NAME}}/g, component);
+        .replace(/{{COMPONENT_NAME}}/g, component)
+        .replace(/{{MODULE_NAME}}/g, module);
   
       fs.writeFile(file, result, 'utf8', function (err) {
         if (err) return console.log(err);
@@ -91,16 +93,35 @@ function createComponent(name) {
   }
 }
 
-function createModule (name) {
-  clog(`Creating ${name} module...`, chalk.blue);
+function createUtil (name) {
+  clog(`Creating ${name} util...`, chalk.blue);
+
+  try {
+    const src = __dirname + '/../templates/util';
+    const dest = path.resolve() + `/utils/${name}`;
+
+    copyDir.sync(src, dest);
+
+    clog(`Created template!`, chalk.blue);
+
+    replaceTemplates({
+      files: ['__tests__/index.js', 'index.js', 'package.json'].map(f => `${dest}/${f}`),
+      name
+    });
+
+    clog(`Created ${name}`, chalk.green);
+  } catch (err) {
+    clog(`Failed to create ${name}`, chalk.red);
+    console.log(err);
+  }
 }
 
 function create (moduleType, name) {
   switch (moduleType) {
     case 'component':
       return createComponent(name);
-    case 'module':
-      return createModule(name);
+    case 'util':
+      return createUtil(name);
     default:
       clog('invalid module type provided', chalk.red);
       return;
