@@ -1,0 +1,32 @@
+@import "../common/theme.scss";
+
+.ripple {
+  position: absolute!important;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation-name: ripple-anim;
+  animation-duration: 1.2s;
+  animation-timing-function: ease;
+}
+
+.dark {
+  background-color: rgba(0,0,0,.5)!important;
+}
+
+.light {
+  background-color: #fff!important;
+}
+
+@keyframes ripple-anim {
+  0% {
+    opacity: .5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(50);
+  }
+}

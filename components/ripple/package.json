@@ -1,0 +1,26 @@
+{
+  "name": "@coffee-shope/ripple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "shope stories",
+    "build": "shope build",
+    "prepublishOnly": "shope build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.8.1"
+  },
+  "devDependencies": {
+    "@coffee-shope/cs-scripts": "^1.0.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "core-decorators": "^0.20.0"
+  }
+}
