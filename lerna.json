@@ -6,6 +6,7 @@
     "components/*",
     "utils/*"
   ],
+  "useWorkspaces": true,
   "publishConfig": {
     "access": "public"
   }
