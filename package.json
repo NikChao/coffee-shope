@@ -9,6 +9,8 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.2",
+		"@babel/plugin-proposal-decorators": "^7.3.0",
+		"@babel/preset-react": "^7.0.0",
 		"@coffee-shope/cs-scripts": "^1.0.3",
 		"@storybook/react": "^4.1.11",
 		"babel-core": "^6.26.3",
@@ -26,6 +28,7 @@
 		"utils/*"
 	],
 	"dependencies": {
+		"@babel/plugin-proposal-class-properties": "^7.3.0",
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1"
 	},
