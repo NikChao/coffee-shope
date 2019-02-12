@@ -3,8 +3,10 @@
   "version": "independent",
   "npmClient": "yarn",
   "packages": [
-    "components/*"
+    "components/*",
+    "utils/*"
   ],
+  "useWorkspaces": true,
   "publishConfig": {
     "access": "public"
   }

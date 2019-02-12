@@ -1,9 +1,11 @@
 {
-  "name": "@coffee-shope/button",
-  "version": "1.0.7-0",
+  "name": "@coffee-shope/{{TEMPLATE_NAME}}",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "start": "shope stories",
+    "build": "shope build",
     "prepublishOnly": "shope build"
   },
   "publishConfig": {
@@ -11,6 +13,9 @@
   },
   "peerDependencies": {
     "react": "^16.8.1"
+  },
+  "devDependencies": {
+    "@coffee-shope/cs-scripts": "^1.0.0"
   },
   "author": "",
   "license": "MIT",
