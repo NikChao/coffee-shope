@@ -811,20 +811,6 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@coffee-shope/cs-scripts@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@coffee-shope/cs-scripts/-/cs-scripts-1.0.2.tgz#6d3c155411f85f435ad8171541a10ba394b0b772"
-  dependencies:
-    chalk "^2.4.2"
-    change-case "^3.1.0"
-    copy-dir "^0.4.0"
-    enzyme "^3.8.0"
-    enzyme-adapter-react-16 "^1.9.1"
-    fs "^0.0.1-security"
-    lodash "^4.17.11"
-    path "^0.12.7"
-    yargs "^12.0.5"
-
 "@emotion/cache@^0.8.8":
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-0.8.8.tgz#2c3bd1aa5fdb88f1cc2325176a3f3201739e726c"
