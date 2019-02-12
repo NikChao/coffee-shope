@@ -91,13 +91,16 @@ function createComponent(name) {
   }
 }
 
+function createModule (name) {
+  clog(`Creating ${name} module...`, chalk.blue);
+}
+
 function create (moduleType, name) {
   switch (moduleType) {
     case 'component':
       return createComponent(name);
     case 'module':
-      clog('creating module', chalk.green)
-      return;
+      return createModule(name);
     default:
       clog('invalid module type provided', chalk.red);
       return;

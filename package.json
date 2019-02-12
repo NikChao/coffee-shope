@@ -2,6 +2,7 @@
 	"name": "coffee-shope",
 	"scripts": {
 		"create-component": "shope create component && lerna bootstrap",
+		"create-module": "shope create module",
 		"bootstrap": "lerna bootstrap",
 		"publish-all": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
 		"storybook": "start-storybook -p 9001 -c .storybook"
