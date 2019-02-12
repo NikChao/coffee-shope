@@ -15,9 +15,18 @@
   margin-right: 16px;
 }
 
-.Button:hover:not(:disabled) {
-  background-color: rgba( $colorGreenApron, .1 );
+.Button:not(:disabled) {
   cursor: pointer;
+}
+
+.Button:hover {
+  background-color: rgba( $colorGreenApron, .1 );
+  transition: 0.25s;
+}
+
+.Button:active {
+  transform: scale(0.95);
+  transition: 0.25s;
 }
 
 .Button:disabled {
@@ -31,6 +40,18 @@
   color: $colorTextWhite;
 }
 
+.positive:hover {
+  background-color: $colorGreenApron;
+  border-color: $colorGreenApron;
+  transition: 0.25s;
+}
+
 .textOnly {
   border-color: transparent;
+  background-color: #fff;
+}
+
+.textOnly:hover {
+  background-color: rgba( $colorGreenApron, .1 );
+  transition: 0.25s;
 }

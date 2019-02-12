@@ -11,8 +11,8 @@ function Button ({ children, disabled, positive, textOnly, ...restProps }) {
 
   const styleArray = [
     styles.Button,
-    textOnly ? styles.textOnly : null,
-    positive ? styles.positive : null
+    positive ? styles.positive : null,
+    textOnly ? styles.textOnly : null
   ];
 
   const styleClass = styleArray.join(' ');
