@@ -19,6 +19,11 @@
 		"webpack": "^4.29.3",
 		"webpack-cli": "^3.2.3"
 	},
+	"private": true,
+	"workspaces": [
+		"components/*",
+		"utils/*"
+	],
 	"dependencies": {
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1"
