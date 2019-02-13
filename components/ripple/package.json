@@ -21,6 +21,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
+    "@coffee-shope/merge-event-handlers": "^1.0.0",
     "core-decorators": "^0.20.0"
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { autobind } from 'core-decorators';
-
+import mergeEventHandlers from '@coffee-shope/merge-event-handlers';
 import styles from './styles.scss';
 
 @autobind
@@ -55,29 +55,18 @@ class Ripple extends Component {
     return { onClick: this.onClick };
   }
 
-  mergeEventHandlers (eventHandlers) {
-    const { onClick, ...rest } = eventHandlers;
-    const onClickRipple = this.onClick;
-
-    return {
-      ...rest,
-      onClick (event) {
-        if (typeof onClick === 'function') {
-          onClick(event);
-        }
-        onClickRipple(event);
-      }
-    }
-  }
 
   render () {
-    const eventHandlers = this.getEventHandlers();
-    const mergeEventHandlers = this.mergeEventHandlers
     const ripple = <this.Ripple />;
+    const eventHandlers = this.getEventHandlers();
 
     return (
       <div>
-        {this.props.children({ ripple, eventHandlers, mergeEventHandlers })}
+        {this.props.children({
+          ripple,
+          eventHandlers,
+          mergeEventHandlers: mergeEventHandlers(eventHandlers)
+        })}
       </div>
     );
   }
