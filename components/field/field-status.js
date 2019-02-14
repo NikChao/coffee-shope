@@ -6,7 +6,7 @@ function FieldStatus ({ children, className, error }) {
   return (
     <div className={styles.fieldStatusContainer}>
       <span className={styles.errorCrossIcon}>
-        <ErrorIcon />
+        <ErrorIcon className={styles.errorCrossIconSvg} />
       </span>
       {children}
     </div>

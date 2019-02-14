@@ -7,12 +7,12 @@ import Error from './error.svg';
 @autobind
 class Field extends PureComponent {
   Input () {
-    const { type, errorMessage, error, value, onChange, onBlur, onFocus, required, name } = this.props;
+    const { type, error, value, onChange, onBlur, onFocus, required, name } = this.props;
 
 
     const inputStyles = [
       styles.inputText,
-      errorMessage && styles.redInput
+      error ? styles.redInputBorder : styles.defaultInputBorder
     ].join(' ');
 
     return (
