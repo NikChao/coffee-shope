@@ -18,6 +18,7 @@
 		"babel-preset-env": "^1.7.0",
 		"lerna": "^2.4.0",
 		"node-sass": "^4.11.0",
+		"react-svg-loader": "^2.1.0",
 		"sass-loader": "^7.1.0",
 		"webpack": "^4.29.3",
 		"webpack-cli": "^3.2.3"

@@ -18,10 +18,23 @@ main {
   // flex: 1 0 auto;
 }
 
+html,
+body,
 button,
 input,
 optgroup,
 select,
 textarea {
   font-family: $font-stack;
+}
+
+button {
+  outline: none;
+}
+
+input::placeholder {
+  font-family: $font-stack;
+}
+input {
+  outline: none;
 }

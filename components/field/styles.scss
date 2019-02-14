@@ -1,0 +1,86 @@
+@import "../common/theme.scss";
+
+:local {
+  
+  input:focus ~ .floatingLabel,
+  input:not(:focus):valid ~ .floatingLabel {
+    transform: scale(0.95);
+    opacity: 0.0;
+  }
+
+  input:focus ~ .floatingLabelFocus,
+  input:not(:focus):valid ~ .floatingLabelFocus {
+    opacity: 1;
+  }
+  
+  .floatingLabel {
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 12px;
+    transition: 0.2s ease all;
+  }
+  
+  .floatingLabelFocus {
+    position: absolute;
+    font-size: 10px;
+    left: 5px;
+    bottom: 30px;
+    opacity: 0;
+    transition: 0.2s ease all;
+  }
+
+  .errorInputIcon {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    fill: $colorRed;
+  }
+
+  .errorCrossIcon {
+    padding: 0px;
+    margin: 0px;
+    height: min-content;
+    width: min-content;
+    fill: $colorRed;
+    margin-bottom: -4px;
+    padding-right: 5px;
+  }
+
+  .fieldStatusContainer {
+    padding-left: 5px;
+    display: flex;
+    justify-content: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    height: 15px;
+    margin-bottom: 5px;
+  }
+  
+  // .input:focus ~ .floatingLabelFocus,
+  // .input:not(:focus):valid ~ .floatingLabelFocus {
+  //   opacity: 1;
+  // }
+  
+  .inputText {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    font-weight: 700;
+    padding: 5px 20px 5px 0px;
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $colorCeramic;
+  }
+
+  .inputText:focus {
+    border-bottom: 1px solid $colorGreenStarbucks;
+    transition: 0.25s;
+  }
+  
+  .container {
+    position: relative;
+    padding: 5px;
+  }
+}

@@ -20,6 +20,10 @@ module.exports = {
           }
         ],
         include: path.resolve(__dirname, "../")
+      },
+      {
+        test: /\.svg$/,
+        loader: 'react-svg-loader'
       }
     ]
   }
