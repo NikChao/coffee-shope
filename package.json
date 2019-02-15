@@ -5,7 +5,8 @@
 		"create-util": "shope create util",
 		"bootstrap": "lerna bootstrap",
 		"publish-all": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
-		"storybook": "start-storybook -p 9001 -c .storybook"
+		"storybook": "start-storybook -p 9001 -c .storybook",
+		"start": "yarn storybook"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.2",
