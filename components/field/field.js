@@ -9,7 +9,6 @@ class Field extends PureComponent {
   Input () {
     const { type, error, value, onChange, onBlur, onFocus, required, name } = this.props;
 
-
     const inputStyles = [
       styles.inputText,
       error ? styles.redInputBorder : styles.defaultInputBorder
@@ -48,7 +47,6 @@ class Field extends PureComponent {
 
   ErrorStatus () {
     const { errorMessage } = this.props;
-    console.log('here', typeof errorMessage)
 
     return !!errorMessage
       ? typeof errorMessage === 'string'
@@ -58,18 +56,8 @@ class Field extends PureComponent {
   }
 
   render () {
-    const {
-      children,
-      className,
-      customFieldStatus,
-      defaultValue,
-      displayStatus,
-      error,
-      errorMessage,
-    } = this.props;
-
     const { Input, ErrorStatus } = this;
-    console.log(styles);
+
     return (
       <div className={styles.container}>
         <Input />
