@@ -1,6 +1,7 @@
 import { configure } from '@storybook/react';
 
 function loadStories() {
+  require('../components/radio/stories/index.js');
   require('../components/checkbox/stories/index.js');
   require('../components/field/stories/index.js');
   require('../components/ripple/stories/index.js');

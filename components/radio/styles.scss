@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.radioLabel {
+  padding-top: 2px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.filled {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #008248;
+  animation-duration: 0.25s;
+  animation-name: option-label-marker-expansion;
+  animation-timing-function: cubic-bezier(.32,2.32,.61,.27);
+  animation-direction: forwards;
+}
+
+@keyframes option-label-marker-expansion {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.radio {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 1px solid #008248;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
