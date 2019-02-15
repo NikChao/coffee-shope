@@ -20,15 +20,17 @@ function SmallForm () {
   }
 
   return (
-    <div>
-      <Field
-        onBlur={() => blur(true)}
-        name='Email'
-        value={email}
-        onChange={setEmail}
-        errorMessage={emailErrorMessage}
-        error={!!emailErrorMessage}
-      />
+    <div style={{width: '600px'}}>
+      <div style={{ height: '65px'}}>
+        <Field
+          onBlur={() => blur(true)}
+          name='Email'
+          value={email}
+          onChange={setEmail}
+          errorMessage={emailErrorMessage}
+          error={!!emailErrorMessage}
+        />
+      </div>
       <Field name='Password' type="password" value={password} onChange={e => setPassword(e.target.value)}  />
     </div>
   )
