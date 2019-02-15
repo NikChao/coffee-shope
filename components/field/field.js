@@ -15,6 +15,11 @@ class Field extends PureComponent {
       error ? styles.redInputBorder : styles.defaultInputBorder
     ].join(' ');
 
+    const floatingLabelStyles = [
+      styles.floatingLabel,
+      value.length && styles.invisible
+    ].join(' ');
+
     return (
       <div className={styles.container}>
         <input
@@ -26,8 +31,12 @@ class Field extends PureComponent {
           className={inputStyles}
           required={required}
         />
-        <span className={styles.floatingLabelFocus}>{name}</span>
-        {/* <span className={styles.floatingLabel}>{name}</span> */}
+        <span className={floatingLabelStyles}>{name}</span>
+        <span
+          className={styles.floatingLabelFocus}
+          style={{ opacity: value.length ? 1 : undefined }}
+        >
+          {name}</span>
         {error && (
           <span className={styles.errorInputIcon}>
             <Error />

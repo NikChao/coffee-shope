@@ -2,14 +2,20 @@
 
 :local {
   
-  input:focus ~ .floatingLabel,
-  input:not(:focus):valid ~ .floatingLabel {
+  input:focus ~ .floatingLabel {
     transform: scale(0.95);
     opacity: 0.0;
   }
 
-  input:focus ~ .floatingLabelFocus,
-  input:not(:focus):valid ~ .floatingLabelFocus {
+  input:focus ~ .floatingLabelFocus {
+    opacity: 1;
+  }
+
+  .invisible {
+    opacity: 0;
+  }
+
+  .visible {
     opacity: 1;
   }
   
@@ -45,10 +51,10 @@
     fill: $colorRed;
     margin-bottom: -4px;
     padding-right: 5px;
-  }
 
-  .errorCrossIconSvg {
-    animation: .2s ease-out field-status-icon-fade-in forwards;
+    animation-name: field-status-icon-fade-in;
+    animation-duration: .2s;
+    animation-timing-function: ease-out;
   }
 
   .redInputBorder {
@@ -74,7 +80,13 @@
     font-size: 14px;
     height: 15px;
     margin-bottom: 5px;
-    transition: color .2s ease-out
+    animation-name: drop-in-status;
+    animation-duration: .5s;
+    animation-timing-function: ease;  }
+  
+  @keyframes drop-in-status {
+    0% { margin-top: -10px; opacity: 0; }
+    100% { margin-top: 0px; opacity: 1; }
   }
   
   @keyframes field-status-icon-fade-in {
