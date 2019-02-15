@@ -45,8 +45,8 @@ class Ripple extends Component {
     this.setState({
       ripple: {
         id,
-        left: event.nativeEvent.offsetX,
-        top: event.nativeEvent.offsetY
+        left: event.nativeEvent.offsetX - event.target.offsetLeft,
+        top: event.nativeEvent.offsetY - event.target.offsetTop
       }
     }, () => this.removeRipple(id));
   }
