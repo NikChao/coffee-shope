@@ -19,5 +19,8 @@
   },
   "author": "",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@coffee-shope/theme": "^1.0.1"
+  }
 }
