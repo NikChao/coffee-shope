@@ -5,15 +5,30 @@ import { Field } from '../';
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 function SmallForm () {
-  const [email, setEmail] = useState('');
+  const [email, setEmailState] = useState('');
+  const [ hasBlurred, blur ] = useState(false);
   const [password, setPassword] = useState('');
 
-  const emailErrorMessage = !!email && !emailRegex.test(email)
+  const emailErrorMessage = hasBlurred && !!email && !emailRegex.test(email)
     && 'Invalid email.'
+
+  function setEmail (e) {
+    setEmailState(e.target.value);
+    if (!e.target.value.length) {
+      blur(false);
+    }
+  }
 
   return (
     <div>
-      <Field name='Email' value={email} onChange={e => setEmail(e.target.value)} errorMessage={emailErrorMessage} error={!!emailErrorMessage}/>
+      <Field
+        onBlur={() => blur(true)}
+        name='Email'
+        value={email}
+        onChange={setEmail}
+        errorMessage={emailErrorMessage}
+        error={!!emailErrorMessage}
+      />
       <Field name='Password' type="password" value={password} onChange={e => setPassword(e.target.value)}  />
     </div>
   )
