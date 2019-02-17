@@ -60,7 +60,7 @@ function addToStorybook(name) {
   });
 }
 
-function createComponent(name) {
+function createComponent(name, typescript) {
   if (!name) {
     clog('No component name provided.', chalk.red);
     return;
@@ -71,7 +71,7 @@ function createComponent(name) {
   clog(`Creating ${name} component...`, chalk.blue);
   
   try {
-    const src = __dirname + '/../templates/component';
+    const src = __dirname + (typescript ? '/../templates/component-ts' : '/../templates/component');
     const dest = path.resolve() + `/components/${name}`;
     copyDir.sync(src, dest);
     
@@ -93,11 +93,11 @@ function createComponent(name) {
   }
 }
 
-function createUtil (name) {
+function createUtil (name, typescript) {
   clog(`Creating ${name} util...`, chalk.blue);
 
   try {
-    const src = __dirname + '/../templates/util';
+    const src = __dirname + (typescript ? '/../templates/util-ts' : '/../templates/util');
     const dest = path.resolve() + `/utils/${name}`;
 
     copyDir.sync(src, dest);
@@ -116,10 +116,10 @@ function createUtil (name) {
   }
 }
 
-function create (moduleType, name) {
+function create (moduleType, name, typescript) {
   switch (moduleType) {
     case 'component':
-      return createComponent(name);
+      return createComponent(name, typescript);
     case 'util':
       return createUtil(name);
     default:
