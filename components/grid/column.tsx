@@ -1,11 +1,12 @@
 import React from 'react';
 
-interface Props {
-  width: number;
+export interface Props {
+  span: number;
+  children: React.ComponentType
 }
 
-export default function Column ({ width }: Props) {
+export default function Column ({ children }: Props) {
   return (
-    <div>asdf</div>
+    <div>{children}</div>
   );
 }
