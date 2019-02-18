@@ -6,7 +6,7 @@
     "test": "jest",
     "start": "shope stories",
     "build": "rm -rf ./dist && tsc",
-    "prepublishOnly": "shope build"
+    "prepublishOnly": "yarn build"
   },
   "publishConfig": {
     "access": "public"
