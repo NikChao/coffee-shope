@@ -1,17 +1,19 @@
 {
   "compilerOptions": {
-    "outDir": "/lib",
+    "outDir": "./dist/",
     "module": "commonjs",
     "target": "es5",
     "lib": ["es6", "dom"],
     "sourceMap": true,
-    "allowJs": true,
+    "allowJs": false,
+    "declaration": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "src",
+    "rootDir": "./",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
     "strictNullChecks": true
   },
   "exclude": [
@@ -19,6 +21,7 @@
     "build",
     "scripts",
     "acceptance-tests",
+    "__tests__",
     "webpack",
     "jest",
     "src/setupTests.ts"

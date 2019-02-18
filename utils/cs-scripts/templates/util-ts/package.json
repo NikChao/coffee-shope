@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "start": "shope stories",
-    "build": "tsc",
+    "build": "rm -rf ./dist && tsc",
     "prepublishOnly": "shope build"
   },
   "publishConfig": {
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@coffee-shope/cs-scripts": "^1.0.0",
+    "@types/jest": "^24.0.5",
     "typescript": "^3.3.1"
   },
   "author": "",

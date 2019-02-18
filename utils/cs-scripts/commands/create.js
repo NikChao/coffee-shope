@@ -77,8 +77,12 @@ function createComponent(name, typescript) {
     
     clog(`Created template!`, chalk.blue);
     
+    const files = typescript
+    ? [ '__tests__/index.ts', 'stories/index.ts', 'index.ts' ]
+    : [ '__tests__/index.js', 'stories/index.js', 'index.js' ];
+
     replaceTemplates({
-      files: ['package.json', 'index.js', 'stories/index.js'].map(f => `${dest}/${f}`),
+      files: ['package.json', ...files].map(f => `${dest}/${f}`),
       name
     });
 
@@ -104,8 +108,12 @@ function createUtil (name, typescript) {
 
     clog(`Created template!`, chalk.blue);
 
+    const files = typescript
+      ? [ '__tests__/index.ts', 'index.ts' ]
+      : [ '__tests__/index.js', 'index.js' ];
+
     replaceTemplates({
-      files: ['__tests__/index.js', 'index.js', 'package.json'].map(f => `${dest}/${f}`),
+      files: [...files, 'package.json'].map(f => `${dest}/${f}`),
       name
     });
 
@@ -121,7 +129,7 @@ function create (moduleType, name, typescript) {
     case 'component':
       return createComponent(name, typescript);
     case 'util':
-      return createUtil(name);
+      return createUtil(name, typescript);
     default:
       clog('invalid module type provided', chalk.red);
       return;
