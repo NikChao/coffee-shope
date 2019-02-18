@@ -32,14 +32,6 @@ module.exports = {
             '@babel/plugin-proposal-json-strings',
             '@babel/plugin-proposal-object-rest-spread',
             '@babel/plugin-syntax-import-meta',
-            [
-              '@babel/plugin-transform-runtime',
-              {
-                helpers: true,
-                corejs: 2,
-                regenerator: true
-              }
-            ],
             '@babel/plugin-syntax-dynamic-import'
           ]
 	}

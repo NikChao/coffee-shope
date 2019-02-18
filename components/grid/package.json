@@ -1,0 +1,29 @@
+{
+  "name": "@coffee-shope/grid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "shope stories",
+    "build": "rm -rf ./dist && tsc",
+    "prepublishOnly": "shope build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.8.1"
+  },
+  "devDependencies": {
+    "@coffee-shope/cs-scripts": "^1.0.0",
+    "@types/jest": "^24.0.5",
+    "@types/react": "^16.8.3",
+    "typescript": "^3.3.1"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@coffee-shope/theme": "^1.0.1"
+  }
+}
