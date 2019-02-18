@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./lib/",
     "module": "commonjs",
     "target": "es5",
     "lib": ["es6", "dom"],
@@ -22,6 +22,7 @@
     "scripts",
     "acceptance-tests",
     "__tests__",
+    "stories",
     "webpack",
     "jest",
     "src/setupTests.ts"

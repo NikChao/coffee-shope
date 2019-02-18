@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "start": "shope stories",
-    "build": "rm -rf ./dist && tsc",
+    "build": "rm -rf ./lib && tsc",
     "prepublishOnly": "yarn build"
   },
   "publishConfig": {

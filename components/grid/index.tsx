@@ -1,4 +1,4 @@
-import Grid from './grid.tsx';
-import Column from './column.tsx';
+import Grid from './grid';
+import Column from './column';
 
 export { Grid, Column };
