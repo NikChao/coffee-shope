@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Grid, Column } from '../index.tsx';
+import { Grid, Row, Column } from '../index.tsx';
 
 function Padded({ bg, height }: { bg: string, height?: number }) {
   const h = !!height ? `${height}px` : '100%';
@@ -32,5 +32,25 @@ storiesOf('Grid', module)
       <Column span={8}>
         <Padded height={200} bg='lightseagreen' />
       </Column>
+    </Grid>
+  ))
+  .add('with rows', () => (
+    <Grid cols={12}>
+      <Row>
+        <Column width={6}>
+          <Padded height={100} bg='coral' />
+        </Column>
+      </Row>
+      <Row>
+        <Column width={3}>
+          <Padded height={100} bg='crimson' />          
+        </Column>
+        <Column width={6}>
+          <Padded height={100} bg='navy' />          
+        </Column>
+        <Column width={3}>
+          <Padded height={100} bg='goldenrod' />          
+        </Column>
+      </Row>
     </Grid>
   ));
