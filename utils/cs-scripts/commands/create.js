@@ -28,7 +28,7 @@ function replaceTemplates ({ files=[], name }) {
   });
 }
 
-function addToStorybook(name) {
+function addToStorybook(name, extension='js') {
   const storybookConfig = path.resolve() + `/.storybook/config.js`;
 
   if (!fs.existsSync(storybookConfig)) {
@@ -41,7 +41,7 @@ function addToStorybook(name) {
       return console.log(err);
     }
 
-    const statement = `require('../components/${name}/stories/index.js');`
+    const statement = `require('../components/${name}/stories/index.${extension}');`
 
     if (data.includes(statement)) {
       clog('story already exists for this component', chalk.yellow);
@@ -78,7 +78,7 @@ function createComponent(name, typescript) {
     clog(`Created template!`, chalk.blue);
     
     const files = typescript
-    ? [ '__tests__/index.ts', 'stories/index.ts', 'index.ts' ]
+    ? [ '__tests__/index.tsx', 'stories/index.tsx', 'index.tsx' ]
     : [ '__tests__/index.js', 'stories/index.js', 'index.js' ];
 
     replaceTemplates({
@@ -88,7 +88,7 @@ function createComponent(name, typescript) {
 
     clog(`Adding to storybook!`, chalk.blue);
 
-    addToStorybook(name)
+    addToStorybook(name, typescript ? 'tsx' : 'ts')
 
     clog(`Created ${name}!`, chalk.green);
   } catch (err) {
