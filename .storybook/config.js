@@ -1,6 +1,7 @@
 import { configure } from '@storybook/react';
 
 function loadStories() {
+  require('../components/float/stories/index.tsx');
   require('../components/grid/stories/index.tsx');
   require('../components/checkbox/stories/index.js');
   require('../components/field/stories/index.js');
