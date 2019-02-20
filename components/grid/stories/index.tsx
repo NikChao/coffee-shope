@@ -4,7 +4,6 @@ import { Grid, Row, Column } from '../index';
 
 function Padded({ bg, height }: { bg: string, height?: number }) {
   const h = !!height ? `${height}px` : '100%';
-  console.log(h);
   return <div style={{ height: h || '100%', backgroundColor: bg }} />
 }
 
@@ -36,19 +35,19 @@ storiesOf('Grid', module)
   ))
   .add('with rows', () => (
     <Grid cols={12}>
-      <Row>
-        <Column width={6}>
+      <Row justifyContent="center">
+        <Column span={8}>
           <Padded height={100} bg='coral' />
         </Column>
       </Row>
       <Row>
-        <Column width={3}>
+        <Column span={3}>
           <Padded height={100} bg='crimson' />          
         </Column>
-        <Column width={6}>
+        <Column span={6}>
           <Padded height={100} bg='navy' />          
         </Column>
-        <Column width={3}>
+        <Column span={3}>
           <Padded height={100} bg='goldenrod' />          
         </Column>
       </Row>

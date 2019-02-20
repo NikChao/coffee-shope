@@ -2,12 +2,15 @@ import React from 'react';
 import { Consumer } from './grid-context';
 
 export interface Props {
-  children: React.ReactElement;
+  justifyContent?: string;
+  children: React.ReactElement | React.ReactElement[];
 }
 
-export default function Row ({ children }: Props) {
+export default function Row ({ children, justifyContent }: Props) {
+  justifyContent = justifyContent || 'flex-start';
+
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent, width: '100%' }}>
       {children}
     </div>
   );
