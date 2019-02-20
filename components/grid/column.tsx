@@ -3,7 +3,7 @@ import { Consumer } from './grid-context';
 
 export interface Props {
   span: number;
-  children: React.ComponentType;
+  children: React.ReactElement;
 }
 
 export default function Column ({ span, children }: Props) {

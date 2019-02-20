@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Grid, Row, Column } from '../index.tsx';
+import { Grid, Row, Column } from '../index';
 
 function Padded({ bg, height }: { bg: string, height?: number }) {
   const h = !!height ? `${height}px` : '100%';

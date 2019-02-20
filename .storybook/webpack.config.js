@@ -59,5 +59,10 @@ module.exports = {
         loader: 'react-svg-loader'
       }
     ]
+  },
+  resolve: {
+    extensions: [
+      '.js', '.jsx', '.ts', '.tsx'
+    ]
   }
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Consumer } from './grid-context';
 
 export interface Props {
-  children: React.ComponentType;
+  children: React.ReactElement;
 }
 
 export default function Row ({ children }: Props) {
