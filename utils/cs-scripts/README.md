@@ -6,3 +6,5 @@
 
  - create a util:
     `shope create util <util-name>`
+    
+ - add a `--typescript` flag to either for typescript!
