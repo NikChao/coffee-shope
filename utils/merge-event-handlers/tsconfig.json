@@ -6,14 +6,15 @@
     "lib": ["es6", "dom"],
     "sourceMap": true,
     "allowJs": false,
-    "moduleResolution": "node",
     "declaration": true,
+    "moduleResolution": "node",
     "rootDir": "./",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules",
@@ -21,10 +22,10 @@
     "scripts",
     "acceptance-tests",
     "__tests__",
+    "stories",
     "webpack",
     "jest",
-    "src/setupTests.ts",
-    "lib"
+    "src/setupTests.ts"
   ],
   "types": [
     "typePatches"

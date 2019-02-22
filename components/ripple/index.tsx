@@ -1,13 +1,31 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { autobind } from 'core-decorators';
 import mergeEventHandlers from '@coffee-shope/merge-event-handlers';
+
 import styles from './styles.scss';
 
+interface RenderProps {
+  ripple: React.ReactElement;
+  eventHandlers: { onClick: (e: any) => void };
+  mergeEventHandlers: (old: object) => object;
+}
+
+interface Props {
+  dark?: boolean;
+  children: ({ ripple, eventHandlers, mergeEventHandlers }: RenderProps) => React.ReactElement;
+}
+
+interface State {
+  ripple: null | { id: number, left: number, top: number };
+}
+
 @autobind
-class Ripple extends Component {
-  state = {
+class Ripple extends PureComponent<Props, State> {
+  state: State = {
     ripple: null
-  }
+  };
+
+  isMounted = false;
 
   cn = `${styles.ripple} ${this.props.dark ? styles.dark : styles.light}`
 
@@ -15,10 +33,16 @@ class Ripple extends Component {
     if (typeof this.props.children !== 'function') {
       throw new Error ('Ripple takes a function as children.');
     }
+    this.isMounted = true;
+  }
+
+  componentWillUnmount () {
+    this.isMounted = false;
   }
 
   Ripple () {
     const { ripple } = this.state;
+
     if (!ripple) {
       return null;
     }
@@ -28,20 +52,26 @@ class Ripple extends Component {
     return <span style={{ left: `${left}px`, top: `${top}px` }} key={id} className={this.cn} />;
   }
 
-  removeRipple (id) { 
+  removeRipple (id: number) {
+
     setTimeout(
       () => {
-        if (this.state.ripple.id === id) {
-          this.setState({ ripple: null })
+        const { ripple } = this.state;
+
+        if (!this.isMounted || !ripple ) {
+          return;
+        }
+
+        if (ripple.id === id) {
+          this.setState({ ripple: null });
         }
       }
       , 1500
     );
   }
 
-  onClick (event) {
+  onClick (event: any) {
     const id = Date.now();
-
     this.setState({
       ripple: {
         id,
