@@ -25,7 +25,8 @@
     "stories",
     "webpack",
     "jest",
-    "src/setupTests.ts"
+    "src/setupTests.ts",
+    "lib"
   ],
   "types": [
     "typePatches"
