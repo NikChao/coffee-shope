@@ -2,20 +2,20 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Ripple } from '../';
 
-const lightBox = {
+const lightBox: React.CSSProperties = {
   overflow: 'hidden',
-  position: 'relative',
   width: '360px',
   height: '100px',
-  backgroundColor: '#f7f7f7'
+  backgroundColor: '#f7f7f7',
+  position: 'relative'
 };
 
-const darkBox = {
+const darkBox: React.CSSProperties = {
   ...lightBox,
   backgroundColor: '#2d2926'
 }
 
-const greenRoundBox = {
+const greenRoundBox: React.CSSProperties = {
   ...lightBox,
   height: '60px',
   width: '120px',

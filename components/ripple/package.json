@@ -1,12 +1,13 @@
 {
   "name": "@coffee-shope/ripple",
   "version": "1.0.9",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
     "start": "shope stories",
-    "build": "shope build",
-    "prepublishOnly": "shope build"
+    "build": "rm -rf ./lib && tsc",
+    "prepublishOnly": "shope build",
+    "postpublish": "rm -rf ./lib"
   },
   "publishConfig": {
     "access": "public"

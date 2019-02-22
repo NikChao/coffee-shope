@@ -1,12 +1,13 @@
 {
   "name": "@coffee-shope/merge-event-handlers",
   "version": "1.0.8",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
     "start": "shope stories",
-    "build": "shope build",
-    "prepublishOnly": "shope build"
+    "build": "rm -rf ./lib/ && tsc",
+    "prepublishOnly": "yarn build",
+    "postpublish": "rm -rf ./lib/"
   },
   "publishConfig": {
     "access": "public"
