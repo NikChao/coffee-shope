@@ -28,10 +28,12 @@ storiesOf('Float', module)
     </div>
   ))
   .add('absolute', () => (
-    <div style={{ width: '300px', height: '200px', overflow: 'auto', position: 'absolute' }}>
-      <span style={{ width: '100%', display: 'flex', flexWrap: 'wrap', position: 'absolute' }}>
-        {lotsOfText()}
-      </span>
+    <div style={{ width: '200px', height: '300px', position: 'absolute' }}>
+      <div style={{ position: 'absolute', height: '100%', width: '100%', overflow: 'auto' }}>
+        <span style={{ position: 'absolute', width: '100%', display: 'flex', flexWrap: 'wrap', overflow: 'scroll' }}>
+          {lotsOfText()}
+        </span>
+      </div>
       <Float bottomRight circular onClick={click} text="+" />
     </div>
   ))
