@@ -14,8 +14,7 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "strictNullChecks": true,
-    "experimentalDecorators": true
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules",

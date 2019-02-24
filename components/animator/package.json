@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@coffee-shope/cs-scripts": "^1.0.14",
+    "@coffee-shope/float": "^1.0.2",
     "@types/jest": "^24.0.5",
     "@types/react": "^16.8.1",
     "typescript": "^3.3.1"

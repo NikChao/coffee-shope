@@ -28,4 +28,4 @@ function run(command, moduleType, name, typescript=false) {
 
 const [ command, moduleType, name ] = _.get(yargs, 'argv._', ['', '']);
 
-run(command, moduleType, name, yargs.argv.typescript);
+run(command, moduleType, name, !yargs.argv['no-typescript']);
