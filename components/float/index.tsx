@@ -39,7 +39,13 @@ class Float extends PureComponent<Props, State> {
     : undefined;
 
   positioning: React.CSSProperties = this.props.bottomRight
-    ? { position: 'relative', width: '100%', height: '100%', right: '0', paddingTop: '85%' }
+    ? {
+      position: 'absolute',
+      width: '100%', height: '100%',
+      display: 'flex',
+      justifyContent: 'flex-end',
+      alignItems: 'flex-end',
+    }
     : {};
 
   render () {

@@ -29,12 +29,12 @@ storiesOf('Float', module)
   ))
   .add('absolute', () => (
     <div style={{ width: '200px', height: '300px', position: 'absolute' }}>
+      <Float bottomRight circular onClick={click} text="+" />      
       <div style={{ position: 'absolute', height: '100%', width: '100%', overflow: 'auto' }}>
         <span style={{ position: 'absolute', width: '100%', display: 'flex', flexWrap: 'wrap', overflow: 'scroll' }}>
           {lotsOfText()}
         </span>
       </div>
-      <Float bottomRight circular onClick={click} text="+" />
     </div>
   ))
   .add('disabled', () => (
