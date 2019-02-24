@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/ripple",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -16,13 +16,13 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/cs-scripts": "^1.0.12"
+    "@coffee-shope/cs-scripts": "^1.0.13"
   },
   "author": "",
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/merge-event-handlers": "^1.0.8",
+    "@coffee-shope/merge-event-handlers": "^1.0.9",
     "core-decorators": "^0.20.0"
   }
 }

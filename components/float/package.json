@@ -1,7 +1,7 @@
 {
   "name": "@coffee-shope/float",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
     "start": "shope stories",
@@ -16,7 +16,7 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/cs-scripts": "^1.0.0",
+    "@coffee-shope/cs-scripts": "^1.0.13",
     "@types/jest": "^24.0.5",
     "@types/react": "^16.8.1",
     "typescript": "^3.3.1"
@@ -25,7 +25,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/ripple": "^1.0.9",
-    "@coffee-shope/theme": "^1.0.1"
+    "@coffee-shope/ripple": "^1.0.10",
+    "@coffee-shope/theme": "^1.0.8"
   }
 }

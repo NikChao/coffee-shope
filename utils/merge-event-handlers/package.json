@@ -1,7 +1,7 @@
 {
   "name": "@coffee-shope/merge-event-handlers",
-  "version": "1.0.8",
-  "main": "lib/index.js",
+  "version": "1.0.9",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
     "start": "shope stories",
@@ -16,7 +16,7 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/cs-scripts": "^1.0.12"
+    "@coffee-shope/cs-scripts": "^1.0.13"
   },
   "author": "",
   "license": "MIT",
