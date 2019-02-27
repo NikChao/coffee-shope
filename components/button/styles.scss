@@ -1,7 +1,7 @@
 @import "@coffee-shope/theme/theme.scss";
 
 .Button {
-  // font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: $colorGreenDarkApron;
   font-weight: bold;
@@ -32,6 +32,49 @@
 .Button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.LargeButton {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  display: block;
+  padding: 16px 32px;
+  border-radius: 2px;
+  background-color: $colorGreenDarkApron;
+  border-color: $colorGreenDarkApron;
+  color: #fff;
+  border-color: rgba(0,168,98,.9);
+}
+
+.LargeButton:not(:disabled) {
+  cursor: pointer;
+}
+
+.LargeButton:hover {
+  background-color: rgba(0,168,98,.9);
+}
+
+.LargeButton:active {
+  transform: scale(.95);
+  transition: all .2s ease;
+}
+
+.small {
+
+}
+
+.negative {
+  border: 1px solid $colorGreenDarkApron;
+  color: $colorGreenDarkApron;
+  background-color: white;
+}
+
+.negative:hover {
+  background-color: rgba($colorGreenDarkApron, 0.1);
+}
+
+.sml {
+  width: 33%;
 }
 
 .positive {
