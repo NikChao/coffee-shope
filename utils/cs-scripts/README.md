@@ -23,6 +23,6 @@
 **these will overwrite your .shoperc.json config**
 
 - `--no-typescript`
-- `--no-typescript`
+- `--no-storybook`
 - `organisation-name`
 - `packages-dir`
