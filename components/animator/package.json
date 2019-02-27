@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/animator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -16,8 +16,8 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/cs-scripts": "^1.0.17",
-    "@coffee-shope/float": "^1.0.5",
+    "@coffee-shope/cs-scripts": "^1.0.18",
+    "@coffee-shope/float": "^1.0.6",
     "@types/jest": "^24.0.5",
     "@types/react": "^16.8.4",
     "@types/react-dom": "^16.8.2",
@@ -28,7 +28,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.12",
+    "@coffee-shope/theme": "^1.0.13",
     "@types/react-transition-group": "^2.0.16",
     "react-transition-group": "^2.5.3"
   }
