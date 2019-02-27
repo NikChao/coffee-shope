@@ -11,25 +11,41 @@ const stories = require('./commands/stories');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
-function getConfig () {
+function getConfig (argv) {
+  const flagConfig = {
+    typescript: !argv['no-typescript'],
+    storybook: !argv['no-storybook'],
+    organisation_name: argv['organisation-name'],
+    packages_dir: argv['packages-dir']
+  };
+
   const configPath = `${path.resolve()}/.shoperc.json`;
 
   if (!fs.existsSync(configPath)) {
-    return {};
+    return flagConfig;
   }
 
   const contents = fs.readFileSync(configPath, 'utf8');
 
   try {
-    return JSON.parse(contents);
+    const config = JSON.parse(contents);
+
+    // Override config with manual flags
+    for (const key of Object.keys(flagConfig)) {
+      if (flagConfig[key] === undefined) {
+        continue;
+      }
+      config[key] = flagConfig[key];
+    }
+
+    return config;
   } catch (err) {
-    return {};
+    return flagConfig;
   }
 }
 
-function run(command, moduleType, name, typescript=false) {
-  const config = getConfig();
-  config.typescript = typescript;
+function run(command, moduleType, name, argv) {
+  const config = getConfig(argv);
 
   if (!command) {
     clog('No command specified', chalk.red);
@@ -49,4 +65,4 @@ function run(command, moduleType, name, typescript=false) {
 
 const [ command, moduleType, name ] = _.get(yargs, 'argv._', ['', '']);
 
-run(command, moduleType, name, !yargs.argv['no-typescript']);
+run(command, moduleType, name, yargs.argv);

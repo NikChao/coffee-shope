@@ -8,3 +8,21 @@
     `shope create util <util-name>`
     
  - add a `--no-typescript` flag to either for es6 javascript
+---
+
+### .shoperc.json
+***you can configure shope by placing a .shoperc.json wherever you're calling it from***
+
+ - storybook: defaults to true
+ - typescript: defaults to true
+ - organisation_name: defaults to empty string
+ - packages_dir: defaults to .
+---
+
+### command line flags
+**these will overwrite your .shoperc.json config**
+
+- `--no-typescript`
+- `--no-typescript`
+- `organisation-name`
+- `packages-dir`

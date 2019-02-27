@@ -63,6 +63,13 @@ function addToStorybook(name, extension='js') {
   });
 }
 
+function getRootDir (config) {
+  console.log(config);
+  return config.packages_root_dir
+    ? `${config.packages_root_dir}/`
+    : `./`;
+}
+
 function createComponent(name, config) {
   if (!name) {
     clog('No component name provided.', chalk.red);
@@ -70,14 +77,15 @@ function createComponent(name, config) {
   }
 
   name = changeCase.paramCase(name);
-
+  
   const typescript = config.typescript
+  const packageRootDir = getRootDir(config);
 
   clog(`Creating ${name} component...`, chalk.blue);
   
   try {
     const src = __dirname + (typescript ? '/../templates/component-ts' : '/../templates/component');
-    const dest = path.resolve() + `/components/${name}`;
+    const dest = path.resolve() + `${packageRootDir}components/${name}`;
     copyDir.sync(src, dest);
     
     clog(`Created template!`, chalk.blue);
@@ -106,6 +114,7 @@ function createUtil (name, config) {
   clog(`Creating ${name} util...`, chalk.blue);
 
   const typescript = config.typescript;
+  const packageRootDir = getRootDir(config);
 
   try {
     const src = __dirname + (typescript ? '/../templates/util-ts' : '/../templates/util');
