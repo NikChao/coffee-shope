@@ -1,5 +1,5 @@
 {
-  "name": "@coffee-shope/{{TEMPLATE_NAME}}",
+  "name": "{{ORGANISATION_NAME}}/{{TEMPLATE_NAME}}",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

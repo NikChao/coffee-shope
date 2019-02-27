@@ -6,7 +6,7 @@ const changeCase = require('change-case');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
-function replaceTemplates ({ files=[], name }) {
+function replaceTemplates ({ files=[], { name, org } }) {
   files.forEach(file => {
     fs.readFile(file, 'utf8', function (err,data) {
       if (err) {
@@ -19,7 +19,8 @@ function replaceTemplates ({ files=[], name }) {
       const result = data
         .replace(/{{TEMPLATE_NAME}}/g, name)
         .replace(/{{COMPONENT_NAME}}/g, component)
-        .replace(/{{MODULE_NAME}}/g, module);
+        .replace(/{{MODULE_NAME}}/g, module)
+        .replace(/{{ORGANISATION_NAME}}/g, org);
   
       fs.writeFile(file, result, 'utf8', function (err) {
         if (err) return console.log(err);
@@ -85,7 +86,7 @@ function createComponent(name, config) {
 
     replaceTemplates({
       files: ['package.json', ...files].map(f => `${dest}/${f}`),
-      name
+      names: { name, org: organisation_name }
     });
 
     clog(`Adding to storybook!`, chalk.blue);
@@ -118,7 +119,7 @@ function createUtil (name, config) {
 
     replaceTemplates({
       files: [...files, 'package.json'].map(f => `${dest}/${f}`),
-      name
+      names: { name, org: config.organisation_name }
     });
 
     clog(`Created ${name}`, chalk.green);
