@@ -30,9 +30,6 @@ function getConfig () {
 function run(command, moduleType, name, typescript=false) {
   const config = getConfig();
   config.typescript = typescript;
-  console.log(config);
-
-  return;
 
   if (!command) {
     clog('No command specified', chalk.red);
