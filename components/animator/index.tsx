@@ -8,7 +8,7 @@ interface Props {
 function Animator(props: Props) {
   return (
     <span className={styles.container}>
-      {props.children}  
+      {props.children[0]}
     </span>
   );
 }
