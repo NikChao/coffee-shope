@@ -60,13 +60,15 @@ function addToStorybook(name, extension='js') {
   });
 }
 
-function createComponent(name, typescript) {
+function createComponent(name, config) {
   if (!name) {
     clog('No component name provided.', chalk.red);
     return;
   }
 
   name = changeCase.paramCase(name);
+
+  const typescript = config.typescript
 
   clog(`Creating ${name} component...`, chalk.blue);
   
@@ -97,8 +99,10 @@ function createComponent(name, typescript) {
   }
 }
 
-function createUtil (name, typescript) {
+function createUtil (name, config) {
   clog(`Creating ${name} util...`, chalk.blue);
+
+  const typescript = config.typescript;
 
   try {
     const src = __dirname + (typescript ? '/../templates/util-ts' : '/../templates/util');
@@ -124,12 +128,12 @@ function createUtil (name, typescript) {
   }
 }
 
-function create (moduleType, name, typescript) {
+function create (moduleType, name, config) {
   switch (moduleType) {
     case 'component':
-      return createComponent(name, typescript);
+      return createComponent(name, config);
     case 'util':
-      return createUtil(name, typescript);
+      return createUtil(name, config);
     default:
       clog('invalid module type provided', chalk.red);
       return;
