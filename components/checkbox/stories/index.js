@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Checkbox } from '../';
+import { Checkbox } from '../src';
 
 function onChange (e) {
   console.log(
