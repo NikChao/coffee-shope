@@ -69,7 +69,6 @@ function addToStorybook(name, config, extension='js') {
 }
 
 function getRootDir (config) {
-  console.log(config);
   return config.packages_dir
     ? `${config.packages_dir}/`
     : `/`;
