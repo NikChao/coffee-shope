@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/theme",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -15,7 +15,7 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/cs-scripts": "^1.0.18"
+    "@coffee-shope/cs-scripts": "^1.0.19"
   },
   "author": "",
   "license": "MIT",
