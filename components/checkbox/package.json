@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/checkbox",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -36,6 +36,6 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.15"
+    "@coffee-shope/theme": "^1.0.16"
   }
 }
