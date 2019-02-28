@@ -1,4 +1,8 @@
 #! /usr/bin/env node
+
+// for proper module resolution
+require('module-alias/register');
+
 const chalk = require('chalk');
 const yargs = require('yargs');
 const _ = require('lodash');
