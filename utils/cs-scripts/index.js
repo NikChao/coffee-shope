@@ -42,6 +42,14 @@ function getConfig (argv) {
       config[key] = flagConfig[key];
     }
 
+    if (config.typescript === undefined) {
+      config.typescript = true;
+    }
+
+    if (config.storybook === undefined) {
+      config.storybook = true;
+    }
+
     return config;
   } catch (err) {
     return flagConfig;
