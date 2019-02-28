@@ -1,8 +1,8 @@
 {
 	"name": "coffee-shope",
 	"scripts": {
-		"create-component": "shope create component",
-		"create-util": "shope create util",
+		"create-component": "barista create component",
+		"create-util": "barista create util",
 		"bootstrap": "lerna bootstrap",
 		"publish-all": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
 		"storybook": "start-storybook -p 9001 -c .storybook",
@@ -20,7 +20,7 @@
 		"@babel/preset-env": "^7.3.1",
 		"@babel/preset-react": "^7.0.0",
 		"@babel/preset-typescript": "^7.3.3",
-		"@coffee-shope/cs-scripts": "^1.0.3",
+		"@coffee-shope/barista": "^1.0.3",
 		"@storybook/react": "^4.1.11",
 		"babel-core": "^6.26.3",
 		"babel-loader": "^8.0.5",
