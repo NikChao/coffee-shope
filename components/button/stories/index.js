@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Button, LargeButton } from '../index.js';
+import { Button, LargeButton } from '../src';
 
 const click = () => console.log('click!');
 
