@@ -71,7 +71,7 @@ function addToStorybook(name, config, extension='js') {
 function getRootDir (config) {
   return config.packages_dir
     ? `${config.packages_dir}/`
-    : `/`;
+    : '';
 }
 
 function createComponent(name, config) {
@@ -97,7 +97,7 @@ function createComponent(name, config) {
     
     const files = typescript
     ? [ '__tests__/index.tsx', 'stories/index.tsx', 'index.tsx' ]
-    : [ '__tests__/index.js', 'stories/index.js', 'index.js' ];
+    : [ '__tests__/index.js', 'stories/index.js', 'src/index.js' ];
 
     replaceTemplates({
       files: ['package.json', ...files].map(f => `${dest}/${f}`),
