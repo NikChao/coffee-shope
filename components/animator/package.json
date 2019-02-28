@@ -4,7 +4,6 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "start": "shope stories",
     "build": "rm -rf ./lib && tsc",
     "prepublishOnly": "yarn build",
     "postpublish": "rm -rf ./lib"
@@ -16,7 +15,6 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/cs-scripts": "^1.0.20",
     "@coffee-shope/float": "^1.0.8",
     "@types/jest": "^24.0.5",
     "@types/react": "^16.8.4",
