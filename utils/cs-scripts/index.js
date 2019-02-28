@@ -13,8 +13,8 @@ const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
 function getConfig (argv) {
   const flagConfig = {
-    typescript: !argv['no-typescript'],
-    storybook: !argv['no-storybook'],
+    typescript: argv['no-typescript'] !== undefined ? !argv['no-typescript'] : undefined,
+    storybook: argv['no-storybook'] !== undefined ? !argv['no-storybook'] : undefined,
     organisation_name: argv['organisation-name'],
     packages_dir: argv['packages-dir']
   };
