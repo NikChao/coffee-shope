@@ -11,9 +11,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "react": "^16.8.1"
-  },
   "author": "",
   "license": "MIT",
   "description": ""

@@ -11,9 +11,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "react": "^16.8.1"
-  },
   "devDependencies": {
     "@types/jest": "^24.0.5",
     "typescript": "^3.3.1"
