@@ -30,7 +30,7 @@
     "rollup-plugin-commonjs": "^9.2.1",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-svg": "^1.0.1",
+    "rollup-plugin-svg": "^1.0.1"
   },
   "author": "",
   "license": "MIT",
