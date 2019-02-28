@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import styles from './styles.scss';
 import { autobind } from 'core-decorators';
-import { FieldStatus } from '.';
+import FieldStatus from './field-status';
 import Error from './error.svg';
 
 @autobind

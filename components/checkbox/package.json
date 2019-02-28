@@ -1,12 +1,11 @@
 {
   "name": "@coffee-shope/checkbox",
   "version": "1.0.15",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "start": "shope stories",
     "build": "rm -rf ./lib && rollup -c",
-    "prepublishOnly": "shope build"
+    "prepublishOnly": "yarn build"
   },
   "publishConfig": {
     "access": "public"
