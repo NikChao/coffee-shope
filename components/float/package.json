@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/float",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -23,7 +23,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/ripple": "^1.0.18",
+    "@coffee-shope/ripple": "^1.0.19",
     "@coffee-shope/theme": "^1.0.16"
   }
 }
