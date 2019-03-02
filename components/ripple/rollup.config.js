@@ -28,7 +28,7 @@ module.exports = {
   input: 'src/index.tsx',
   output: {
     file: './lib/index.js',
-    format: 'umd',
+    format: 'cjs',
     name: 'button'
   },
   plugins: [
