@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Animator } from '../src/index';
-import { Button } from '@coffee-shope/button';
+const { Button } = require('@coffee-shope/button/src');
 
 function Wizard () {
   const [ step, setStep ] = useState(0);
