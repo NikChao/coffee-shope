@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/animator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -14,7 +14,7 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/float": "^1.0.10",
+    "@coffee-shope/button": "^1.0.27",
     "@types/jest": "^24.0.5",
     "@types/react": "^16.8.1",
     "@types/react-transition-group": "^2.0.16",
