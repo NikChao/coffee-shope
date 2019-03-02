@@ -5,6 +5,22 @@ import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import bundleSize from 'rollup-plugin-bundle-size';
 
+const reactExports = [
+  'Children',
+  'Component',
+  'PureComponent',
+  'PropTypes',
+  'createElement',
+  'Fragment',
+  'cloneElement',
+  'StrictMode',
+  'createFactory',
+  'createRef',
+  'createContext',
+  'isValidElement',
+  'isValidElementType'
+];
+
 module.exports = {
   input: 'src/index.tsx',
   output: {
@@ -22,21 +38,9 @@ module.exports = {
     commonjs({
       include: /node_modules/,
       namedExports: {
-        'node_modules/react/index.js': [
-          'Children',
-          'Component',
-          'PureComponent',
-          'PropTypes',
-          'createElement',
-          'Fragment',
-          'cloneElement',
-          'StrictMode',
-          'createFactory',
-          'createRef',
-          'createContext',
-          'isValidElement',
-          'isValidElementType'
-        ]
+        'node_modules/react/index.js': reactExports,
+        // just in case its pulling deps from root of mono-repo
+        '../../node_modules/react/index.js': reactExports
       }
     }),
     terser(),

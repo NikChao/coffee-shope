@@ -96,7 +96,7 @@ function createComponent(name, config) {
     clog(`Created template!`, chalk.blue);
     
     const files = typescript
-    ? [ '__tests__/index.tsx', 'stories/index.tsx', 'index.tsx' ]
+      ? [ '__tests__/index.tsx', 'stories/index.tsx', 'src/index.tsx' ]
     : [ '__tests__/index.js', 'stories/index.js', 'src/index.js' ];
 
     replaceTemplates({
