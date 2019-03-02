@@ -4,6 +4,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import svg from 'rollup-plugin-svg';
 import { terser } from 'rollup-plugin-terser';
+import bundleSize from 'rollup-plugin-bundle-size';
 
 const reactNamedExports = [
   'Children',
@@ -46,6 +47,7 @@ module.exports = {
       runtimeHelpers: true,
       exclude: 'node_modules/**'
     }),
-    svg()
+    svg(),
+    bundleSize()
   ]
 }
