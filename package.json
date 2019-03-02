@@ -1,8 +1,8 @@
 {
 	"name": "coffee-shope",
 	"scripts": {
-		"create-component": "barista create component && lerna bootstrap",
-		"create-util": "barista create util && lerna bootstrap",
+		"create-component": "barista create component",
+		"create-util": "barista create util",
 		"bootstrap": "lerna bootstrap",
 		"publish-all": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
 		"storybook": "start-storybook -p 9001 -c .storybook",
