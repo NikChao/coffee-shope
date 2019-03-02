@@ -2,6 +2,7 @@
   "name": "@coffee-shope/button",
   "version": "1.0.25",
   "main": "./lib/index.js",
+  "style": "./lib/styles.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf ./lib && rollup -c",
@@ -31,6 +32,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime-corejs2": "^7.3.4",
     "node-sass": "^4.11.0",
+    "postcss-modules": "^1.4.1",
     "rollup": "^1.3.2",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.1",
