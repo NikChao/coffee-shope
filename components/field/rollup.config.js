@@ -3,6 +3,7 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import svg from 'rollup-plugin-svg';
+import { terser } from 'rollup-plugin-terser';
 
 const reactNamedExports = [
   'Children',
@@ -45,6 +46,7 @@ module.exports = {
       runtimeHelpers: true,
       exclude: 'node_modules/**'
     }),
-    svg()
+    svg(),
+    terser()
   ]
 }
