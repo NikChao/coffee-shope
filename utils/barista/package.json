@@ -1,10 +1,10 @@
 {
-  "name": "@coffee-shope/cs-scripts",
-  "version": "1.0.26",
+  "name": "@coffee-shope/barista",
+  "version": "1.0.0",
   "description": "A set of scripts for scaffolding and building coffee-shope components",
   "main": "index.js",
   "bin": {
-    "shope": "index.js"
+    "barista": "index.js"
   },
   "scripts": {
     "start": "node index.js",

@@ -23,7 +23,7 @@ function getConfig (argv) {
     packages_dir: argv['packages-dir']
   };
 
-  const configPath = `${path.resolve()}/.shoperc.json`;
+  const configPath = `${path.resolve()}/.baristarc.json`;
 
   if (!fs.existsSync(configPath)) {
     return flagConfig;
