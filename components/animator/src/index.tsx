@@ -12,6 +12,7 @@ const Animator: React.FunctionComponent<Props> =
     return (
       <div>
         <CSSTransition
+          timeout={300}
           classNames={{
             appearActive: styles['appear-active'],
             enter: styles.enter,
