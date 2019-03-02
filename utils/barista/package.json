@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/barista",
-  "version": "1.0.26",
+  "version": "0.0.0",
   "description": "A set of scripts for scaffolding and building coffee-shope components",
   "main": "index.js",
   "bin": {
