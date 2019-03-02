@@ -19,7 +19,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/merge-event-handlers": "^1.0.18",
+    "@coffee-shope/merge-event-handlers": "^1.0.19",
     "core-decorators": "^0.20.0"
   },
   "devDependencies": {
