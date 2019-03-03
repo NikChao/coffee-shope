@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "outDir": "./lib/",
+    "outDir": "./lib",
+    "declaration": true,
+    "declarationDir": "./lib",
     "module": "es2015",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "sourceMap": true,
     "allowJs": false,
-    "declaration": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "./",
+    "rootDir": "./src",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
@@ -18,6 +22,10 @@
     "experimentalDecorators": true,
     "skipLibCheck": true
   },
+  "include": [
+    "src/**/*",
+    "typings/*"
+  ],
   "exclude": [
     "node_modules",
     "build",
