@@ -11,7 +11,7 @@ module.exports = {
   output: {
     file: './lib/index.js',
     format: 'cjs',
-    name: 'button'
+    name: 'merge-event-handlers'
   },
   plugins: [
     resolve(),
