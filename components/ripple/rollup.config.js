@@ -29,7 +29,7 @@ module.exports = {
   output: {
     file: './lib/index.js',
     format: 'cjs',
-    name: 'button'
+    name: 'ripple'
   },
   plugins: [
     resolve(),
