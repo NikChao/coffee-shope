@@ -107,7 +107,7 @@ function createComponent(name, config) {
 
     clog(`Adding to storybook!`, chalk.blue);
 
-    addToStorybook(name, config, typescript ? 'tsx' : 'ts');
+    addToStorybook(name, config, typescript ? 'tsx' : 'js');
 
     clog(`Created ${name}!`, chalk.green);
   } catch (err) {

@@ -18,7 +18,7 @@ const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 function readRuntimeConfigFile () {
   const configPath = `${path.resolve()}/.baristarc.js`;
 
-  if (!fs.fileExistsSync(configPath)) {
+  if (!fs.existsSync(configPath)) {
     return null;
   }
 
