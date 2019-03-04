@@ -1,10 +1,10 @@
-import postcss from 'rollup-plugin-postcss';
-import resolve from 'rollup-plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
-import bundleSize from 'rollup-plugin-bundle-size';
-import babelConfig from './babel.config';
+const postcss = require('rollup-plugin-postcss');
+const resolve = require('rollup-plugin-node-resolve');
+const typescript = require('rollup-plugin-typescript2');
+const commonjs = require('rollup-plugin-commonjs');
+const { terser } = require('rollup-plugin-terser');
+const bundleSize = require('rollup-plugin-bundle-size');
+const babelConfig = require('./babel.config');
 
 const reactExports = [
   'Children',
