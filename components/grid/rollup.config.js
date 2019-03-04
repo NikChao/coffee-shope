@@ -10,7 +10,7 @@ module.exports = {
   output: {
     file: './lib/index.js',
     format: 'umd',
-    name: 'button'
+    name: 'grid'
   },
   plugins: [
     resolve(),
