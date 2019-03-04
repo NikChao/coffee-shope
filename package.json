@@ -3,6 +3,7 @@
 	"scripts": {
 		"create-component": "barista create component",
 		"create-util": "barista create util",
+        "link": "lerna link",
 		"bootstrap": "lerna bootstrap",
         "build-all": "lerna run 'build'",
 		"publish-all": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
