@@ -40,8 +40,6 @@ function getConfig (argv) {
   }
 
   try {
-    const config = JSON.parse(contents);
-
     // Override config with manual flags
     for (const key of Object.keys(flagConfig)) {
       if (flagConfig[key] === undefined) {
