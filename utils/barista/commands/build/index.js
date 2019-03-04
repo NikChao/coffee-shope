@@ -13,10 +13,10 @@ async function build (moduleType, name, config) {
     ? require('./configs/rollup-util')(name, config)
     : require('./configs/rollup-component')(name, config);
 
-  console.log(chalk.gree('Creating bundle'));
+  console.log(chalk.green('Creating bundle'));
   const bundle = await rollup.rollup(rollupConf);
 
-  console.log(chalk.gree('Writing bundle'));
+  console.log(chalk.green('Writing bundle'));
   await bundle.write(outputOptions);
 
   if (!config.postBuild) {
