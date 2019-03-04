@@ -19,11 +19,12 @@ function replaceTemplates ({ files=[], names }) {
       const component = changeCase.pascalCase(name);
       const module = changeCase.camelCase(name);
 
+      const templateOrganisationName = org ? org + '/' : '';
       const result = data
         .replace(/{{TEMPLATE_NAME}}/g, name)
         .replace(/{{COMPONENT_NAME}}/g, component)
         .replace(/{{MODULE_NAME}}/g, module)
-        .replace(/{{ORGANISATION_NAME}}/g, org);
+        .replace(/{{ORGANISATION_NAME}}/g, templateOrganisationName);
   
       fs.writeFile(file, result, 'utf8', function (err) {
         if (err) return console.log(err);
@@ -81,6 +82,11 @@ function createComponent(name, config) {
     return;
   }
 
+  const organisationName = config.organisation_name;
+  if (!organisationName) {
+    clog(`No organisation name provided`, chalk.yellow);
+  }
+
   name = changeCase.paramCase(name);
   
   const typescript = config.typescript
@@ -102,7 +108,7 @@ function createComponent(name, config) {
 
     replaceTemplates({
       files: ['package.json', ...files].map(f => `${dest}/${f}`),
-      names: { name, org: config.organisation_name }
+      names: { name, org: organisationName }
     });
 
     clog(`Adding to storybook!`, chalk.blue);
