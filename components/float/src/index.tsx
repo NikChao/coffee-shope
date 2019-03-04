@@ -59,7 +59,7 @@ class Float extends PureComponent<Props, State> {
     return (
       <div style={this.positioning}>
       <Ripple>
-        {({ ripple, mergeEventHandlers }) => (
+        {({ ripple, mergeEventHandlers }: any) => (
           <button
             {...mergeEventHandlers({ onClick })}
             className={this.className} disabled={disabled}

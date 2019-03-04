@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Float } from '../';
+import { Float } from '../src';
 
 function click () {
   console.log('click');

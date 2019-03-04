@@ -30,7 +30,7 @@ module.exports = {
   output: {
     file: './lib/index.js',
     format: 'cjs',
-    name: 'button'
+    name: 'float'
   },
   plugins: [
     resolve(),
