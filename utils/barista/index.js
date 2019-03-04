@@ -15,6 +15,16 @@ const stories = require('./commands/stories');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
+function readRuntimeConfigFile () {
+  const configPath = `${path.resolve()}/.baristarc.js`;
+
+  if (!fs.fileExistsSync(configPath)) {
+    return null;
+  }
+
+  return require(configPath);
+}
+
 function getConfig (argv) {
   const flagConfig = {
     typescript: argv['no-typescript'] !== undefined ? !argv['no-typescript'] : undefined,
@@ -23,13 +33,11 @@ function getConfig (argv) {
     packages_dir: argv['packages-dir']
   };
 
-  const configPath = `${path.resolve()}/.baristarc.json`;
+  const config = readRuntimeConfigFile();
 
-  if (!fs.existsSync(configPath)) {
+  if (!config) {
     return flagConfig;
   }
-
-  const contents = fs.readFileSync(configPath, 'utf8');
 
   try {
     const config = JSON.parse(contents);
@@ -67,7 +75,7 @@ function run(command, moduleType, name, argv) {
     return create(moduleType, name, config);
   }
   if (command === 'build') {
-    return build();
+    return build(moduleType, name, config);
   }
   if (command === 'story') {
     return stories();

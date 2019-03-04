@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const copyDir = require('copy-dir');
 const changeCase = require('change-case');
+const shelljs = require('shelljs');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
@@ -139,9 +140,32 @@ function createUtil (name, config) {
     });
 
     clog(`Created ${name}`, chalk.green);
+
+    if (!config.postCreate) {
+      return;
+    }
+
+    clog(`Running postCreate script...`, chalk.green);
+    
+    // if it's a function
+    if (typeof config.postCreate === 'function') {
+      config.postCreate({
+        dest
+      });
+    }
+    
+    // if it's a shell script
+    if (typeof config.postCreate === 'string') {
+      try {
+        shelljs(path.resolve() + '/' + config.postCreate);
+      } catch (err) {
+        clog('Post create script failed');
+        console.error(err.message);
+      }
+    }
   } catch (err) {
     clog(`Failed to create ${name}`, chalk.red);
-    console.log(err);
+    console.error(err.message);
   }
 }
 
