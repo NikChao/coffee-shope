@@ -45,11 +45,6 @@ module.exports = function (name, config) {
 
   return patcher({
     input: 'src/index.tsx',
-    output: {
-      file: './lib/index.js',
-      format: 'umd',
-      name: componentName
-    },
     plugins
   });
 };

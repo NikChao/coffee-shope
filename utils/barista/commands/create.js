@@ -77,11 +77,6 @@ function getRootDir (config) {
     : '';
 }
 
-function copyBaristaRc (config) {
-  console.log(__dirname);
-  console.log(config);
-}
-
 function createComponent(name, config) {
   if (!name) {
     clog('ERR: No component name provided.', chalk.red);
@@ -110,7 +105,6 @@ function createComponent(name, config) {
     const dest = path.resolve() + `/${packageRootDir}components/${name}`;
 
     copyDir.sync(src, dest);
-    copyBaristaRc(config);
     
     clog(`Created template!`, chalk.blue);
     

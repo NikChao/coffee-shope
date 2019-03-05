@@ -22,12 +22,7 @@ async function build (moduleType, config) {
     ? name.replace(organisation_name, '')
     : name;
 
-  const rollupOutputOptions = {
-    file: './lib/index.js',
-    format: 'umd',
-    name: componentName ? componentName : configuredName
-  };
-
+  const rollupOutputOptions = require('./configs/rollup-output')(name);
   console.log(chalk.green('Writing bundle'));
   await bundle.write(rollupOutputOptions);
 
