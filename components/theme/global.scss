@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+$font-stack: 'Montserrat', sans-serif;
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  // display: flex;
+  // min-height: 100vh;
+  // flex-direction: column;
+}
+
+main {
+  // flex: 1 0 auto;
+}
+
+html,
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $font-stack;
+}
+
+button {
+  outline: none;
+}
+
+input::placeholder {
+  font-family: $font-stack;
+}
+input {
+  outline: none;
+}

@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "exclude": ["es6.promise"]
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-json-strings",
+    "@babel/plugin-syntax-import-meta",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": true,
+        "corejs": 2,
+        "regenerators": true
+      }
+    ],
+    "@babel/plugin-syntax-dynamic-import"
+  ]
+}
