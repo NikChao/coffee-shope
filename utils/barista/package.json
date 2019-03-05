@@ -36,6 +36,7 @@
     "fs": "^0.0.1-security",
     "lodash": "^4.17.11",
     "module-alias": "^2.2.0",
+    "node-sass": "^4.11.0",
     "path": "^0.12.7",
     "postcss-modules": "^1.4.1",
     "rollup": "^1.4.0",
