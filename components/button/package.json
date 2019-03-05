@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/button",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "main": "./lib/index.js",
   "style": "./lib/styles.css",
   "scripts": {
