@@ -88,7 +88,7 @@ function createComponent(name, config) {
     clog(`WARN: No organisation name provided`, chalk.yellow);
   }
 
-  if (organisationName[0] !== '@') {
+  if (organisationName && organisationName[0] !== '@') {
     clog('ERR: Organisation name must begin with an "@"');
     return;
   }
