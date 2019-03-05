@@ -27,8 +27,8 @@ function readRuntimeConfigFile () {
 
 function getConfig (argv) {
   const flagConfig = {
-    typescript: argv['no-typescript'] !== undefined ? argv['no-typescript'] !== 'true' : true,
-    storybook: argv['no-storybook'] !== undefined ? argv['no-storybook'] !== 'true' : true,
+    typescript: argv['no-typescript'] !== undefined ? argv['no-typescript'] !== 'true' : undefined,
+    storybook: argv['no-storybook'] !== undefined ? argv['no-storybook'] !== 'true' : undefined,
     organisation_name: argv['organisation-name'],
     packages_dir: argv['packages-dir']
   };
