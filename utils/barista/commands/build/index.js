@@ -8,16 +8,28 @@ const chalk = require('chalk');
  * @param {string} name 
  * @param {Object} config 
  */
-async function build (moduleType, name, config) {
-  const rollupConf = moduleType === 'util'
+async function build (moduleType, config) {
+  const { name } = config;
+  const rollupInputOptions = moduleType === 'util'
     ? require('./configs/rollup-util')(name, config)
     : require('./configs/rollup-component')(name, config);
 
   console.log(chalk.green('Creating bundle'));
-  const bundle = await rollup.rollup(rollupConf);
+  const bundle = await rollup.rollup(rollupInputOptions);
+
+  const { organisation_name } = config;
+  const componentName = typeof organisation_name === 'string'
+    ? name.replace(organisation_name, '')
+    : name;
+
+  const rollupOutputOptions = {
+    file: './lib/index.js',
+    format: 'umd',
+    name: componentName ? componentName : configuredName
+  };
 
   console.log(chalk.green('Writing bundle'));
-  await bundle.write(outputOptions);
+  await bundle.write(rollupOutputOptions);
 
   if (!config.postBuild) {
     return;

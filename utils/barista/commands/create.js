@@ -18,13 +18,14 @@ function replaceTemplates ({ files=[], names }) {
 
       const component = changeCase.pascalCase(name);
       const module = changeCase.camelCase(name);
+      const packageName = org ? org + '/' + name : name;
 
-      const templateOrganisationName = org ? org + '/' : '';
       const result = data
         .replace(/{{TEMPLATE_NAME}}/g, name)
         .replace(/{{COMPONENT_NAME}}/g, component)
+        .replace(/{{PACKAGE_NAME}}/g, packageName)
         .replace(/{{MODULE_NAME}}/g, module)
-        .replace(/{{ORGANISATION_NAME}}/g, templateOrganisationName);
+        .replace(/{{ORGANISATION_NAME}}/g, org);
   
       fs.writeFile(file, result, 'utf8', function (err) {
         if (err) return console.log(err);
@@ -54,7 +55,7 @@ function addToStorybook(name, config, extension='js') {
     const statement = `require('../${getRootDir(config)}components/${name}/stories/index.${extension}');`
 
     if (data.includes(statement)) {
-      clog('story already exists for this component', chalk.yellow);
+      clog('Story already exists for this component', chalk.yellow);
       return;
     }
 
@@ -76,15 +77,25 @@ function getRootDir (config) {
     : '';
 }
 
+function copyBaristaRc (config) {
+  console.log(__dirname);
+  console.log(config);
+}
+
 function createComponent(name, config) {
   if (!name) {
-    clog('No component name provided.', chalk.red);
+    clog('ERR: No component name provided.', chalk.red);
     return;
   }
 
   const organisationName = config.organisation_name;
   if (!organisationName) {
-    clog(`No organisation name provided`, chalk.yellow);
+    clog(`WARN: No organisation name provided`, chalk.yellow);
+  }
+
+  if (organisationName[0] !== '@') {
+    clog('ERR: Organisation name must begin with an "@"');
+    return;
   }
 
   name = changeCase.paramCase(name);
@@ -99,6 +110,7 @@ function createComponent(name, config) {
     const dest = path.resolve() + `/${packageRootDir}components/${name}`;
 
     copyDir.sync(src, dest);
+    copyBaristaRc(config);
     
     clog(`Created template!`, chalk.blue);
     
@@ -107,7 +119,7 @@ function createComponent(name, config) {
     : [ '__tests__/index.js', 'stories/index.js', 'src/index.js' ];
 
     replaceTemplates({
-      files: ['package.json', ...files].map(f => `${dest}/${f}`),
+      files: [...files, 'package.json', '.baristarc.js'].map(f => `${dest}/${f}`),
       names: { name, org: organisationName }
     });
 
@@ -141,7 +153,7 @@ function createUtil (name, config) {
       : [ '__tests__/index.js', 'index.js' ];
 
     replaceTemplates({
-      files: [...files, 'package.json'].map(f => `${dest}/${f}`),
+      files: [...files, 'package.json', '.baristarc.js'].map(f => `${dest}/${f}`),
       names: { name, org: config.organisation_name }
     });
 

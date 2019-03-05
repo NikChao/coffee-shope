@@ -19,16 +19,11 @@ const reactExports = [
   'createRef',
   'createContext',
   'isValidElement',
-  'isValidElementType'
+  'isValidElementType',
 ];
 
 module.exports = function (name, config) {
-  const { typescript: ts , organisation_name, rollup_patcher } = config;
-
-  const componentName = typeof organisation_name === 'string'
-    ? name.replace(organisation_name, '')
-    : name;
-
+  const { typescript: ts, rollup_patcher } = config;
   const plugins = [
     resolve(),
     ...(ts ? [typescript()] : []),
@@ -38,9 +33,11 @@ module.exports = function (name, config) {
       extract: true
     }),
     commonjs({
-      include: /node_modules/,
+      include: [
+        /node_modules/
+      ],
       namedExports: {
-        'node_modules/react/index.js': reactExports
+        'react/index.js': reactExports
       }
     }),
     terser(),
@@ -53,11 +50,6 @@ module.exports = function (name, config) {
 
   return patcher({
     input: 'src/index.tsx',
-    output: {
-      file: './lib/index.js',
-      format: 'umd',
-      name: componentName
-    },
     plugins
   });
 };

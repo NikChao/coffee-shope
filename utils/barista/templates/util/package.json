@@ -1,5 +1,5 @@
 {
-  "name": "{{ORGANISATION_NAME}}{{TEMPLATE_NAME}}",
+  "name": "{{{{PACKAGE_NAME}}}}",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

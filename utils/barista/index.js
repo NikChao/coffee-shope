@@ -27,8 +27,8 @@ function readRuntimeConfigFile () {
 
 function getConfig (argv) {
   const flagConfig = {
-    typescript: argv['no-typescript'] !== undefined ? !argv['no-typescript'] : undefined,
-    storybook: argv['no-storybook'] !== undefined ? !argv['no-storybook'] : undefined,
+    typescript: argv['no-typescript'] !== undefined ? argv['no-typescript'] !== 'true' : true,
+    storybook: argv['no-storybook'] !== undefined ? argv['no-storybook'] !== 'true' : true,
     organisation_name: argv['organisation-name'],
     packages_dir: argv['packages-dir']
   };
@@ -73,7 +73,7 @@ function run(command, moduleType, name, argv) {
     return create(moduleType, name, config);
   }
   if (command === 'build') {
-    return build(moduleType, name, config);
+    return build(moduleType, config);
   }
   if (command === 'story') {
     return stories();
