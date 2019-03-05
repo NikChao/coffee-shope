@@ -1,9 +1,10 @@
 {
-  "name": "{{ORGANISATION_NAME}}/{{TEMPLATE_NAME}}",
+  "name": "{{PACKAGE_NAME}}",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "rm -rf ./lib && barista build util"
   },
   "publishConfig": {
     "access": "public"

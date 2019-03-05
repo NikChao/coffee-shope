@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const copyDir = require('copy-dir');
 const changeCase = require('change-case');
+const shelljs = require('shelljs');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
@@ -17,10 +18,12 @@ function replaceTemplates ({ files=[], names }) {
 
       const component = changeCase.pascalCase(name);
       const module = changeCase.camelCase(name);
+      const packageName = org ? org + '/' + name : name;
 
       const result = data
         .replace(/{{TEMPLATE_NAME}}/g, name)
         .replace(/{{COMPONENT_NAME}}/g, component)
+        .replace(/{{PACKAGE_NAME}}/g, packageName)
         .replace(/{{MODULE_NAME}}/g, module)
         .replace(/{{ORGANISATION_NAME}}/g, org);
   
@@ -52,7 +55,7 @@ function addToStorybook(name, config, extension='js') {
     const statement = `require('../${getRootDir(config)}components/${name}/stories/index.${extension}');`
 
     if (data.includes(statement)) {
-      clog('story already exists for this component', chalk.yellow);
+      clog('Story already exists for this component', chalk.yellow);
       return;
     }
 
@@ -76,7 +79,17 @@ function getRootDir (config) {
 
 function createComponent(name, config) {
   if (!name) {
-    clog('No component name provided.', chalk.red);
+    clog('ERR: No component name provided.', chalk.red);
+    return;
+  }
+
+  const organisationName = config.organisation_name;
+  if (!organisationName) {
+    clog(`WARN: No organisation name provided`, chalk.yellow);
+  }
+
+  if (organisationName && organisationName[0] !== '@') {
+    clog('ERR: Organisation name must begin with an "@"');
     return;
   }
 
@@ -100,13 +113,13 @@ function createComponent(name, config) {
     : [ '__tests__/index.js', 'stories/index.js', 'src/index.js' ];
 
     replaceTemplates({
-      files: ['package.json', ...files].map(f => `${dest}/${f}`),
-      names: { name, org: config.organisation_name }
+      files: [...files, 'package.json', '.baristarc.js'].map(f => `${dest}/${f}`),
+      names: { name, org: organisationName }
     });
 
     clog(`Adding to storybook!`, chalk.blue);
 
-    addToStorybook(name, config, typescript ? 'tsx' : 'ts');
+    addToStorybook(name, config, typescript ? 'tsx' : 'js');
 
     clog(`Created ${name}!`, chalk.green);
   } catch (err) {
@@ -134,14 +147,37 @@ function createUtil (name, config) {
       : [ '__tests__/index.js', 'index.js' ];
 
     replaceTemplates({
-      files: [...files, 'package.json'].map(f => `${dest}/${f}`),
+      files: [...files, 'package.json', '.baristarc.js'].map(f => `${dest}/${f}`),
       names: { name, org: config.organisation_name }
     });
 
     clog(`Created ${name}`, chalk.green);
+
+    if (!config.postCreate) {
+      return;
+    }
+
+    clog(`Running postCreate script...`, chalk.green);
+    
+    // if it's a function
+    if (typeof config.postCreate === 'function') {
+      config.postCreate({
+        dest
+      });
+    }
+    
+    // if it's a shell script
+    if (typeof config.postCreate === 'string') {
+      try {
+        shelljs(path.resolve() + '/' + config.postCreate);
+      } catch (err) {
+        clog('Post create script failed');
+        console.error(err.message);
+      }
+    }
   } catch (err) {
     clog(`Failed to create ${name}`, chalk.red);
-    console.log(err);
+    console.error(err.message);
   }
 }
 

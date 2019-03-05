@@ -1,15 +1,17 @@
-{
-  "presets": [
+const babel = require('rollup-plugin-babel');
+
+module.exports = function (moduleType) {
+  const presets = [
     [
       "@babel/preset-env",
       {
         "useBuiltIns": "usage",
         "exclude": ["es6.promise"]
       }
-    ],
-    "@babel/preset-react"
-  ],
-  "plugins": [
+    ]
+  ];
+
+  const plugins = [
     [
       "@babel/plugin-proposal-decorators",
       {
@@ -29,5 +31,16 @@
       }
     ],
     "@babel/plugin-syntax-dynamic-import"
-  ]
+  ];
+
+  if (moduleType === 'component') {
+    presets.push("@babel/preset-react")
+  }
+
+  return babel({
+    runtimeHelpers: true,
+    exclude: /node_modules/,
+    presets,
+    plugins
+  })
 }

@@ -15,25 +15,31 @@ const stories = require('./commands/stories');
 
 const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
+function readRuntimeConfigFile () {
+  const configPath = `${path.resolve()}/.baristarc.js`;
+
+  if (!fs.existsSync(configPath)) {
+    return null;
+  }
+
+  return require(configPath);
+}
+
 function getConfig (argv) {
   const flagConfig = {
-    typescript: argv['no-typescript'] !== undefined ? !argv['no-typescript'] : undefined,
-    storybook: argv['no-storybook'] !== undefined ? !argv['no-storybook'] : undefined,
+    typescript: argv['no-typescript'] !== undefined ? argv['no-typescript'] !== 'true' : undefined,
+    storybook: argv['no-storybook'] !== undefined ? argv['no-storybook'] !== 'true' : undefined,
     organisation_name: argv['organisation-name'],
     packages_dir: argv['packages-dir']
   };
 
-  const configPath = `${path.resolve()}/.baristarc.json`;
+  const config = readRuntimeConfigFile();
 
-  if (!fs.existsSync(configPath)) {
+  if (!config) {
     return flagConfig;
   }
 
-  const contents = fs.readFileSync(configPath, 'utf8');
-
   try {
-    const config = JSON.parse(contents);
-
     // Override config with manual flags
     for (const key of Object.keys(flagConfig)) {
       if (flagConfig[key] === undefined) {
@@ -67,7 +73,7 @@ function run(command, moduleType, name, argv) {
     return create(moduleType, name, config);
   }
   if (command === 'build') {
-    return build();
+    return build(moduleType, config);
   }
   if (command === 'story') {
     return stories();
