@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
-    "build": "rm -rf ./lib && barista build util",
+    "test": "jest",
+    "build": "rm -rf ./lib && barista build util"
   },
   "publishConfig": {
     "access": "public"
