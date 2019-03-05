@@ -32,18 +32,7 @@ module.exports = function (name, config) {
     ...(ts ? [typescript()] : []),
     ...(!ts ? [babelConfig('component')] : []),
     postcss({
-      plugins: [
-        postcssModules({
-          getJSON (id, exportTokens) {
-            cssExportMap[id] = exportTokens;
-          }
-        })
-      ],
-      getExportNamed: false,
-      getExport (id) {
-        return cssExportMap[id];
-      },
-      extract: 'lib/styles.css'
+      modules: true
     }),
     commonjs({
       include: [
