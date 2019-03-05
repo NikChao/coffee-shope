@@ -1,9 +1,9 @@
-import resolve from 'rollup-plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
-import bundleSize from 'rollup-plugin-bundle-size';
-import babelConfig from './babel.config';
+const resolve = require('rollup-plugin-node-resolve');
+const typescript = require('rollup-plugin-typescript2');
+const commonjs = require('rollup-plugin-commonjs');
+const { terser } = require('rollup-plugin-terser');
+const bundleSize = require('rollup-plugin-bundle-size');
+const babelConfig = require('./babel.config');
 
 const reactExports = [
   'Children',
@@ -39,12 +39,14 @@ module.exports = function (name, config) {
     bundleSize()
   ]
 
+  const inputPath = ts ? 'index.ts' : 'index.js';
+
   const patcher = typeof rollup_patcher === 'function'
     ? rollup_patcher
     : x => x;
 
   return patcher({
-    input: 'src/index.tsx',
+    input: inputPath,
     plugins
   });
 };

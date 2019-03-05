@@ -1,10 +1,10 @@
 {
-  "name": "{{{{PACKAGE_NAME}}}}",
+  "name": "{{PACKAGE_NAME}}",
   "version": "1.0.0",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf ./lib && barista build",
+    "build": "rm -rf ./lib && barista build util",
     "prepublishOnly": "yarn build",
     "postpublish": "rm -rf ./lib"
   },

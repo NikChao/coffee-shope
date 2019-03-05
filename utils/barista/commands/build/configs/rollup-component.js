@@ -44,12 +44,15 @@ module.exports = function (name, config) {
     bundleSize()
   ]
 
+  const inputFile = ts ? 'index.tsx' : 'index.js';
+  const inputPath = 'src/' + inputFile;
+
   const patcher = typeof rollup_patcher === 'function'
     ? rollup_patcher
     : x => x;
 
   return patcher({
-    input: 'src/index.tsx',
+    input: inputPath,
     plugins
   });
 };
