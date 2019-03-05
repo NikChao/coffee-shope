@@ -4,3 +4,4 @@ yarn-error.log
 lerna-debug.log
 lib/
 .rpt2_cache
+.npmrc
