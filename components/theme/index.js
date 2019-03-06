@@ -1,4 +1,4 @@
-module.exports = {
+const THEME = {
   COLORS: {
     colorWhite: '#ffffff',
     colorGrayNatural: '#f7f7f7',
@@ -21,4 +21,6 @@ module.exports = {
   FONTS: {
     STACK: `'Montserrat', sans-serif`
   }
-} 
+}
+
+export default THEME;
