@@ -3,9 +3,9 @@ import styles from './styles.scss';
 
 function Button ({ children, disabled, positive, textOnly, onClick, ...restProps }) {
   const styleArray = [
-    styles.Button,
-    positive ? styles.positive : null,
-    textOnly ? styles.textOnly : null
+    // styles.Button,
+    // positive ? styles.positive : null,
+    // textOnly ? styles.textOnly : null
   ];
 
   const styleClass = styleArray.join(' ');
