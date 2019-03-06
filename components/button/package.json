@@ -19,7 +19,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.17"
+    "@coffee-shope/theme": "^1.0.18"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.4",

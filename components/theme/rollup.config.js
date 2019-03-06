@@ -9,8 +9,7 @@ module.exports = {
   output: {
     file: './lib/index.js',
     format: 'umd',
-    name: 'button',
-    exports: 'named',
+    name: 'theme',
     globals: {
       React: 'React',
       '@emotion/styled': 'styled',
