@@ -6,6 +6,7 @@ const { colorGreenDarkApron, colorGreenApron } = THEME.COLORS;
 
 const StyledLargeButton = styled.button`
   font-family: 'Montserrat', sans-serif;
+  outline: none;
   width: ${props => props.small ? '33%' : '100%'};
   display: block;
   padding: 16px 32px;

@@ -6,6 +6,7 @@ const { colorGreenDarkApron, colorGreenApron } = THEME.COLORS;
 
 const StyledButton = styled.button`
   font-family: 'Montserrat', sans-serif;
+  outline: none;
   font-size: 15px;
   color: ${props => props.positive ? colorTextWhite : colorGreenDarkApron};
   font-weight: bold;
