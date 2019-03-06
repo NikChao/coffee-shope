@@ -1,8 +1,7 @@
 {
   "name": "@coffee-shope/button",
-  "version": "1.0.29",
+  "version": "1.0.39",
   "main": "./lib/index.js",
-  "style": "./lib/styles.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf ./lib && rollup -c",
@@ -12,13 +11,15 @@
     "access": "public"
   },
   "peerDependencies": {
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
     "react": "^16.8.1"
   },
   "author": "",
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.16"
+    "@coffee-shope/theme": "^1.0.19"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.4",
@@ -31,12 +32,13 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime-corejs2": "^7.3.4",
-    "node-sass": "^4.11.0",
     "postcss-modules": "^1.4.1",
     "rollup": "^1.3.2",
     "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-commonjs": "^9.2.1",
     "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^4.0.4"
   }
