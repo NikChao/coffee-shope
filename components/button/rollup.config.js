@@ -1,6 +1,5 @@
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
-import postcssModules from 'postcss-modules';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
@@ -9,8 +8,6 @@ import autoprefixer from 'autoprefixer';
 
 import pkg from './package.json';
 
-const cssExportMap = {};
-
 module.exports = {
   input: 'src/index.js',
   output: [
@@ -18,15 +15,24 @@ module.exports = {
       file: pkg.browser,
       format: 'umd',
       name: 'button',
+      globals: {
+        React: 'React'
+      }
     },
     {
       file: pkg.main,
       format: 'cjs',
       name: 'button',
+      globals: {
+        React: 'React'
+      }
     },
     {
       file: pkg.module,
       format: 'es',
+      globals: {
+        React: 'React'
+      }
     }
   ],
   external: [

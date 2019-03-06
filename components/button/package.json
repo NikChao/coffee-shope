@@ -1,16 +1,16 @@
 {
   "name": "@coffee-shope/button",
   "version": "1.0.31",
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.esm.js",
-  "browser": "lib/index.js",
-  "style": "lib/index.css",
+  "main": "build/index.cjs.js",
+  "module": "build/index.esm.js",
+  "browser": "build/index.js",
+  "style": "build/index.css",
   "files": [
-    "lib"
+    "build"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf ./lib && rollup -c",
+    "build": "rm -rf ./build && rollup -c",
     "prepublishOnly": "yarn build"
   },
   "publishConfig": {
