@@ -4,6 +4,8 @@ import postcssModules from 'postcss-modules';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import autoprefixer from 'autoprefixer';
 
 import pkg from './package.json';
 
@@ -31,21 +33,9 @@ module.exports = {
     'react',
   ],  
   plugins: [
+    peerDepsExternal(),
     resolve(),
-    postcss({
-      plugins: [
-        postcssModules({
-          getJSON (id, exportTokens) {
-            cssExportMap[id] = exportTokens;
-          }
-        })
-      ],
-      getExportNamed: false,
-      getExport (id) {
-        return cssExportMap[id];
-      },
-      extract: 'lib/styles.css'
-    }),
+    postcss({ extract: true, plugins: [autoprefixer] }),
     commonjs({
       include: /node_modules/
     }),
