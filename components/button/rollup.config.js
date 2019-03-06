@@ -5,19 +5,31 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 
+import pkg from './package.json';
+
 const cssExportMap = {};
 
 module.exports = {
   input: 'src/index.js',
-  output: {
-    file: './lib/index.js',
-    format: 'umd',
-    name: 'button',
-    exports: 'named',
-    globals: {
-      React: 'React'
+  output: [
+    {
+      file: pkg.browser,
+      format: 'umd',
+      name: 'button',
+    },
+    {
+      file: pkg.main,
+      format: 'cjs',
+      name: 'button',
+    },
+    {
+      file: pkg.module,
+      format: 'es',
     }
-  },
+  ],
+  external: [
+    'react',
+  ],  
   plugins: [
     resolve(),
     postcss({

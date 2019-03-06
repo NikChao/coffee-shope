@@ -1,8 +1,13 @@
 {
   "name": "@coffee-shope/button",
   "version": "1.0.29",
-  "main": "./lib/index.js",
-  "style": "./lib/styles.css",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "browser": "lib/index.js",
+  "style": "lib/index.css",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf ./lib && rollup -c",
