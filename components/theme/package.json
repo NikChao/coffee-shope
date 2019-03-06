@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/theme",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
