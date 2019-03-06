@@ -1,24 +1,45 @@
 import React from 'react';
-import styles from './styles.scss';
+import styled from '@emotion/styled';
+import { COLORS } from '@coffee-shope/theme';
 
-function LargeButton ({ children, disabled, positive, small, onClick, ...restProps }) {
-  const styleArray = [
-    // styles.LargeButton,
-    // !positive && styles.negative,
-    // small && styles.sml
-  ];
+const { colorGreenDarkApron, colorGreenApron } = COLORS;
 
-  const styleClass = styleArray.join(' ');
+const StyledLargeButton = styled.button`
+  font-family: 'Montserrat', sans-serif;
+  width: ${props => props.small ? '33%' : '100%'};
+  display: block;
+  padding: 16px 32px;
+  border-radius: 2px;
+  background-color: ${props => props.positive ? colorGreenDarkApron : 'white'};
+  border-color: ${colorGreenDarkApron};
+  color: ${props => props.positive ? '#fff' : colorGreenDarkApron};
+  font-size: 14px;
+  border-color: rgba(0,168,98,.9);
+  border: ${props => !props.positive && '1px solid ' + colorGreenDarkApron};
 
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: ${props => props.positive ? 'rgba(0,168,98,.9)' : `rgba(${colorGreenDarkApron}, 0.1)`};
+  }
+
+  &:active {
+    transform: scale(.95);
+    transition: all .2s ease;
+  }
+`;
+
+function LargeButton ({ children, disabled, onClick, ...restProps }) {
   return (
-    <button 
+    <StyledLargeButton 
       onClick={onClick} 
-      className={styleClass}
       disabled={disabled}
       {...restProps}
     >
       {children || 'Button'}
-    </button>);
+    </StyledLargeButton>);
 }
 
 export default LargeButton;
