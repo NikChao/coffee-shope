@@ -5,7 +5,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import bundleSize from 'rollup-plugin-bundle-size';
 
 module.exports = {
-  input: 'src/index.js',
+  input: 'index.js',
   output: {
     file: './lib/index.js',
     format: 'umd',
