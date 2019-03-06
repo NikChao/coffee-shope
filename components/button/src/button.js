@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled'
 import THEME from '@coffee-shope/theme';
 
-const { colorGreenDarkApron, colorGreenApron } = THEME.COLORS;
+const { colorGreenDarkApron, colorGreenApron, colorTextWhite } = THEME.COLORS;
 
 const StyledButton = styled.button`
   font-family: 'Montserrat', sans-serif;
@@ -23,11 +23,11 @@ const StyledButton = styled.button`
 
   &:hover {
     background-color: ${props =>
-      !props.disabled &&
+      !props.disabled && (
       props.positive
         ? `rgba(0,168,98,.9)`
         : `rgba(0,168,98,.1)`
-    };
+      )};
 
     transition: 0.25s;
     border-color: ${props => props.positive && colorGreenApron};
