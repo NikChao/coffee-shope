@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/button",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "main": "build/index.cjs.js",
   "module": "build/index.esm.js",
   "browser": "build/index.js",
