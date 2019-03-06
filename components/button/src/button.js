@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './styles.scss';
+// import styles from './styles.scss';
+const styles = {};
 
 function Button ({ children, disabled, positive, textOnly, onClick, ...restProps }) {
   const styleClass = [

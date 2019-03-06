@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './styles.scss';
+// import styles from './styles.scss';
+const styles = {};
 
 function LargeButton ({ children, disabled, positive, small, onClick, ...restProps }) {
   const styleArray = [
