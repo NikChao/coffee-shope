@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import styles from './styles.scss';
 
-class {{COMPONENT_NAME}} extends PureComponent {
-  render () {
-    return <span className={styles.container}>Hello, {{TEMPLATE_NAME}}</span>;
-  }
+const {{COMPONENT_NAME}} = ({}) => {
+  return (
+    <span className={styles.container}>G'day, {{TEMPLATE_NAME}}</span>
+  );
 }
 
 export { {{COMPONENT_NAME}} };

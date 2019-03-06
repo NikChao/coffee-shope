@@ -1,18 +1,14 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import styles from './styles.scss';
 
-interface Props {
+interface {{COMPONENT_NAME}}Props {
 
 }
 
-interface State {
-
-}
-
-class {{COMPONENT_NAME}} extends PureComponent<Props, State> {
-  render () {
-    return <span className={styles.container}>Hello, {{TEMPLATE_NAME}}</span>;
-  }
+const {{COMPONENT_NAME}} = (props: {{COMPONENT_NAME}}Props) => {
+  return (
+    <span className={styles.container}>G'day, {{TEMPLATE_NAME}}</span>
+  );
 }
 
 export { {{COMPONENT_NAME}} };
