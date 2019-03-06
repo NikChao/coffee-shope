@@ -12,7 +12,11 @@ module.exports = {
   output: {
     file: './lib/index.js',
     format: 'umd',
-    name: 'button'
+    name: 'button',
+    exports: 'named',
+    globals: {
+      React: 'React'
+    }
   },
   plugins: [
     resolve(),
@@ -31,28 +35,11 @@ module.exports = {
       extract: 'lib/styles.css'
     }),
     commonjs({
-      include: /node_modules/,
-      namedExports: {
-        'node_modules/react/index.js': [
-          'Children',
-          'Component',
-          'PureComponent',
-          'PropTypes',
-          'createElement',
-          'Fragment',
-          'cloneElement',
-          'StrictMode',
-          'createFactory',
-          'createRef',
-          'createContext',
-          'isValidElement',
-          'isValidElementType',
-        ]
-      }
+      include: /node_modules/
     }),
     babel({
       runtimeHelpers: true,
-      exclude: 'node_modules/**'
+      exclude: /node_modules/
     }),
     terser()
   ]
