@@ -2,13 +2,11 @@ import React from 'react';
 import styles from './styles.scss';
 
 function Button ({ children, disabled, positive, textOnly, onClick, ...restProps }) {
-  const styleArray = [
+  const styleClass = [
     styles.Button,
     positive ? styles.positive : null,
     textOnly ? styles.textOnly : null
-  ];
-
-  const styleClass = styleArray.join(' ');
+  ].join(' ');
 
   return (
     <button 
