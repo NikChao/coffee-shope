@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import styles from './styles.scss';
+import styled from '@emotion/styled';
+
+const StyledSpan = styled.span`
+  padding: 2px;
+`;
 
 const {{COMPONENT_NAME}} = ({}) => {
   return (
-    <span className={styles.container}>G'day, {{TEMPLATE_NAME}}</span>
+    <StyledSpan>G'day, {{TEMPLATE_NAME}}</StyledSpan>
   );
 }
 

@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import styles from './styles.scss';
+import styled from '@emotion/styled';
 
-interface {{COMPONENT_NAME}}Props {
+const StyledSpan = styled.span`
+  padding: 2px;
+`;
+
+interface Props {
 
 }
 
-const {{COMPONENT_NAME}} = (props: {{COMPONENT_NAME}}Props) => {
+const {{COMPONENT_NAME}} = (props: Props) => {
   return (
-    <span className={styles.container}>G'day, {{TEMPLATE_NAME}}</span>
+    <StyledSpan>G'day, {{TEMPLATE_NAME}}</StyledSpan>
   );
 }
 

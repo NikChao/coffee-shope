@@ -1,5 +1,3 @@
-const postcss = require('rollup-plugin-postcss');
-const postcssModules = require('postcss-modules');
 const resolve = require('rollup-plugin-node-resolve');
 const typescript = require('rollup-plugin-typescript2');
 const commonjs = require('rollup-plugin-commonjs');
@@ -23,17 +21,12 @@ const reactExports = [
   'isValidElementType',
 ];
 
-const cssExportMap = {};
-
 module.exports = function (name, config) {
   const { typescript: ts, rollup_patcher } = config;
   const plugins = [
     resolve(),
     ...(ts ? [typescript()] : []),
     ...(!ts ? [babelConfig('component')] : []),
-    postcss({
-      modules: true
-    }),
     commonjs({
       include: [
         /node_modules/
