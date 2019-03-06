@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled'
-import { COLORS } from '@coffee-shope/theme';
+import * as theme from '@coffee-shope/theme';
 
-const { colorGreenDarkApron, colorTextWhite, colorGreenApron } = COLORS;
-console.log
+const { colorGreenDarkApron, colorGreenApron } = theme.COLORS;
+
 const StyledButton = styled.button`
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
