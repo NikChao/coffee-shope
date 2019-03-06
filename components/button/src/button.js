@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { COLORS } from '@coffee-shope/theme';
 
 const { colorGreenDarkApron, colorTextWhite, colorGreenApron } = COLORS;
-
+console.log
 const StyledButton = styled.button`
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
@@ -21,7 +21,13 @@ const StyledButton = styled.button`
   margin-right: 16px;
 
   &:hover {
-    background-color: ${props => !props.disabled && props.positive ? colorGreenApron : `rgba( ${colorGreenDarkApron}, .1 )`};
+    background-color: ${props =>
+      !props.disabled &&
+      props.positive
+        ? `rgba(0,168,98,.9)`
+        : `rgba(0,168,98,.1)`
+    };
+
     transition: 0.25s;
     border-color: ${props => props.positive && colorGreenApron};
   }
@@ -43,6 +49,7 @@ const StyledButton = styled.button`
 `;
 
 function Button ({ children, disabled, onClick, ...restProps }) {
+  console.log(`rgba( ${colorGreenDarkApron}, .1 )`);
   return (
     <StyledButton 
       onClick={onClick} 

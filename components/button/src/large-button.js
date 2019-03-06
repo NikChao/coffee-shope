@@ -22,7 +22,8 @@ const StyledLargeButton = styled.button`
   }
 
   &:hover {
-    background-color: ${props => props.positive ? 'rgba(0,168,98,.9)' : `rgba(${colorGreenDarkApron}, 0.1)`};
+    background-color: ${props => props.positive ? 'rgba(0,168,98,.9)' : `rgba(0,168,98,.1)`};
+    transition: 0.25s
   }
 
   &:active {
