@@ -4,7 +4,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf ./lib && barista build component",
+    "build": "barista build component",
     "prepublishOnly": "yarn build"
   },
   "publishConfig": {

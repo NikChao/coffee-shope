@@ -17,6 +17,7 @@ const reactExports = [
   'createFactory',
   'createRef',
   'createContext',
+  'forwardRef',
   'isValidElement',
   'isValidElementType',
 ];
