@@ -1,7 +1,50 @@
 import React, { useState } from 'react';
-import styles from './styles.scss';
+import styled from '@emotion/styled';
+import { css, keyframes } from '@emotion/core';
 
 import Check from './check.svg';
+
+const Container = styled.span`
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const NoFlexShrink = styled.span``;
+
+const Label = styled.span`
+  padding-top: 2px;
+  padding-left: 10px;
+  font-size: 14px;
+  min-width: 0;
+`;
+
+
+const OptionLabelMarker = styled.span`
+  border: 1px solid #008248;
+  border-radius: 25%;
+  color: transparent;
+  width: 22px;
+  height: 22px;
+  display: block!important;
+  background-color: ${props => props.check && '#008248'}
+`;
+
+const optionLabelMarkerExpansion = keyframes`
+  0% {
+    transform: scale(0);
+  }
+  100% {
+      transform: scale(1);
+  }
+`;
+const CheckboxAnimator = styled.span`
+position: absolute;
+animation-name: ${optionLabelMarkerExpansion};
+animation-timing-function: cubic-bezier(.32,2.32,.61,.27);
+animation-direction: forwards;
+animation-duration: .3s;
+fill: white;
+`;
 
 function Checkbox ({ label, onChange }) {
   const [check, setCheck] = useState(false);
@@ -18,23 +61,19 @@ function Checkbox ({ label, onChange }) {
     }
   }
 
-  const optionLabelMarker = [
-    styles.optionLabelMarker,
-    styles.block,
-    check && styles.filledCheckContainer
-  ].join(' ');
-
   return (
-      <span onClick={toggle} className={styles.container}>
-        <span className={styles.flexShrinkNone}>
-          <span className={optionLabelMarker}>
+      <Container onClick={toggle}>
+        <NoFlexShrink>
+          <OptionLabelMarker check={check}>
             {check && (
-              <Check className={styles.checkboxWrapper} />
+              <CheckboxAnimator>
+                <Check />
+              </CheckboxAnimator>
             )}
-          </span>
-        </span>
-        {label && <span className={styles.labelText}>{label}</span>}
-      </span>
+          </OptionLabelMarker>
+        </NoFlexShrink>
+        {label && <Label>{label}</Label>}
+      </Container>
   );
 }
 
