@@ -33,7 +33,6 @@ async function build (moduleType, config) {
   const newHash = await checkHash();
 
   if (!newHash) {
-    console.log(chalk.green(`Skipping ${name} (identical source code to previous build)`))
     return;
   }
 
