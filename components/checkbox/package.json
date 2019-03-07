@@ -37,6 +37,8 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.16"
+    "@coffee-shope/theme": "^1.0.16",
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7"
   }
 }
