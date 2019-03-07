@@ -2,6 +2,26 @@ const rollup = require('rollup');
 const shelljs = require('shelljs');
 const path = require('path');
 const chalk = require('chalk');
+const fs = require('fs');
+const { hashElement } = require('folder-hash');
+
+async function checkHash () {
+  const prevBuildHashPath = path.resolve() + '/lib/.build-hash';
+
+  const hash = (await hashElement(path.resolve() + '/src/')).hash;
+
+  if (!fs.existsSync(prevBuildHashPath)) {
+    return hash;
+  }
+
+  const prevBuildHash = fs.readFileSync(prevBuildHashPath, 'utf8');
+
+  if (prevBuildHash !== hash) {
+    return hash;
+  }
+
+  return false;
+}
 
 /**
  * @param {'component' | 'util'} moduleType 
@@ -10,6 +30,13 @@ const chalk = require('chalk');
  */
 async function build (moduleType, config) {
   const { name } = config;
+  const newHash = await checkHash();
+
+  if (!newHash) {
+    console.log(chalk.green(`Hash matches previous build, skipping build for ${name}`))
+    return;
+  }
+
   const rollupInputOptions = moduleType === 'util'
     ? require('./configs/rollup-util')(name, config)
     : require('./configs/rollup-component')(name, config);
@@ -25,6 +52,8 @@ async function build (moduleType, config) {
   const rollupOutputOptions = require('./configs/rollup-output')(name);
   console.log(chalk.green('Writing bundle'));
   await bundle.write(rollupOutputOptions);
+
+  fs.writeFileSync(path.resolve() + '/lib/.build-hash', newHash);
 
   if (!config.postBuild) {
     return;
