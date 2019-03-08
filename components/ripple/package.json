@@ -4,7 +4,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf ./lib && tsc",
+    "build": "barista build component",
     "prepublishOnly": "yarn build",
     "postpublish": "rm -rf ./lib"
   },
@@ -19,6 +19,8 @@
   "description": "",
   "dependencies": {
     "@coffee-shope/merge-event-handlers": "^1.0.18",
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
     "core-decorators": "^0.20.0"
   },
   "devDependencies": {

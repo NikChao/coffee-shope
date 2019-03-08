@@ -18,7 +18,11 @@ const reactExports = [
   'createRef',
   'createContext',
   'isValidElement',
+  'forwardRef',
   'isValidElementType',
+  'useState',
+  'useEffect',
+  'useContext',
 ];
 
 module.exports = function (name, config) {
