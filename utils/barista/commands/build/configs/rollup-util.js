@@ -39,7 +39,7 @@ module.exports = function (name, config) {
     bundleSize()
   ]
 
-  const inputPath = ts ? 'index.ts' : 'index.js';
+  const inputPath = './src/' + ts ? 'index.ts' : 'index.js';
 
   const patcher = typeof rollup_patcher === 'function'
     ? rollup_patcher
