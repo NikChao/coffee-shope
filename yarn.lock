@@ -1054,6 +1054,19 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@coffee-shope/merge-event-handlers@^1.0.23":
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/@coffee-shope/merge-event-handlers/-/merge-event-handlers-1.0.23.tgz#6574fe8b153bedb89316b9c875a352f07a9d0b4c"
+
+"@coffee-shope/ripple@^1.0.26":
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/@coffee-shope/ripple/-/ripple-1.0.26.tgz#c34ead093a547131f4aa7da9061423d9e30c9db7"
+  dependencies:
+    "@coffee-shope/merge-event-handlers" "^1.0.23"
+    "@emotion/core" "^10.0.7"
+    "@emotion/styled" "^10.0.7"
+    core-decorators "^0.20.0"
+
 "@emotion/cache@^0.8.8":
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-0.8.8.tgz#2c3bd1aa5fdb88f1cc2325176a3f3201739e726c"
