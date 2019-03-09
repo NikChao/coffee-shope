@@ -1,10 +1,10 @@
 {
   "name": "@coffee-shope/ripple",
-  "version": "1.0.23",
+  "version": "1.0.26",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf ./lib && tsc",
+    "build": "barista build component",
     "prepublishOnly": "yarn build",
     "postpublish": "rm -rf ./lib"
   },
@@ -18,7 +18,9 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/merge-event-handlers": "^1.0.18",
+    "@coffee-shope/merge-event-handlers": "^1.0.23",
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
     "core-decorators": "^0.20.0"
   },
   "devDependencies": {

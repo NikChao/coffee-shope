@@ -1,17 +1,19 @@
 {
   "name": "@coffee-shope/merge-event-handlers",
-  "version": "1.0.18",
+  "version": "1.0.23",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf ./lib/ && tsc",
-    "prepublishOnly": "yarn build",
-    "postpublish": "rm -rf ./lib/"
+    "build": "barista build util",
+    "prepublishOnly": "yarn build"
   },
   "publishConfig": {
     "access": "public"
   },
   "author": "",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@coffee-shope/barista": "^1.1.3"
+  }
 }

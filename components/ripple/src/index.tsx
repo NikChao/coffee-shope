@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import { autobind } from 'core-decorators';
 import mergeEventHandlers from '@coffee-shope/merge-event-handlers';
+import { keyframes } from '@emotion/core';
+import styled from '@emotion/styled';
+import { any } from 'prop-types';
 
-import styles from './styles.scss';
 
 interface RenderProps {
   ripple: React.ReactElement;
@@ -19,6 +21,30 @@ interface State {
   ripple: null | { id: number, left: number, top: number };
 }
 
+const rippleAnimation = keyframes`
+  0% {
+    opacity: .5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(50);
+  }
+`;
+
+const RippleSpan = styled.span<{ left: number, top: number, dark?: boolean }>`
+  position: absolute!important;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: ${rippleAnimation} 1.2s ease;
+  left: ${props => `${props.left}px`};
+  top: ${props => `${props.top}px`};
+  background-color: ${props => props.dark ? 'rgba(0,0,0,.5)!important' : '#fff!important'}
+`;
+
 @autobind
 class Ripple extends PureComponent<Props, State> {
   state: State = {
@@ -26,8 +52,6 @@ class Ripple extends PureComponent<Props, State> {
   };
 
   isMounted = false;
-
-  cn = `${styles.ripple} ${this.props.dark ? styles.dark : styles.light}`
 
   componentDidMount () {
     if (typeof this.props.children !== 'function') {
@@ -42,6 +66,7 @@ class Ripple extends PureComponent<Props, State> {
 
   Ripple () {
     const { ripple } = this.state;
+    const { dark } = this.props;
 
     if (!ripple) {
       return null;
@@ -49,7 +74,11 @@ class Ripple extends PureComponent<Props, State> {
 
     const { id, left, top } = ripple;
 
-    return <span style={{ left: `${left}px`, top: `${top}px` }} key={id} className={this.cn} />;
+    return (
+      <span key={id}>
+        <RippleSpan dark={dark} left={left} top={top} />
+      </span>
+    );
   }
 
   removeRipple (id: number) {

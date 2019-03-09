@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Ripple } from '../';
+import { Ripple } from '../src';
 
 const lightBox: React.CSSProperties = {
   overflow: 'hidden',
