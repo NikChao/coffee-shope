@@ -1,6 +1,6 @@
 import React, { PureComponent, ReactElement } from 'react';
 import styles from './styles.scss';
-import { Ripple } from '../../ripple/src'; 
+import { Ripple } from '@coffee-shope/ripple'; 
 import { LoadingSpinner } from './loading-circle';
 
 interface Props {

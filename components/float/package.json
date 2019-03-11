@@ -24,7 +24,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/ripple": "^1.0.26",
+    "@coffee-shope/ripple": "^1.0.27",
     "@coffee-shope/theme": "^1.0.16"
   }
 }
