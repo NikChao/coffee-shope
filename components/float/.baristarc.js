@@ -1,4 +1,4 @@
 module.exports = {
-  name: 'ripple',
+  name: 'float',
   typescript: true
 }

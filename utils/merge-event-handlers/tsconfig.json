@@ -26,7 +26,7 @@
     "webpack",
     "jest",
     "src/setupTests.ts",
-    "lib"
+    "./lib"
   ],
   "types": [
     "typePatches"

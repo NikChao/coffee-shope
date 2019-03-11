@@ -19,7 +19,6 @@ const reactExports = [
   'createContext',
   'forwardRef',
   'isValidElement',
-  'forwardRef',
   'isValidElementType',
   'useState',
   'useEffect',
