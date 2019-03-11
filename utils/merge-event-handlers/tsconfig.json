@@ -8,7 +8,7 @@
     "allowJs": false,
     "declaration": true,
     "moduleResolution": "node",
-    "rootDir": "./",
+    "rootDir": "./src",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,

@@ -25,3 +25,4 @@ function mergeEventHandlers (eventHandlers: Handlers) {
 };
 
 export default mergeEventHandlers;
+export { mergeEventHandlers };
