@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { autobind } from 'core-decorators';
-import { mergeEventHandlers } from '@coffee-shope/merge-event-handlers';
+import mergeEventHandlers from '@coffee-shope/merge-event-handlers';
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 import { any } from 'prop-types';
