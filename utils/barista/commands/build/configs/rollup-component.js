@@ -5,39 +5,18 @@ const { terser } = require('rollup-plugin-terser');
 const bundleSize = require('rollup-plugin-bundle-size');
 const babelConfig = require('./babel.config');
 
-const reactExports = [
-  'Children',
-  'Component',
-  'PureComponent',
-  'PropTypes',
-  'createElement',
-  'Fragment',
-  'cloneElement',
-  'StrictMode',
-  'createFactory',
-  'createRef',
-  'createContext',
-  'forwardRef',
-  'isValidElement',
-  'isValidElementType',
-  'useState',
-  'useEffect',
-  'useContext',
-];
-
 module.exports = function (name, config) {
   const { typescript: ts, rollup_patcher } = config;
   const plugins = [
-    resolve(),
+    resolve({
+      jail: './src',
+    }),
     ...(ts ? [typescript()] : []),
     ...(!ts ? [babelConfig('component')] : []),
     commonjs({
       include: [
         /node_modules/
       ],
-      namedExports: {
-        'react/index.js': reactExports
-      }
     }),
     terser(),
     bundleSize()
@@ -52,6 +31,10 @@ module.exports = function (name, config) {
 
   return patcher({
     input: inputPath,
+    external: [
+      'react',
+      'react-dom',
+    ],
     plugins
   });
 };
