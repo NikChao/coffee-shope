@@ -5,6 +5,9 @@ This should contain all information you'll need on:
 - Contribution
 - More to come
 
+
 To run component library documentaiton: `yarn docz:dev`
+
 To run all other docs `yarn develop` or `yarn start`
+
 Have fun!
