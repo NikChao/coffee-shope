@@ -1,7 +1,9 @@
 import React, { PureComponent, ReactElement } from 'react';
-import styles from './styles.scss';
+// import styles from './styles.scss';
 import { Ripple } from '@coffee-shope/ripple'; 
 import { LoadingSpinner } from './loading-circle';
+
+const styles = {};
 
 interface Props {
   onClick: (e: any) => any;
@@ -21,10 +23,10 @@ interface State {
 
 class Float extends PureComponent<Props, State> {
   className = [
-    styles.float,
-    this.props.disabled && styles.disabled,
-    this.props.mini && styles.mini,
-    this.props.loading && styles.loading,
+    // styles.float,
+    // this.props.disabled && styles.disabled,
+    // this.props.mini && styles.mini,
+    // this.props.loading && styles.loading,
     this.props.className,
   ].join(' ')
 

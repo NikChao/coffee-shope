@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react';
 import styles from './styles.scss';
-import { autobind } from 'core-decorators';
 import FieldStatus from './field-status';
 import Error from './error.svg';
 
-@autobind
 class Field extends PureComponent {
-  Input () {
+  Input = () => {
     const { type, error, value, onChange, onBlur, onFocus, required, name } = this.props;
 
     const inputStyles = [
@@ -45,7 +43,7 @@ class Field extends PureComponent {
     );
   }
 
-  ErrorStatus () {
+  ErrorStatus = () => {
     const { errorMessage } = this.props;
 
     return !!errorMessage

@@ -10,15 +10,8 @@ module.exports = {
     file: './lib/index.js',
     format: 'umd',
     name: 'theme',
-    globals: {
-      React: 'React',
-      '@emotion/styled': 'styled',
-      react: 'React'
-    }
+    exports: 'named'
   },
-  external: [
-    'react'
-  ],
   plugins: [
     peerDepsExternal(),
     resolve(),
