@@ -9,25 +9,6 @@ const Container = styled.div`
   padding: 5px;
 `;
 
-const inputBorderStyles = props => {
-  if (props.error) {
-    return `
-      border: none;
-      border-bottom: 1px solid $colorRed;
-    `
-  }
-
-  return `
-    border: none;
-    border-bottom: 1px solid $colorCeramic;
-
-    &:focus {
-      border-bottom: 1px solid $colorGreenStarbucks;
-      transition: 0.25s;
-    }
-  `;
-}
-
 const Input = styled.input`
   font-size: 0.8rem;
   line-height: 1rem;
@@ -37,7 +18,7 @@ const Input = styled.input`
   height: 30px;
   outline: none;
   border: none;
-  border-bottom: 1px solid ${THEME.COLORS.colorCeramic};
+  border-bottom: 1px solid ${props => props.error ? THEME.COLORS.colorRed : THEME.COLORS.colorCeramic};
 
   &:focus {
     border-bottom: 1px solid ${THEME.COLORS.colorGreenStarbucks};
@@ -51,10 +32,7 @@ const FloatingLabel = styled.span`
   left: 5px;
   top: 12px;
   transition: 0.2s ease all;
-  opacity: ${props => props.value.length ? '0' : '1'};
-  input ~:focus {
-    opacity: 0;
-  }
+  opacity: ${props => (props.value.length || props.inputIsFocussed) ? '0' : '1'};
 `;
 
 const FloatingLabelFocus = styled.span`
@@ -62,7 +40,7 @@ const FloatingLabelFocus = styled.span`
   font-size: 10px;
   left: 5px;
   bottom: 30px;
-  opacity: ${props => props.value.length ? 1 : 0};
+  opacity: ${props => (props.value.length || props.inputIsFocussed) ? 1 : 0};
   transition: 0.2s ease all;
 `;
 
@@ -70,12 +48,28 @@ const ErrorIcon = styled.span`
   position: absolute;
   top: 8px;
   right: 10px;
-  fill: ${THEME.colorRed};
+  fill: ${THEME.COLORS.colorRed};
 `;
 
 class Field extends PureComponent {
+  state = {
+    inputIsFocussed: false
+  };
+
+  onFocus = e => {
+    const { onFocus } = this.props;
+    this.setState({ inputIsFocussed: true });
+    onFocus(e);
+  }
+
+  onBlur = e => {
+    const { onBlur } = this.props;
+    this.setState({ inputIsFocussed: false });
+    onBlur(e);
+  }
+
   Input = () => {
-    const { type, error, value, onChange, onBlur, onFocus, required, name } = this.props;
+    const { type, error, value, onChange, required, name } = this.props;
 
     return (
       <Container>
@@ -84,12 +78,12 @@ class Field extends PureComponent {
           type={type}
           value={value}
           onChange={onChange}
-          onBlur={onBlur}
-          onFocus={onFocus}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
           required={required}
         />
-        <FloatingLabel value={value} children={name} />
-        <FloatingLabelFocus value={value} children={name} />
+        <FloatingLabel {...this.state} value={value} children={name} />
+        <FloatingLabelFocus {...this.state} value={value} children={name} />
         {error && (
           <ErrorIcon>
             <Error />
