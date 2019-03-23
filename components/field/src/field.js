@@ -1,45 +1,101 @@
 import React, { PureComponent } from 'react';
-import styles from './styles.scss';
+import styled from '@emotion/styled';
 import FieldStatus from './field-status';
 import Error from './error.svg';
+import THEME from '@coffee-shope/theme';
+
+const Container = styled.div`
+  position: relative;
+  padding: 5px;
+`;
+
+const inputBorderStyles = props => {
+  if (props.error) {
+    return `
+      border: none;
+      border-bottom: 1px solid $colorRed;
+    `
+  }
+
+  return `
+    border: none;
+    border-bottom: 1px solid $colorCeramic;
+
+    &:focus {
+      border-bottom: 1px solid $colorGreenStarbucks;
+      transition: 0.25s;
+    }
+  `;
+}
+
+const Input = styled.input`
+  font-size: 0.8rem;
+  line-height: 1rem;
+  font-weight: 700;
+  padding: 5px 20px 5px 0px;
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid ${THEME.COLORS.colorCeramic};
+
+  &:focus {
+    border-bottom: 1px solid ${THEME.COLORS.colorGreenStarbucks};
+    transition: 0.25s;
+  }
+`;
+
+const FloatingLabel = styled.span`
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 12px;
+  transition: 0.2s ease all;
+  opacity: ${props => props.value.length ? '0' : '1'};
+  input ~:focus {
+    opacity: 0;
+  }
+`;
+
+const FloatingLabelFocus = styled.span`
+  position: absolute;
+  font-size: 10px;
+  left: 5px;
+  bottom: 30px;
+  opacity: ${props => props.value.length ? 1 : 0};
+  transition: 0.2s ease all;
+`;
+
+const ErrorIcon = styled.span`
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  fill: ${THEME.colorRed};
+`;
 
 class Field extends PureComponent {
   Input = () => {
     const { type, error, value, onChange, onBlur, onFocus, required, name } = this.props;
 
-    const inputStyles = [
-      styles.inputText,
-      error ? styles.redInputBorder : styles.defaultInputBorder
-    ].join(' ');
-
-    const floatingLabelStyles = [
-      styles.floatingLabel,
-      value.length && styles.invisible
-    ].join(' ');
-
     return (
-      <div className={styles.container}>
-        <input
+      <Container>
+        <Input
+          error={error}
           type={type}
           value={value}
           onChange={onChange}
           onBlur={onBlur}
           onFocus={onFocus}
-          className={inputStyles}
           required={required}
         />
-        <span className={floatingLabelStyles}>{name}</span>
-        <span
-          className={styles.floatingLabelFocus}
-          style={{ opacity: value.length ? 1 : undefined }}
-        >
-          {name}</span>
+        <FloatingLabel value={value} children={name} />
+        <FloatingLabelFocus value={value} children={name} />
         {error && (
-          <span className={styles.errorInputIcon}>
+          <ErrorIcon>
             <Error />
-          </span>
+          </ErrorIcon>
         )}
-      </div>
+      </Container>
     );
   }
 
@@ -55,12 +111,12 @@ class Field extends PureComponent {
 
   render () {
     const { Input, ErrorStatus } = this;
-
+    console.log(THEME.COLORS);
     return (
-      <div className={styles.container}>
+      <Container>
         <Input />
         <ErrorStatus />
-      </div>
+      </Container>
     );
   }
 }
