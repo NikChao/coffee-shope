@@ -131,4 +131,4 @@ class Ripple extends Component<Props, State> {
   }
 }
 
-export { Ripple };
+export { Ripple }
