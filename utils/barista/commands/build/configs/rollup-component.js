@@ -3,6 +3,7 @@ const typescript = require('rollup-plugin-typescript2');
 const commonjs = require('rollup-plugin-commonjs');
 const { terser } = require('rollup-plugin-terser');
 const bundleSize = require('rollup-plugin-bundle-size');
+const svg = require('rollup-plugin-svg');
 const babelConfig = require('./babel.config');
 
 module.exports = function (name, config) {
@@ -11,6 +12,7 @@ module.exports = function (name, config) {
     resolve({
       jail: './src',
     }),
+    svg(),
     ...(ts ? [typescript()] : []),
     ...(!ts ? [babelConfig('component')] : []),
     commonjs({

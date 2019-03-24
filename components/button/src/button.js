@@ -50,7 +50,6 @@ const StyledButton = styled.button`
 `;
 
 function Button ({ children, disabled, onClick, ...restProps }) {
-  console.log(`rgba( ${colorGreenDarkApron}, .1 )`);
   return (
     <StyledButton 
       onClick={onClick} 

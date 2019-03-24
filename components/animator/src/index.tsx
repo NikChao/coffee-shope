@@ -1,7 +1,7 @@
 import React, { ComponentType, PureComponent } from 'react';
-import { CSSTransition } from 'react-transition-group';
+// import { CSSTransition } from 'react-transition-group';
 
-import styles from './styles.scss';
+// import styles from './styles.scss';
 
 interface Props {
 
@@ -11,7 +11,7 @@ const Animator: React.FunctionComponent<Props> =
   ({ children }) => {
     return (
       <div>
-        <CSSTransition
+        {/* <CSSTransition
           timeout={300}
           classNames={{
             appearActive: styles['appear-active'],
@@ -21,9 +21,9 @@ const Animator: React.FunctionComponent<Props> =
             exitActive: styles['exit-active']
           }}
           unMountOnExist
-        >
+        > */}
           {children}
-        </CSSTransition>
+        {/* </CSSTransition> */}
       </div>
     );
   }

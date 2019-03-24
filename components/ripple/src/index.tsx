@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { autobind } from 'core-decorators';
 import mergeEventHandlers from '@coffee-shope/merge-event-handlers';
 import { keyframes } from '@emotion/core';
@@ -46,22 +46,22 @@ const RippleSpan = styled.span<{ left: number, top: number, dark?: boolean }>`
 `;
 
 @autobind
-class Ripple extends PureComponent<Props, State> {
+class Ripple extends Component<Props, State> {
   state: State = {
     ripple: null
   };
 
-  isMounted = false;
+  isRippleMounted = false;
 
   componentDidMount () {
     if (typeof this.props.children !== 'function') {
       throw new Error ('Ripple takes a function as children.');
     }
-    this.isMounted = true;
+    this.isRippleMounted = true;
   }
 
   componentWillUnmount () {
-    this.isMounted = false;
+    this.isRippleMounted = false;
   }
 
   Ripple () {
@@ -87,7 +87,7 @@ class Ripple extends PureComponent<Props, State> {
       () => {
         const { ripple } = this.state;
 
-        if (!this.isMounted || !ripple ) {
+        if (!this.isRippleMounted || !ripple ) {
           return;
         }
 
