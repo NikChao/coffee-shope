@@ -1,14 +1,13 @@
 {
   "name": "gatsby-starter-docz",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby and Docz",
+  "description": "Documentation for the coffee-shope component library!.",
   "version": "0.1.0",
-  "author": "Robin Cussol <me@robincussol.com>",
+  "author": "Nikolai Chaourov",
   "dependencies": {
     "@coffee-shope/button": "^1.0.40",
     "@coffee-shope/float": "^1.0.15",
     "@coffee-shope/ripple": "^1.0.28",
-    "docz": "^0.13.7",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-manifest": "^2.0.9",
@@ -18,8 +17,8 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-sharp": "^2.1.8",
     "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -41,8 +40,9 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "docz": "^1.0.0-rc.3",
     "docz-plugin-css": "^0.11.0",
-    "docz-theme-default": "^0.13.7",
+    "docz-theme-default": "^1.0.0-rc.3",
     "prettier": "^1.15.2",
     "webpack-merge": "^4.2.1"
   },

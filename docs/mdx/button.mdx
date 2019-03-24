@@ -5,27 +5,26 @@ menu: components
 ---
 import Header from '../src/components/header'
 import Row from '../src/components/row'
-import { Playground } from 'docz'
+import { Playground, Props } from 'docz'
 import { Button, LargeButton } from '@coffee-shope/button';
 
 ## Button
 
-### Button
+<Props of={Button} />
+
 <Playground>
   <Row>
     <Button>asdf</Button>
     <Button positive>asdf</Button>
+    <Button textOnly>asdf</Button>
   </Row>
 </Playground>
 
 
-### Text Button
-<Playground>
-  <Button textOnly>asdf</Button>
-</Playground>
+## Large Button
 
+<Props of={LargeButton} />
 
-### Large Button
 <Playground>
   <Row>
     <LargeButton>asdf</LargeButton>
