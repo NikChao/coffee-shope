@@ -1,0 +1,36 @@
+---
+name: Button
+route: /components/button
+menu: components
+---
+import Header from '../src/components/header'
+import Row from '../src/components/row'
+import { Playground } from 'docz'
+import { Button, LargeButton } from '@coffee-shope/button';
+
+## Button
+
+### Button
+<Playground>
+  <Row>
+    <Button>asdf</Button>
+    <Button positive>asdf</Button>
+  </Row>
+</Playground>
+
+
+### Text Button
+<Playground>
+  <Button textOnly>asdf</Button>
+</Playground>
+
+
+### Large Button
+<Playground>
+  <Row>
+    <LargeButton>asdf</LargeButton>
+  </Row>
+  <Row>
+    <LargeButton positive>asdf</LargeButton>
+  </Row>
+</Playground>

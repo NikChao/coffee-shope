@@ -2,9 +2,10 @@ import merge from 'webpack-merge'
 import { css } from 'docz-plugin-css'
 
 export default {
-  title: 'Docz with Gatsby',
+  title: 'Coffee shope',
   // Add CSS support in case you use them in your Gatsby project
   plugins: [css()],
+  src: './mdx',
   // Wrapper used to inject some global variable mocks
   wrapper: 'docz/wrapper.js',
   modifyBundlerConfig: config => {

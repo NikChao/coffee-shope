@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "author": "Robin Cussol <me@robincussol.com>",
   "dependencies": {
+    "@coffee-shope/button": "^1.0.40",
+    "@coffee-shope/float": "^1.0.15",
+    "@coffee-shope/ripple": "^1.0.28",
+    "docz": "^0.13.7",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-manifest": "^2.0.9",
@@ -37,7 +41,6 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
-    "docz": "^0.13.7",
     "docz-plugin-css": "^0.11.0",
     "docz-theme-default": "^0.13.7",
     "prettier": "^1.15.2",
