@@ -3,22 +3,44 @@ import { storiesOf } from '@storybook/react';
 import { Animator } from '../src/index';
 const { Button } = require('@coffee-shope/button/src');
 
-function Wizard () {
-  const [ step, setStep ] = useState(0);
-  const next = () => setStep(step === 3
-    ? 0
-    : step + 1);
+const BigBox = ({ children }) => (
+  <div style={{ height: '300px', width: '100%' }}>
+    {children}
+  </div>
+);
 
-  const components = ['Hey', 'Ho', 'Lets', 'Go']
-    .map(msg => <Button onClick={next}>{msg}</Button>)[step];
+function FadeIn () {
+  const [ isOn, setIsOn ] = useState(false);
+
+  const toggle = () => setIsOn(!isOn);
   return (
-    <Animator>
-      {components}
-    </Animator>
-  )
+    <div>
+      <button onClick={toggle} type="button">show/hide</button>
+      <Animator isOn={isOn} onMount="fade-in" onUnmount="fade-out">
+        <p>Hey</p>
+      </Animator>
+    </div>
+  );
+}
+
+function SlideIn () {
+  const [ isOn, setIsOn ] = useState(false);
+
+  const toggle = () => setIsOn(!isOn);
+  return (
+    <BigBox>
+      <button onClick={toggle} type="button">show/hide</button>
+      <Animator isOn={isOn} onMount="slide-in" onUnmount="slide-out">
+        <p>Slide</p>
+      </Animator>
+    </BigBox>
+  );
 }
 
 storiesOf('Animator', module)
-  .add('default', () => (
-    <Wizard />
+  .add('fade-in-out', () => (
+    <FadeIn />
+  ))
+  .add('slide-down-up', () => (
+    <SlideIn />
   ));
