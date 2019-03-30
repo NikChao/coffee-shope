@@ -1,31 +1,20 @@
-import React, { ComponentType, PureComponent } from 'react';
-// import { CSSTransition } from 'react-transition-group';
-
-// import styles from './styles.scss';
+import React, { useState, Fragment } from 'react';
+import { useTransition, animated } from 'react-spring'
+import { getSpringConfig, InAnimations, OutAnimations } from './keyframes';
 
 interface Props {
-
+  isOn: boolean;
+  onMount?: InAnimations;
+  onUnmount?: OutAnimations;
+  children: JSX.Element | JSX.Element[]
 }
 
-const Animator: React.FunctionComponent<Props> =
-  ({ children }) => {
-    return (
-      <div>
-        {/* <CSSTransition
-          timeout={300}
-          classNames={{
-            appearActive: styles['appear-active'],
-            enter: styles.enter,
-            enterActive: styles['enter-active'],
-            exit: styles.exit,
-            exitActive: styles['exit-active']
-          }}
-          unMountOnExist
-        > */}
-          {children}
-        {/* </CSSTransition> */}
-      </div>
-    );
-  }
+function Animator ({ onMount, onUnmount, children, isOn }: Props) {
+  const transitions = useTransition(isOn, null, getSpringConfig({ onMount, onUnmount }))
+
+  return transitions.map(({ item, key, props }) =>
+    item ? <animated.div key={key} style={props}>{children}</animated.div> : <Fragment />
+  );
+}
 
 export { Animator };
