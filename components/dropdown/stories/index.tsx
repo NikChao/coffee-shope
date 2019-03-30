@@ -16,7 +16,7 @@ const fruit = [
 ]
 
 function select (e) {
-  alert(`You picked ${e.value}`);
+  console.log(`You picked ${e.value}`);
 }
 
 storiesOf('Dropdown', module)
@@ -25,6 +25,12 @@ storiesOf('Dropdown', module)
       <Dropdown
         options={fruit}
         onSelect={select}
+        placeholder={'fruit'}
+        initialOptions={[
+          { value: 'pineapple' },
+          { value: 'kiwi' },
+          { value: 'blueberry' },
+        ]}
       />
     </Container>
   ));
