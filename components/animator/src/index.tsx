@@ -1,6 +1,9 @@
 import React, { useState, Fragment } from 'react';
 import { useTransition, animated } from 'react-spring'
-import { getSpringConfig, InAnimations, OutAnimations } from './keyframes';
+import { getSpringConfig } from './keyframes';
+
+type InAnimations = 'fade-in' | 'slide-in';
+type OutAnimations = 'fade-out' | 'slide-out';
 
 interface Props {
   isOn: boolean;
