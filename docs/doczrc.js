@@ -6,6 +6,7 @@ export default {
   // Add CSS support in case you use them in your Gatsby project
   plugins: [css()],
   src: './mdx',
+  propsParser: true,
   // Wrapper used to inject some global variable mocks
   wrapper: 'docz/wrapper.js',
   modifyBundlerConfig: config => {
@@ -24,6 +25,7 @@ export default {
                   // use @babel/preset-react for JSX and env (instead of staged presets)
                   presets: ['@babel/preset-react', '@babel/preset-env'],
                   plugins: [
+                    // 'babel-plugin-react-docgen',
                     // use @babel/plugin-proposal-class-properties for class arrow functions
                     '@babel/plugin-proposal-class-properties',
                     // use @babel/plugin-syntax-dynamic-import for dynamic import support
