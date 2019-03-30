@@ -1,11 +1,11 @@
 import React, { useState, Fragment } from 'react';
 import { useTransition, animated } from 'react-spring'
-import { getSpringConfig } from './keyframes';
+import { getSpringConfig, InAnimations, OutAnimations } from './keyframes';
 
 interface Props {
   isOn: boolean;
-  onMount?: string;
-  onUnmount?: string;
+  onMount?: InAnimations;
+  onUnmount?: OutAnimations;
   children: JSX.Element | JSX.Element[]
 }
 

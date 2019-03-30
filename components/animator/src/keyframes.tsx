@@ -50,6 +50,11 @@ function getSpringConfig ({ onMount, onUnmount }: { onMount?: string, onUnmount?
   };
 }
 
+type InAnimations = 'fade-in' | 'slide-in';
+type OutAnimations = 'fade-out' | 'slide-out';
+
 export {
-  getSpringConfig
+  getSpringConfig,
+  InAnimations,
+  OutAnimations
 };
