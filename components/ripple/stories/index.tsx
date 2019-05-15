@@ -7,21 +7,21 @@ const lightBox: React.CSSProperties = {
   width: '360px',
   height: '100px',
   backgroundColor: '#f7f7f7',
-  position: 'relative'
+  position: 'relative',
 };
 
 const darkBox: React.CSSProperties = {
   ...lightBox,
-  backgroundColor: '#2d2926'
-}
+  backgroundColor: '#2d2926',
+};
 
 const greenRoundBox: React.CSSProperties = {
   ...lightBox,
   height: '60px',
   width: '120px',
   backgroundColor: '#00653e',
-  borderRadius: '50px'
-}
+  borderRadius: '50px',
+};
 
 storiesOf('Ripple', module)
   .add('dark', () => (

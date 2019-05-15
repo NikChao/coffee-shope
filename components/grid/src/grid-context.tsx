@@ -4,6 +4,6 @@ interface ContextT {
   columns: number;
 }
 
-const { Provider, Consumer } = React.createContext<ContextT>({ columns: 12 })
+const { Provider, Consumer } = React.createContext<ContextT>({ columns: 12 });
 
 export { Provider, Consumer };

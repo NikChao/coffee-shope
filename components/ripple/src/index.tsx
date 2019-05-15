@@ -5,7 +5,6 @@ import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 import { any } from 'prop-types';
 
-
 interface RenderProps {
   ripple: React.ReactElement;
   eventHandlers: { onClick: (e: any) => void };
@@ -18,7 +17,7 @@ interface Props {
 }
 
 interface State {
-  ripple: null | { id: number, left: number, top: number };
+  ripple: null | { id: number; left: number; top: number };
 }
 
 const rippleAnimation = keyframes`
@@ -32,8 +31,8 @@ const rippleAnimation = keyframes`
   }
 `;
 
-const RippleSpan = styled.span<{ left: number, top: number, dark?: boolean }>`
-  position: absolute!important;
+const RippleSpan = styled.span<{ left: number; top: number; dark?: boolean }>`
+  position: absolute !important;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -42,29 +41,29 @@ const RippleSpan = styled.span<{ left: number, top: number, dark?: boolean }>`
   animation: ${rippleAnimation} 1.2s ease;
   left: ${props => `${props.left}px`};
   top: ${props => `${props.top}px`};
-  background-color: ${props => props.dark ? 'rgba(0,0,0,.5)!important' : '#fff!important'}
+  background-color: ${props => (props.dark ? 'rgba(0,0,0,.5)!important' : '#fff!important')};
 `;
 
 @autobind
 class Ripple extends Component<Props, State> {
   state: State = {
-    ripple: null
+    ripple: null,
   };
 
   isRippleMounted = false;
 
-  componentDidMount () {
+  componentDidMount() {
     if (typeof this.props.children !== 'function') {
-      throw new Error ('Ripple takes a function as children.');
+      throw new Error('Ripple takes a function as children.');
     }
     this.isRippleMounted = true;
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.isRippleMounted = false;
   }
 
-  Ripple () {
+  Ripple() {
     const { ripple } = this.state;
     const { dark } = this.props;
 
@@ -81,41 +80,39 @@ class Ripple extends Component<Props, State> {
     );
   }
 
-  removeRipple (id: number) {
+  removeRipple(id: number) {
+    setTimeout(() => {
+      const { ripple } = this.state;
 
-    setTimeout(
-      () => {
-        const { ripple } = this.state;
-
-        if (!this.isRippleMounted || !ripple ) {
-          return;
-        }
-
-        if (ripple.id === id) {
-          this.setState({ ripple: null });
-        }
+      if (!this.isRippleMounted || !ripple) {
+        return;
       }
-      , 1500
+
+      if (ripple.id === id) {
+        this.setState({ ripple: null });
+      }
+    }, 1500);
+  }
+
+  onClick(event: any) {
+    const id = Date.now();
+    this.setState(
+      {
+        ripple: {
+          id,
+          left: event.nativeEvent.offsetX - event.target.offsetLeft,
+          top: event.nativeEvent.offsetY - event.target.offsetTop,
+        },
+      },
+      () => this.removeRipple(id),
     );
   }
 
-  onClick (event: any) {
-    const id = Date.now();
-    this.setState({
-      ripple: {
-        id,
-        left: event.nativeEvent.offsetX - event.target.offsetLeft,
-        top: event.nativeEvent.offsetY - event.target.offsetTop
-      }
-    }, () => this.removeRipple(id));
-  }
-
-  getEventHandlers () {
+  getEventHandlers() {
     return { onClick: this.onClick };
   }
 
-
-  render () {
+  render() {
     const ripple = <this.Ripple />;
     const eventHandlers = this.getEventHandlers();
 
@@ -124,7 +121,7 @@ class Ripple extends Component<Props, State> {
         {this.props.children({
           ripple,
           eventHandlers,
-          mergeEventHandlers: mergeEventHandlers(eventHandlers)
+          mergeEventHandlers: mergeEventHandlers(eventHandlers),
         })}
       </div>
     );

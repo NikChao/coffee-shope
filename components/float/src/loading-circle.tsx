@@ -26,8 +26,8 @@ const fade = keyframes`
 
 const LoadingSpinner = styled.div<Props>`
   margin: auto;
-  border: 3px solid hsla(0,0%,100%,.2);
-  border: 2px solid hsla(0,0%,100%,.2);
+  border: 3px solid hsla(0, 0%, 100%, 0.2);
+  border: 2px solid hsla(0, 0%, 100%, 0.2);
   border-right: 3px solid #fff;
   border-right: 2px solid #fff;
   width: 75%;
@@ -43,7 +43,7 @@ const LoadingSpinner = styled.div<Props>`
   animation-direction: normal, normal;
   animation-fill-mode: none, none;
   animation-play-state: running, running;
-  opacity: ${props => props.loading ? '1' : '0'}
+  opacity: ${props => (props.loading ? '1' : '0')};
 `;
 
 export { LoadingSpinner };

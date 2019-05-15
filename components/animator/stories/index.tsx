@@ -3,19 +3,17 @@ import { storiesOf } from '@storybook/react';
 import { Animator } from '../src/index';
 const { Button } = require('@coffee-shope/button/src');
 
-const BigBox = ({ children }) => (
-  <div style={{ height: '300px', width: '100%' }}>
-    {children}
-  </div>
-);
+const BigBox = ({ children }) => <div style={{ height: '300px', width: '100%' }}>{children}</div>;
 
-function FadeIn () {
-  const [ isOn, setIsOn ] = useState(false);
+function FadeIn() {
+  const [isOn, setIsOn] = useState(false);
 
   const toggle = () => setIsOn(!isOn);
   return (
     <div>
-      <button onClick={toggle} type="button">show/hide</button>
+      <button onClick={toggle} type="button">
+        show/hide
+      </button>
       <Animator isOn={isOn} onMount="fade-in" onUnmount="fade-out">
         <p>Hey</p>
       </Animator>
@@ -23,13 +21,15 @@ function FadeIn () {
   );
 }
 
-function SlideIn () {
-  const [ isOn, setIsOn ] = useState(false);
+function SlideIn() {
+  const [isOn, setIsOn] = useState(false);
 
   const toggle = () => setIsOn(!isOn);
   return (
     <BigBox>
-      <button onClick={toggle} type="button">show/hide</button>
+      <button onClick={toggle} type="button">
+        show/hide
+      </button>
       <Animator isOn={isOn} onMount="slide-in" onUnmount="slide-out">
         <p>Slide</p>
       </Animator>
@@ -38,9 +38,5 @@ function SlideIn () {
 }
 
 storiesOf('Animator', module)
-  .add('fade-in-out', () => (
-    <FadeIn />
-  ))
-  .add('slide-down-up', () => (
-    <SlideIn />
-  ));
+  .add('fade-in-out', () => <FadeIn />)
+  .add('slide-down-up', () => <SlideIn />);

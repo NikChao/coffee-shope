@@ -6,14 +6,6 @@ export interface Props {
   children: React.ReactElement;
 }
 
-export default function Column ({ span, children }: Props) {
-  return (
-    <Consumer>
-      {({ columns }) => (
-        <div style={{ width: `${span/columns * 100}%` }}>
-          {children}
-        </div>
-      )}
-    </Consumer>
-  );
+export default function Column({ span, children }: Props) {
+  return <Consumer>{({ columns }) => <div style={{ width: `${(span / columns) * 100}%` }}>{children}</div>}</Consumer>;
 }

@@ -1,25 +1,25 @@
 const fadeIn = {
   from: { position: 'absolute', opacity: 0 },
-  enter: { opacity: 1 }
+  enter: { opacity: 1 },
 };
 
 const slideIn = {
   from: { opacity: 0, transform: 'translate3d(0,-10px,0)' },
-  enter: { opacity: 1, transform: 'translate3d(0,0px,0)' }
+  enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
 };
 
 const fadeOut = {
-  leave: { opacity: 0 }
+  leave: { opacity: 0 },
 };
 
 const slideOut = {
   leave: {
     opacity: 0,
-    transform: 'translate3d(0,-10px,0)'
-  }
+    transform: 'translate3d(0,-10px,0)',
+  },
 };
 
-function getSpringConfig ({ onMount, onUnmount }: { onMount?: string, onUnmount?: string }) {
+function getSpringConfig({ onMount, onUnmount }: { onMount?: string; onUnmount?: string }) {
   let inAnimation, outAnimation;
 
   switch (onUnmount) {
@@ -27,7 +27,7 @@ function getSpringConfig ({ onMount, onUnmount }: { onMount?: string, onUnmount?
       outAnimation = fadeOut;
       break;
     case 'slide-out':
-      outAnimation = slideOut
+      outAnimation = slideOut;
       break;
     default:
       break;
@@ -46,10 +46,8 @@ function getSpringConfig ({ onMount, onUnmount }: { onMount?: string, onUnmount?
 
   return {
     ...outAnimation,
-    ...inAnimation
+    ...inAnimation,
   };
 }
 
-export {
-  getSpringConfig
-};
+export { getSpringConfig };

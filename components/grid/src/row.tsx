@@ -6,12 +6,8 @@ export interface Props {
   children: React.ReactElement | React.ReactElement[];
 }
 
-export default function Row ({ children, justifyContent }: Props) {
+export default function Row({ children, justifyContent }: Props) {
   justifyContent = justifyContent || 'flex-start';
 
-  return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent, width: '100%' }}>
-      {children}
-    </div>
-  );
+  return <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent, width: '100%' }}>{children}</div>;
 }

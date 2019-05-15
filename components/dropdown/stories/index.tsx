@@ -7,30 +7,19 @@ const Container = styled.div`
   width: 370px;
 `;
 
-const fruit = [
-  {value: 'apple'},
-  {value: 'pear'},
-  {value: 'orange'},
-  {value: 'grape'},
-  {value: 'banana'},
-]
+const fruit = [{ value: 'apple' }, { value: 'pear' }, { value: 'orange' }, { value: 'grape' }, { value: 'banana' }];
 
-function select (e) {
+function select(e) {
   console.log(`You picked ${e.value}`);
 }
 
-storiesOf('Dropdown', module)
-  .add('default', () => (
-    <Container>
-      <Dropdown
-        options={fruit}
-        onSelect={select}
-        placeholder={'fruit'}
-        initialOptions={[
-          { value: 'pineapple' },
-          { value: 'kiwi' },
-          { value: 'blueberry' },
-        ]}
-      />
-    </Container>
-  ));
+storiesOf('Dropdown', module).add('default', () => (
+  <Container>
+    <Dropdown
+      options={fruit}
+      onSelect={select}
+      placeholder={'fruit'}
+      initialOptions={[{ value: 'pineapple' }, { value: 'kiwi' }, { value: 'blueberry' }]}
+    />
+  </Container>
+));

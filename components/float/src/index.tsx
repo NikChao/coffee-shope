@@ -1,6 +1,6 @@
 import React, { PureComponent, ReactElement } from 'react';
 // import styles from './styles.scss';
-import { Ripple } from '@coffee-shope/ripple'; 
+import { Ripple } from '@coffee-shope/ripple';
 import { LoadingSpinner } from './loading-circle';
 import styled from '@emotion/styled';
 
@@ -19,7 +19,9 @@ export interface Props {
 }
 
 const Container = styled.div`
-  ${(props: Props) => props.bottomRight && `
+  ${(props: Props) =>
+    props.bottomRight &&
+    `
     position: absolute;
     width: 100%;
     height: 100%;
@@ -53,42 +55,40 @@ const Button = styled.button<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${props => props.disabled && `
+  ${props =>
+    props.disabled &&
+    `
     background: #ccc;
     cursor: not-allowed;
   `}
-  ${props => props.circular && `
+  ${props =>
+    props.circular &&
+    `
     width: min-content;
   `}
-  ${props => props.circular && props.loading && `
+  ${props =>
+    props.circular &&
+    props.loading &&
+    `
     padding: 5px;
   `}
 `;
 
 class Float extends PureComponent<Props, {}> {
-  render () {
-    const {
-      onClick,
-      disabled,
-      loading,
-      text
-    } = this.props;
+  render() {
+    const { onClick, disabled, loading, text } = this.props;
 
     return (
       <Container {...this.props}>
-      <Ripple>
-        {({ ripple, mergeEventHandlers }) => (
-          <Button
-            {...this.props}
-            {...mergeEventHandlers({ onClick })}
-            disabled={disabled}
-          >
-            {!disabled && !loading && ripple}
-            {loading && <LoadingSpinner {...this.props} />}
-            {text}
-          </Button>
-        )}
-      </Ripple>
+        <Ripple>
+          {({ ripple, mergeEventHandlers }) => (
+            <Button {...this.props} {...mergeEventHandlers({ onClick })} disabled={disabled}>
+              {!disabled && !loading && ripple}
+              {loading && <LoadingSpinner {...this.props} />}
+              {text}
+            </Button>
+          )}
+        </Ripple>
       </Container>
     );
   }

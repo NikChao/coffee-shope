@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
-import Downshift from 'downshift'
+import Downshift from 'downshift';
 
 const Label = styled.label`
   padding-top: 10px;
@@ -56,43 +56,39 @@ interface Props {
 function Dropdown(props: Props) {
   let isMounted = false;
   const { options, label, initialOptions, placeholder } = props;
-  const [ open, setOpen ] = useState(false);
-  const [ hasFiltered, setHasFiltered ] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [hasFiltered, setHasFiltered] = useState(false);
 
   useEffect(() => {
     isMounted = true;
     return () => {
       isMounted = false;
-    }
-  })
+    };
+  });
 
-  function optionFilter (searchTerm: any, item: Option) {
+  function optionFilter(searchTerm: any, item: Option) {
     return !searchTerm || item.value.includes(searchTerm);
   }
 
-  function toggle () {
+  function toggle() {
     setOpen(!open);
   }
 
-  function close () {
+  function close() {
     setOpen(false);
   }
 
-  function onSelect (e: any) {
+  function onSelect(e: any) {
     toggle();
     props.onSelect(e);
   }
 
-
-  function onInputChange () {
+  function onInputChange() {
     setHasFiltered(true);
   }
 
   return (
-    <Downshift
-      onChange={onSelect}
-      itemToString={item => (item ? item.value : '')}
-    >
+    <Downshift onChange={onSelect} itemToString={item => (item ? item.value : '')}>
       {({
         getInputProps,
         getItemProps,
@@ -104,44 +100,52 @@ function Dropdown(props: Props) {
         highlightedIndex,
         selectedItem,
       }) => (
-          <Container {...getRootProps()} onBlur={close}>
-            {label && <Label {...getLabelProps()}>{label}</Label>}
-            <div style={{ width: '100%' }}>
-            <Input placeholder={placeholder} onClick={toggle} {...getInputProps({
-              onChange: onInputChange
-            })} />
+        <Container {...getRootProps()} onBlur={close}>
+          {label && <Label {...getLabelProps()}>{label}</Label>}
+          <div style={{ width: '100%' }}>
+            <Input
+              placeholder={placeholder}
+              onClick={toggle}
+              {...getInputProps({
+                onChange: onInputChange,
+              })}
+            />
             <Ul {...getMenuProps()}>
-              {(!hasFiltered && open) && initialOptions
-                .map((item, index) => (
-                <Li
-                  {...getItemProps({
-                    key: item.value,
-                    index: index + options.length,
-                    item
-                  })}
-                >
-                  {item.value}
-                </Li>
-              ))}
+              {!hasFiltered &&
+                open &&
+                initialOptions.map((item, index) => (
+                  <Li
+                    {...getItemProps({
+                      key: item.value,
+                      index: index + options.length,
+                      item,
+                    })}
+                  >
+                    {item.value}
+                  </Li>
+                ))}
               {isOpen
-                ? [...options.concat(initialOptions)
-                  .filter(item => optionFilter(inputValue, item))
-                  .map((item, index) => (
-                    <Li
-                      {...getItemProps({
-                        key: item.value,
-                        index,
-                        item
-                      })}
-                    >
-                      {item.value}
-                    </Li>
-                  ))
-                ] : null}
+                ? [
+                  ...options
+                    .concat(initialOptions)
+                    .filter(item => optionFilter(inputValue, item))
+                    .map((item, index) => (
+                      <Li
+                        {...getItemProps({
+                          key: item.value,
+                          index,
+                          item,
+                        })}
+                      >
+                        {item.value}
+                      </Li>
+                    )),
+                ]
+                : null}
             </Ul>
-            </div>
-          </Container>
-        )}
+          </div>
+        </Container>
+      )}
     </Downshift>
   );
 }

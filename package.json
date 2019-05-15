@@ -8,7 +8,8 @@
 		"publish-all": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
 		"storybook": "start-storybook -p 9001 -c .storybook",
 		"reinstall": "rm -rf node_modules/ && rm -rf **/node_modules/ && yarn && yarn bootstrap",
-		"start": "yarn storybook"
+		"start": "yarn storybook",
+		"format": "eslint '**/*.{ts,tsx}' --fix"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.2",
@@ -41,8 +42,16 @@
 	"dependencies": {
 		"@babel/plugin-proposal-class-properties": "^7.3.3",
 		"@types/storybook__react": "^4.0.1",
+		"@typescript-eslint/eslint-plugin": "^1.9.0",
+		"@typescript-eslint/parser": "^1.9.0",
+		"eslint": "^5.16.0",
+		"eslint-config-prettier": "^4.2.0",
+		"eslint-plugin-prettier": "^3.1.0",
+		"eslint-plugin-react": "^7.13.0",
+		"prettier": "^1.17.1",
 		"react": "^16.8.1",
-		"react-dom": "^16.8.1"
+		"react-dom": "^16.8.1",
+		"typescript": "^3.4.5"
 	},
 	"license": "MIT",
 	"version": "1.0.0"
