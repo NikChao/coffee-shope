@@ -29,6 +29,7 @@ const Input = styled.input`
 const FloatingLabel = styled.span`
   position: absolute;
   pointer-events: none;
+  left: 0px;
   top: 7px;
   transition: 0.2s ease all;
   opacity: ${props => (props.value.length || props.inputIsFocussed ? '0' : '1')};
@@ -37,6 +38,7 @@ const FloatingLabel = styled.span`
 const FloatingLabelFocus = styled.span`
   position: absolute;
   font-size: 10px;
+  left: 0px;
   bottom: 30px;
   opacity: ${props => (props.value.length || props.inputIsFocussed ? 1 : 0)};
   transition: 0.2s ease all;
