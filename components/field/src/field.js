@@ -19,7 +19,7 @@ const Input = styled.input`
   outline: none;
   border: none;
   border-bottom: 1px solid ${props => (props.error ? THEME.COLORS.colorRed : THEME.COLORS.colorCeramic)};
-
+  background-color: transparent;
   &:focus {
     border-bottom: 1px solid ${THEME.COLORS.colorGreenStarbucks};
     transition: 0.25s;
