@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import types from 'prop-types';
 import styled from '@emotion/styled';
 import FieldStatus from './field-status';
 import Error from './error.svg';
@@ -6,7 +7,6 @@ import THEME from '@coffee-shope/theme';
 
 const Container = styled.div`
   position: relative;
-  padding: 5px;
 `;
 
 const Input = styled.input`
@@ -29,18 +29,16 @@ const Input = styled.input`
 const FloatingLabel = styled.span`
   position: absolute;
   pointer-events: none;
-  left: 5px;
-  top: 12px;
+  top: 7px;
   transition: 0.2s ease all;
-  opacity: ${props => (props.value.length || props.inputIsFocussed) ? '0' : '1'};
+  opacity: ${props => (props.value.length || props.inputIsFocussed ? '0' : '1')};
 `;
 
 const FloatingLabelFocus = styled.span`
   position: absolute;
   font-size: 10px;
-  left: 5px;
   bottom: 30px;
-  opacity: ${props => (props.value.length || props.inputIsFocussed) ? 1 : 0};
+  opacity: ${props => (props.value.length || props.inputIsFocussed ? 1 : 0)};
   transition: 0.2s ease all;
 `;
 
@@ -52,21 +50,33 @@ const ErrorIcon = styled.span`
 `;
 
 class Field extends PureComponent {
+  static propTypes = {
+    onChange: types.func,
+    onFocus: types.func,
+    onBlur: types.func,
+    type: types.string,
+    value: types.any,
+    error: types.any,
+    required: types.any,
+    name: types.string,
+    errorMessage: types.any,
+  };
+
   state = {
-    inputIsFocussed: false
+    inputIsFocussed: false,
   };
 
   onFocus = e => {
     const { onFocus } = this.props;
     this.setState({ inputIsFocussed: true });
     onFocus(e);
-  }
+  };
 
   onBlur = e => {
     const { onBlur } = this.props;
     this.setState({ inputIsFocussed: false });
     onBlur(e);
-  }
+  };
 
   Input = () => {
     const { type, error, value, onChange, required, name } = this.props;
@@ -82,8 +92,12 @@ class Field extends PureComponent {
           onFocus={this.onFocus}
           required={required}
         />
-        <FloatingLabel {...this.state} value={value} children={name} />
-        <FloatingLabelFocus {...this.state} value={value} children={name} />
+        <FloatingLabel {...this.state} value={value}>
+          {name}
+        </FloatingLabel>
+        <FloatingLabelFocus {...this.state} value={value}>
+          {name}
+        </FloatingLabelFocus>
         {error && (
           <ErrorIcon>
             <Error />
@@ -91,19 +105,22 @@ class Field extends PureComponent {
         )}
       </Container>
     );
-  }
+  };
 
   ErrorStatus = () => {
     const { errorMessage } = this.props;
 
     return !!errorMessage
       ? typeof errorMessage === 'string'
-        ? <FieldStatus error={true}>{errorMessage}</FieldStatus>
-        : <span>errorMessage</span>
+        ? (
+          <FieldStatus error={true}>{errorMessage}</FieldStatus>
+        ) : (
+          <span>errorMessage</span>
+        )
       : null;
-  }
+  };
 
-  render () {
+  render() {
     const { Input, ErrorStatus } = this;
     console.log(THEME.COLORS);
     return (
