@@ -9,6 +9,12 @@ const Container = styled.div`
   position: relative;
 `;
 
+const inputBottomBorder = props =>
+  props.error ? THEME.COLORS.colorRed : props.darkBorder ? 'black' : THEME.COLORS.colorCeramic;
+
+const inputBottomBorderFocus = props =>
+  props.darkBorder ? THEME.COLORS.colorGreenApron : THEME.COLORS.colorGreenStarbucks;
+
 const Input = styled.input`
   font-size: 0.8rem;
   line-height: 1rem;
@@ -18,12 +24,10 @@ const Input = styled.input`
   height: 30px;
   outline: none;
   border: none;
-  border-bottom: 1px solid
-    ${props =>
-      props.error ? THEME.COLORS.colorRed : props.darkBorder ? THEME.COLORS.colorBlackWarm : THEME.COLORS.colorCeramic}
+  border-bottom: 1px solid ${inputBottomBorder};
   background-color: transparent;
   &:focus {
-    border-bottom: 1px solid ${THEME.COLORS.colorGreenStarbucks};
+    border-bottom: 1px solid ${inputBottomBorderFocus};
     transition: 0.25s;
   }
 `;
@@ -73,7 +77,7 @@ class Field extends PureComponent {
   onFocus = e => {
     const { onFocus } = this.props;
     this.setState({ inputIsFocussed: true });
-    onFocus(e);
+    typeof onFocus === 'function' && onFocus(e);
   };
 
   onBlur = e => {
@@ -83,19 +87,11 @@ class Field extends PureComponent {
   };
 
   Input = () => {
-    const { type, error, value, onChange, required, name } = this.props;
+    const { error, value, name } = this.props;
 
     return (
       <Container>
-        <Input
-          error={error}
-          type={type}
-          value={value}
-          onChange={onChange}
-          onBlur={this.onBlur}
-          onFocus={this.onFocus}
-          required={required}
-        />
+        <Input {...this.props} onBlur={this.onBlur} onFocus={this.onFocus} />
         <FloatingLabel {...this.state} value={value}>
           {name}
         </FloatingLabel>
