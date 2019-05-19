@@ -124,7 +124,7 @@ class Field extends PureComponent {
 
   render() {
     const { Input, ErrorStatus } = this;
-    console.log(THEME.COLORS);
+
     return (
       <Container>
         <Input />
