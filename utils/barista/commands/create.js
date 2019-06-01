@@ -143,8 +143,8 @@ function createUtil (name, config) {
     log(`Created template!`, chalk.blue);
 
     const files = typescript
-      ? [ '__tests__/index.ts', 'index.ts' ]
-      : [ '__tests__/index.js', 'index.js' ];
+      ? [ '__tests__/index.ts', 'src/index.ts' ]
+      : [ '__tests__/index.js', 'src/index.js' ];
 
     replaceTemplates({
       files: [...files, 'package.json', '.baristarc.js'].map(f => `${dest}/${f}`),
