@@ -10,6 +10,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "jest": "^24.8.0"
   },
   "author": "",
   "license": "MIT",
