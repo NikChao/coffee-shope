@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/checkbox",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -30,6 +30,7 @@
     "rollup-plugin-commonjs": "^9.2.1",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-react-svg": "^3.0.3",
     "rollup-plugin-svg": "^1.0.1",
     "rollup-plugin-terser": "^4.0.4"
   },
