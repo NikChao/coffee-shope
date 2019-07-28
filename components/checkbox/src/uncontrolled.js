@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 import types from 'prop-types';
@@ -46,11 +46,16 @@ const CheckboxAnimator = styled.span`
   fill: white;
 `;
 
-function Checkbox({ label, value, onChange }) {
+function Checkbox({ label, onChange }) {
+  const [check, setCheck] = useState(false);
+
   function toggle() {
+    const newCheck = !check;
+    setCheck(newCheck);
+
     if (typeof onChange === 'function') {
       const syntheticEvent = {
-        target: { value: !value },
+        target: { value: newCheck },
       };
       onChange(syntheticEvent);
     }
@@ -59,8 +64,8 @@ function Checkbox({ label, value, onChange }) {
   return (
     <Container onClick={toggle}>
       <NoFlexShrink>
-        <OptionLabelMarker check={value}>
-          {value && (
+        <OptionLabelMarker check={check}>
+          {check && (
             <CheckboxAnimator>
               <Check />
             </CheckboxAnimator>
@@ -75,7 +80,6 @@ function Checkbox({ label, value, onChange }) {
 Checkbox.propTypes = {
   label: types.string,
   onChange: types.func,
-  value: types.bool,
 };
 
 export default Checkbox;
