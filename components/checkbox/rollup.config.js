@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import svg from 'rollup-plugin-svg';
+import reactSvg from 'rollup-plugin-react-svg';
 import bundleSize from 'rollup-plugin-bundle-size';
 
 module.exports = {
@@ -16,24 +16,37 @@ module.exports = {
     globals: {
       React: 'React',
       '@emotion/styled': 'styled',
-      react: 'React'
-    }
+      react: 'React',
+    },
   },
-  external: [
-    'react'
-  ],
+  external: ['react'],
   plugins: [
     peerDepsExternal(),
     resolve(),
     commonjs({
-      include: /node_modules/
+      include: /node_modules/,
     }),
     babel({
       runtimeHelpers: true,
-      exclude: /node_modules/
+      exclude: /node_modules/,
     }),
     terser(),
-    svg(),
-    bundleSize()
-  ]
-}
+    reactSvg({
+      // svgo options
+      svgo: {
+        plugins: [], // passed to svgo
+        multipass: true,
+      },
+
+      // whether to output jsx
+      jsx: false,
+
+      // include: string
+      include: null,
+
+      // exclude: string
+      exclude: null,
+    }),
+    bundleSize(),
+  ],
+};
