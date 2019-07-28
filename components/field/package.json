@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/field",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -16,7 +16,7 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/barista": "^1.1.4",
+    "@coffee-shope/barista": "^1.1.5",
     "core-decorators": "^0.20.0"
   },
   "author": "",
