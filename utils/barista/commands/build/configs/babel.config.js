@@ -5,7 +5,7 @@ module.exports = function (moduleType) {
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "usage",
+        "useBuiltIns": "false",
         "exclude": ["es6.promise"]
       }
     ]

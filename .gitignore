@@ -5,3 +5,4 @@ lerna-debug.log
 lib/
 .rpt2_cache
 .npmrc
+.sonarlint
