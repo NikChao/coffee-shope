@@ -2,16 +2,16 @@ import { configure, addParameters } from '@storybook/react';
 import { themes } from '@storybook/theming';
 
 // Option defaults.
-addParameters({
-  options: {
-    theme: themes.dark,
-  },
-});
+// addParameters({
+//   options: {
+//     theme: themes.dark,
+//   },
+// });
 
 function loadStories() {
-  // require('../components/dropdown/stories/index.tsx');
-  // require('../components/animator/stories/index.tsx');
-  // require('../components/ripple/stories/index.tsx');
+  require('../components/dropdown/stories/index.tsx');
+  require('../components/animator/stories/index.tsx');
+  require('../components/ripple/stories/index.tsx');
   require('../components/float/stories/index.tsx');
   require('../components/grid/stories/index.tsx');
 

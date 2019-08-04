@@ -13,9 +13,7 @@ module.exports = {
             [
               '@babel/preset-env',
               {
-                useBuiltIns: 'usage',
                 modules: 'commonjs',
-                exclude: ['es6.promise']
               }
             ],
             '@babel/preset-react',
