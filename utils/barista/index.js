@@ -13,7 +13,7 @@ const create = require('./commands/create');
 const build = require('./commands/build');
 const stories = require('./commands/stories');
 
-const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
+const log = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
 function readRuntimeConfigFile () {
   const configPath = `${path.resolve()}/.baristarc.js`;
@@ -66,7 +66,7 @@ function run(command, moduleType, name, argv) {
   const config = getConfig(argv);
 
   if (!command) {
-    clog('No command specified', chalk.red);
+    log('No command specified', chalk.red);
     return;
   }
   if (command === 'create') {
@@ -78,7 +78,7 @@ function run(command, moduleType, name, argv) {
   if (command === 'story') {
     return stories();
   }
-  clog('No valid command specified', chalk.red);
+  log('No valid command specified', chalk.red);
 }
 
 const [ command, moduleType, name ] = _.get(yargs, 'argv._', ['', '']);

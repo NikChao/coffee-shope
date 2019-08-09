@@ -5,7 +5,7 @@ const copyDir = require('copy-dir');
 const changeCase = require('change-case');
 const shelljs = require('shelljs');
 
-const clog = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
+const log = (msg, chalkfn) => console.log(chalkfn ? chalkfn(msg) : msg);
 
 function replaceTemplates ({ files=[], names }) {
   const { name, org } = names;
@@ -36,14 +36,14 @@ function replaceTemplates ({ files=[], names }) {
 
 function addToStorybook(name, config, extension='js') {
   if (config.storybook === false) {
-    clog('Not adding to storybook', chalk.yellow);
+    log('Not adding to storybook', chalk.yellow);
     return;
   }
 
   const storybookConfig = path.resolve() + `/.storybook/config.js`;
 
   if (!fs.existsSync(storybookConfig)) {
-    clog('Storybook config does not exist', chalk.yellow);
+    log('Storybook config does not exist', chalk.yellow);
     return;
   }
 
@@ -55,7 +55,7 @@ function addToStorybook(name, config, extension='js') {
     const statement = `require('../${getRootDir(config)}components/${name}/stories/index.${extension}');`
 
     if (data.includes(statement)) {
-      clog('Story already exists for this component', chalk.yellow);
+      log('Story already exists for this component', chalk.yellow);
       return;
     }
 
@@ -79,17 +79,17 @@ function getRootDir (config) {
 
 function createComponent(name, config) {
   if (!name) {
-    clog('ERR: No component name provided.', chalk.red);
+    log('ERR: No component name provided.', chalk.red);
     return;
   }
 
   const organisationName = config.organisation_name;
   if (!organisationName) {
-    clog(`WARN: No organisation name provided`, chalk.yellow);
+    log(`WARN: No organisation name provided`, chalk.yellow);
   }
 
   if (organisationName && organisationName[0] !== '@') {
-    clog('ERR: Organisation name must begin with an "@"');
+    log('ERR: Organisation name must begin with an "@"');
     return;
   }
 
@@ -98,7 +98,7 @@ function createComponent(name, config) {
   const typescript = config.typescript
   const packageRootDir = getRootDir(config);
 
-  clog(`Creating ${name} component...`, chalk.blue);
+  log(`Creating ${name} component...`, chalk.blue);
   
   try {
     const src = __dirname + (typescript ? '/../templates/component-ts' : '/../templates/component');
@@ -106,7 +106,7 @@ function createComponent(name, config) {
 
     copyDir.sync(src, dest);
     
-    clog(`Created template!`, chalk.blue);
+    log(`Created template!`, chalk.blue);
     
     const files = typescript
       ? [ '__tests__/index.tsx', 'stories/index.tsx', 'src/index.tsx' ]
@@ -117,19 +117,19 @@ function createComponent(name, config) {
       names: { name, org: organisationName }
     });
 
-    clog(`Adding to storybook!`, chalk.blue);
+    log(`Adding to storybook!`, chalk.blue);
 
     addToStorybook(name, config, typescript ? 'tsx' : 'js');
 
-    clog(`Created ${name}!`, chalk.green);
+    log(`Created ${name}!`, chalk.green);
   } catch (err) {
-    clog(`Failed to create ${name}`, chalk.red);
+    log(`Failed to create ${name}`, chalk.red);
     console.log(err);
   }
 }
 
 function createUtil (name, config) {
-  clog(`Creating ${name} util...`, chalk.blue);
+  log(`Creating ${name} util...`, chalk.blue);
 
   const typescript = config.typescript;
   const packageRootDir = getRootDir(config);
@@ -140,7 +140,7 @@ function createUtil (name, config) {
 
     copyDir.sync(src, dest);
 
-    clog(`Created template!`, chalk.blue);
+    log(`Created template!`, chalk.blue);
 
     const files = typescript
       ? [ '__tests__/index.ts', 'index.ts' ]
@@ -151,13 +151,13 @@ function createUtil (name, config) {
       names: { name, org: config.organisation_name }
     });
 
-    clog(`Created ${name}`, chalk.green);
+    log(`Created ${name}`, chalk.green);
 
     if (!config.postCreate) {
       return;
     }
 
-    clog(`Running postCreate script...`, chalk.green);
+    log(`Running postCreate script...`, chalk.green);
     
     // if it's a function
     if (typeof config.postCreate === 'function') {
@@ -171,12 +171,12 @@ function createUtil (name, config) {
       try {
         shelljs(path.resolve() + '/' + config.postCreate);
       } catch (err) {
-        clog('Post create script failed');
+        log('Post create script failed');
         console.error(err.message);
       }
     }
   } catch (err) {
-    clog(`Failed to create ${name}`, chalk.red);
+    log(`Failed to create ${name}`, chalk.red);
     console.error(err.message);
   }
 }
@@ -188,7 +188,7 @@ function create (moduleType, name, config) {
     case 'util':
       return createUtil(name, config);
     default:
-      clog('invalid module type provided', chalk.red);
+      log('invalid module type provided', chalk.red);
       return;
   }
 }

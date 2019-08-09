@@ -2,11 +2,12 @@ import { configure, addParameters } from '@storybook/react';
 import { themes } from '@storybook/theming';
 
 // Option defaults.
-// addParameters({
-//   options: {
-//     theme: themes.dark,
-//   },
-// });
+addParameters({
+  options: {
+    theme: themes.normal,
+    height: 'inherit'
+  },
+ });
 
 function loadStories() {
   require('../components/dropdown/stories/index.tsx');
