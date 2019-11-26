@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 import Downshift from 'downshift';
+const THEME = require('@coffee-shope/theme');
 
 const Label = styled.label`
   padding-top: 10px;
@@ -27,12 +28,23 @@ const Ul = styled.ul`
   width: 100%;
 `;
 
+const inputBottomBorder = (props: Props) =>
+  props.error ? THEME.COLORS.colorRed : props.darkBorder ? 'black' : THEME.COLORS.colorCeramic;
+
+const inputBottomBorderFocus = (props: Props) =>
+  props.darkBorder ? THEME.COLORS.colorGreenApron : THEME.COLORS.colorGreenStarbucks;
+
 const Input = styled.input`
   width: 100%;
   padding: 10px 10px;
   border: none;
-  border-bottom: 1px solid green;
+  border-bottom: 1px solid ${inputBottomBorder};
   outline: none;
+
+  &:focus {
+    border-bottom: 1px solid ${inputBottomBorderFocus};
+    transition: 0.25s;
+  }
 `;
 
 const Container = styled.div`
@@ -51,11 +63,16 @@ interface Props {
   onSelect: (e: any) => any;
   label?: string;
   placeholder?: string;
+  error?: boolean;
+  darkBorder?: boolean;
+
+  Option?: React.ComponentType<any>;
+  Value?: React.ComponentType<any>;
 }
 
 function Dropdown(props: Props) {
   let isMounted = false;
-  const { options, label, initialOptions, placeholder } = props;
+  const { options, label, initialOptions, placeholder, Option, Value } = props;
   const [open, setOpen] = useState(false);
   const [hasFiltered, setHasFiltered] = useState(false);
 
@@ -87,6 +104,28 @@ function Dropdown(props: Props) {
     setHasFiltered(true);
   }
 
+  function RenderOption ({ item, ...props }: any) {
+    if (!Option) {
+      return (
+        <Li {...props}>
+          {item.value}
+        </Li>
+      );
+    }
+
+    return (
+      <Option item={item} {...props} />
+    );
+  }
+
+  function RenderValue ({ item }: any) {
+    if (Value) {
+      return <Value item={item} />
+    }
+
+    return null;
+  }
+
   return (
     <Downshift onChange={onSelect} itemToString={item => (item ? item.value : '')}>
       {({
@@ -107,6 +146,7 @@ function Dropdown(props: Props) {
               placeholder={placeholder}
               onClick={toggle}
               {...getInputProps({
+                ...props,
                 onChange: onInputChange,
               })}
             />
@@ -114,15 +154,14 @@ function Dropdown(props: Props) {
               {!hasFiltered &&
                 open &&
                 initialOptions.map((item, index) => (
-                  <Li
+                  <RenderOption
+                    item={item}
                     {...getItemProps({
                       key: item.value,
                       index: index + options.length,
                       item,
                     })}
-                  >
-                    {item.value}
-                  </Li>
+                  />
                 ))}
               {isOpen
                 ? [
