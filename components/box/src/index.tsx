@@ -1,47 +1,37 @@
 import styled from '@emotion/styled';
-
-function px(v: string | number) {
-  if (typeof v === 'number') {
-    return `${(v || 0).toString()}px`;
-  }
-  if (typeof v === 'string') {
-    if (v.endsWith('px')) return v;
-    return `${v}px`;
-  }
-  return v;
-}
+import pixel from '@coffee-shope/px';
 
 function getPadding ({ p, pl, pr, pt, pb, dir }: any) {
   switch (dir) {
     case 'all':
-      return px(p);
+      return pixel(p);
     case 'top':
-      return px(pt);
+      return pixel(pt);
     case 'bot':
-      return px(pb);
+      return pixel(pb);
     case 'left':
-      return px(pl);
+      return pixel(pl);
     case 'right':
-      return px(pr);
+      return pixel(pr);
     default:
-      return px(p);
+      return pixel(p);
   }
 }
 
 function getMargin ({ m, ml, mr, mt, mb, dir }: any) {
   switch (dir) {
     case 'all':
-      return px(m);
+      return pixel(m);
     case 'top':
-      return px(mt);
+      return pixel(mt);
     case 'bot':
-      return px(mb);
+      return pixel(mb);
     case 'left':
-      return px(ml);
+      return pixel(ml);
     case 'right':
-      return px(mr);
+      return pixel(mr);
     default:
-      return px(m);
+      return pixel(m);
   }
 }
 
@@ -78,8 +68,8 @@ export const Box = styled.div<Props>`
   align-items: ${props => props.ai || 'stretch'};
   align-content: ${props => props.ac || 'stretch'};
 
-  height: ${props => props.screen ? '100vh' : props.height ? px(props.height) : 'auto'};
-  width: ${props => props.screen ? '100vw' : props.width ? px(props.width) : 'auto'};
+  height: ${props => props.screen ? '100vh' : props.height ? pixel(props.height) : 'auto'};
+  width: ${props => props.screen ? '100vw' : props.width ? pixel(props.width) : 'auto'};
 
   background-color: ${getBgColor};
   color: ${getColor};

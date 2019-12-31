@@ -1,0 +1,22 @@
+{
+  "name": "@coffee-shope/px",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "barista build util",
+    "prepublishOnly": "yarn build",
+    "postpublish": "rm -rf ./lib"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.5",
+    "jest": "^24.8.0",
+    "typescript": "^3.3.1"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": ""
+}

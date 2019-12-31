@@ -2,13 +2,17 @@
 	"name": "coffee-shope",
 	"scripts": {
 		"create-component": "barista create component",
+        "create:component": "yarn create-component",
 		"create-util": "barista create util",
+        "create:util": "yarn create-util",
 		"bootstrap": "lerna bootstrap",
 		"build-all": "lerna run 'build'",
 		"publish-all": "lerna publish --ignore coffee-shope --message=\"chore: Publish packages\"",
+        "publish:all": "yarn publish-all",
 		"storybook": "start-storybook -p 9001 -c .storybook",
 		"reinstall": "rm -rf node_modules/ && rm -rf **/node_modules/ && yarn && yarn bootstrap",
 		"start": "yarn storybook",
+        "stories": "yarn start",
 		"format": "eslint '**/*.{ts,tsx}' --fix"
 	},
 	"devDependencies": {
