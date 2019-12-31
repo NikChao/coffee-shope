@@ -21,6 +21,7 @@ module.exports =  {
     "no-else-return": 1,
     "no-unused-labels": 1,
     "indent": ["error", 2],
+    "@typescript-eslint/explicit-function-return-type": 0
   },
   settings: {
     react: {

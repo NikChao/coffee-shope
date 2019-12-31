@@ -10,6 +10,8 @@ addParameters({
  });
 
 function loadStories() {
+  require('../components/box/stories/index.tsx');
+  require('../components/stack/stories/index.tsx');
   require('../components/dropdown/stories/index.tsx');
   require('../components/animator/stories/index.tsx');
   // require('../components/ripple/stories/index.tsx');
