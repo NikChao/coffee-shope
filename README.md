@@ -1,7 +1,6 @@
-<h3>
-  coffee-shope
-  <img src="./sign.svg" style="height:50px;width:auto">
-</h3>
+<img src="./sign.svg" height="150" width="auto">
+
+# coffee-shope
 *Sip*
 
 ## Creating a component/util
