@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 import THEME from '@coffee-shope/theme';
 
 const { colorGreenDarkApron, colorGreenApron, colorTextWhite } = THEME.COLORS;
@@ -8,26 +8,21 @@ const StyledButton = styled.button`
   font-family: 'Montserrat', sans-serif;
   outline: none;
   font-size: 15px;
-  color: ${props => props.positive ? colorTextWhite : colorGreenDarkApron};
+  color: ${props => (props.positive ? colorTextWhite : colorGreenDarkApron)};
   font-weight: bold;
   background: ${props => !props.textOnly && 'transparent'};
-  background-color: ${props => props.positive ? colorGreenDarkApron : props.textOnly && '#fff'};
+  background-color: ${props => (props.positive ? colorGreenDarkApron : props.textOnly && '#fff')};
 
   border: none;
   border-style: solid;
   border-width: 1px;
-  border-color: ${props => props.textOnly ? 'transparent' : colorGreenDarkApron};
+  border-color: ${props => (props.textOnly ? 'transparent' : colorGreenDarkApron)};
   border-radius: 48px;
   padding: 7px 19px;
   margin-right: 16px;
 
   &:hover {
-    background-color: ${props =>
-      !props.disabled && (
-      props.positive
-        ? `rgba(0,168,98,.9)`
-        : `rgba(0,168,98,.1)`
-      )};
+    background-color: ${props => !props.disabled && (props.positive ? `rgba(0,168,98,.9)` : `rgba(0,168,98,.1)`)};
 
     transition: 0.25s;
     border-color: ${props => props.positive && colorGreenApron};
@@ -46,18 +41,14 @@ const StyledButton = styled.button`
     cursor: not-allowed;
     opacity: 0.5;
   }
-}
 `;
 
-function Button ({ children, disabled, onClick, ...restProps }) {
+function Button({ children, disabled, onClick, ...restProps }) {
   return (
-    <StyledButton 
-      onClick={onClick} 
-      disabled={disabled}
-      {...restProps}
-    >
+    <StyledButton onClick={onClick} disabled={disabled} {...restProps}>
       {children || 'Button'}
-    </StyledButton>);
+    </StyledButton>
+  );
 }
 
 export default Button;
