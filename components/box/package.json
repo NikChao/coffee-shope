@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/box",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -11,6 +11,7 @@
     "access": "public"
   },
   "peerDependencies": {
+    "@coffee-shope/px": "^1.0.0",
     "react": "^16.8.1"
   },
   "devDependencies": {
