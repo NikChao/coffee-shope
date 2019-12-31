@@ -1,4 +1,6 @@
-# :coffee::man::scroll:
+<img src="./barista" height="150" width="auto">
+
+# barista
 ### Scripts for scaffolding components and utils for coffee-barista
 
  - create a component:
