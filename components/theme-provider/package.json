@@ -1,29 +1,25 @@
 {
-  "name": "@coffee-shope/field",
-  "version": "1.0.32",
+  "name": "@coffee-shope/theme-provider",
+  "version": "1.0.0",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
-    "build": "barista build",
+    "build": "barista build component",
     "prepublishOnly": "yarn build"
   },
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.7",
-    "@emotion/styled": "^10.0.7",
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/barista": "^1.1.7",
-    "core-decorators": "^0.20.0"
+    "@coffee-shope/barista": "^1.0.2"
   },
   "author": "",
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.19",
-    "@coffee-shope/theme-provider": "^1.0.0"
+    "@coffee-shope/theme": "^1.0.1"
   }
 }
