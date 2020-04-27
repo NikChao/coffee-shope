@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/field",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -16,14 +16,14 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/barista": "^1.1.8",
+    "@coffee-shope/barista": "^1.1.9",
     "core-decorators": "^0.20.0"
   },
   "author": "",
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.20",
-    "@coffee-shope/theme-provider": "^1.0.1"
+    "@coffee-shope/theme": "^1.0.21",
+    "@coffee-shope/theme-provider": "^1.0.2"
   }
 }

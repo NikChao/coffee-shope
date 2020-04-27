@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/theme",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -21,6 +21,6 @@
     "rollup-plugin-terser": "^4.0.4"
   },
   "dependencies": {
-    "@coffee-shope/theme-provider": "^1.0.1"
+    "@coffee-shope/theme-provider": "^1.0.2"
   }
 }
