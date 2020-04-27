@@ -32,6 +32,7 @@
   "description": "",
   "dependencies": {
     "@coffee-shope/theme": "^1.0.16",
+    "@coffee-shope/theme-provider": "^1.0.0",
     "@types/lodash.memoize": "^4.1.5",
     "lodash.memoize": "^4.1.2"
   }

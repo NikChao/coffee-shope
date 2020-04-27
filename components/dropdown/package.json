@@ -23,6 +23,7 @@
   "description": "",
   "dependencies": {
     "@coffee-shope/theme": "^1.0.1",
+    "@coffee-shope/theme-provider": "^1.0.0",
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
     "core-js": "^2.6.5",
