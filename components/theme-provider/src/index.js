@@ -8,6 +8,9 @@ const theme = {
   fonts: THEME.FONTS,
 };
 
+/**
+ * Theme provider for CoffeeShope components built on Emotion Core
+ */
 const CoffeeShopeThemeProvider = ({ children }) => (
   <React.Fragment>
     <Global
