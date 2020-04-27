@@ -5,7 +5,7 @@ import THEME from '@coffee-shope/theme';
 const { colorGreenDarkApron, colorGreenApron } = THEME.COLORS;
 
 const StyledLargeButton = styled.button`
-  font-family: 'Montserrat', sans-serif;
+  font-family: ${THEME.FONTS.STACK};
   outline: none;
   width: ${props => props.small ? '33%' : '100%'};
   display: block;
