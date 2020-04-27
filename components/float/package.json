@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/float",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -24,9 +24,9 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/ripple": "^1.0.33",
-    "@coffee-shope/theme": "^1.0.21",
-    "@coffee-shope/theme-provider": "^1.0.2",
+    "@coffee-shope/ripple": "^1.0.34",
+    "@coffee-shope/theme": "^1.0.22",
+    "@coffee-shope/theme-provider": "^1.0.3",
     "@emotion/core": "^10.0.9",
     "@emotion/styled": "^10.0.9"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/button",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,8 +19,8 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.21",
-    "@coffee-shope/theme-provider": "^1.0.2"
+    "@coffee-shope/theme": "^1.0.22",
+    "@coffee-shope/theme-provider": "^1.0.3"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.4",

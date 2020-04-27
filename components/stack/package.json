@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/stack",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -23,8 +23,8 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.21",
-    "@coffee-shope/theme-provider": "^1.0.2",
+    "@coffee-shope/theme": "^1.0.22",
+    "@coffee-shope/theme-provider": "^1.0.3",
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7"
   }

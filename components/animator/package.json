@@ -1,6 +1,6 @@
 {
   "name": "@coffee-shope/animator",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "main": "./lib/index.js",
   "scripts": {
     "test": "jest",
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@coffee-shope/barista": "^1.1.9",
-    "@coffee-shope/button": "^1.0.45",
+    "@coffee-shope/button": "^1.0.46",
     "@types/jest": "^24.0.5",
     "@types/react": "^16.7.1",
     "rollup": "^1.4.0",
@@ -34,8 +34,8 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.21",
-    "@coffee-shope/theme-provider": "^1.0.2",
+    "@coffee-shope/theme": "^1.0.22",
+    "@coffee-shope/theme-provider": "^1.0.3",
     "react-spring": "^8.0.18"
   }
 }
