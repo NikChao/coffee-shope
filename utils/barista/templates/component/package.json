@@ -14,8 +14,7 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@coffee-shope/barista": "^1.0.2",
-    "node-sass": "^4.11.0"
+    "@coffee-shope/barista": "^1.0.2"
   },
   "author": "",
   "license": "MIT",
