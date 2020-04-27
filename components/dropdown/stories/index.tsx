@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { CoffeeShopeThemeProvider } from '@coffee-shope/theme-provider';
 import styled from '@emotion/styled';
 import { Dropdown } from '../src/index';
 
@@ -14,12 +15,14 @@ function select(e) {
 }
 
 storiesOf('Dropdown', module).add('default', () => (
-  <Container>
-    <Dropdown
-      options={fruit}
-      onSelect={select}
-      placeholder={'fruit'}
-      initialOptions={[{ value: 'pineapple' }, { value: 'kiwi' }, { value: 'blueberry' }]}
-    />
-  </Container>
+  <CoffeeShopeThemeProvider>
+    <Container>
+      <Dropdown
+        options={fruit}
+        onSelect={select}
+        placeholder={'fruit'}
+        initialOptions={[{ value: 'pineapple' }, { value: 'kiwi' }, { value: 'blueberry' }]}
+      />
+    </Container>
+  </CoffeeShopeThemeProvider>
 ));

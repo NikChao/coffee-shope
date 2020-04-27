@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { CoffeeShopeThemeProvider } from '@coffee-shope/theme-provider';
 import { Animator } from '../src/index';
 const { Button } = require('@coffee-shope/button/src');
 
@@ -38,5 +39,13 @@ function SlideIn() {
 }
 
 storiesOf('Animator', module)
-  .add('fade-in-out', () => <FadeIn />)
-  .add('slide-down-up', () => <SlideIn />);
+  .add('fade-in-out', () => (
+    <CoffeeShopeThemeProvider>
+      <FadeIn />
+    </CoffeeShopeThemeProvider>
+  ))
+  .add('slide-down-up', () => (
+    <CoffeeShopeThemeProvider>
+      <SlideIn />
+    </CoffeeShopeThemeProvider>
+  ));

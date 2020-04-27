@@ -19,5 +19,8 @@
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-terser": "^4.0.4"
+  },
+  "dependencies": {
+    "@coffee-shope/theme-provider": "^1.0.0"
   }
 }

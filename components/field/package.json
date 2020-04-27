@@ -23,6 +23,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.19"
+    "@coffee-shope/theme": "^1.0.19",
+    "@coffee-shope/theme-provider": "^1.0.0"
   }
 }

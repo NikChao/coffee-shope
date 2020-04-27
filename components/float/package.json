@@ -26,6 +26,7 @@
   "dependencies": {
     "@coffee-shope/ripple": "^1.0.31",
     "@coffee-shope/theme": "^1.0.19",
+    "@coffee-shope/theme-provider": "^1.0.0",
     "@emotion/core": "^10.0.9",
     "@emotion/styled": "^10.0.9"
   }

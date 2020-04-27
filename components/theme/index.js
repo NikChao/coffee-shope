@@ -15,16 +15,16 @@ export const COLORS = {
   colorTextBlack: 'rgba(0, 0, 0, .87)',
   colorTextBlackSoft: 'rgba(0, 0, 0, .56)',
   colorTextWhite: 'rgba(255, 255, 255, 1)',
-  colorTextWhiteSoft: 'rgba(255, 255, 255, .70)'
+  colorTextWhiteSoft: 'rgba(255, 255, 255, .70)',
 };
 
 export const FONTS = {
-  STACK: `'Montserrat', sans-serif`
-}
+  STACK: `'Montserrat', sans-serif`,
+};
 
 const THEME = {
   COLORS,
-  FONTS
+  FONTS,
 };
 
 export default THEME;

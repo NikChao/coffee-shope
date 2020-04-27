@@ -1,5 +1,5 @@
 {
-  "name": "{{PACKAGE_NAME}}",
+  "name": "@coffee-shope/theme-provider",
   "version": "1.0.0",
   "main": "./lib/index.js",
   "scripts": {
@@ -14,16 +14,12 @@
     "react": "^16.8.1"
   },
   "devDependencies": {
-    "@types/react": "^16.8.1",
-    "@types/jest": "^24.0.5",
     "@coffee-shope/barista": "^1.0.2"
   },
   "author": "",
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@coffee-shope/theme": "^1.0.1",
-    "@emotion/core": "^10.0.7",
-    "@emotion/styled": "^10.0.7"
+    "@coffee-shope/theme": "^1.0.1"
   }
 }
